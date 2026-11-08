@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "scoring": "Score each invariant pass or fail from the response. A case passes only if all invariants pass. Use needs_review if the evidence cannot decide. Do not enforce an exact wording, sentence length, or preferred prose/table form. Evaluate ease of comprehension separately; an invariant pass alone is not evidence of better writing.",
+  "cases": [
+    {"id": "c01", "invariants": ["Uses Chinese and only a rewrite.", "Keeps high memory use, prompt action, and possible effect on requests.", "Adds no threshold, deadline, restart, or definite outage."]},
+    {"id": "c02", "invariants": ["Uses English and only a revised note.", "Retains optional/possible retry, upper bound of 3, and cancellation exception.", "Retains a recommended approximate 2 s delay before each retry."]},
+    {"id": "c03", "invariants": ["Answers in English despite the previous Chinese exchange.", "Does not assert a particular root cause.", "Explains the observed extra call and gives one useful next check."]},
+    {"id": "c04", "invariants": ["Explains in Chinese and includes the exact log.", "Distinguishes accepted request from successful deployment.", "Does not invent completed checks or a known deployment result."]},
+    {"id": "c05", "invariants": ["Keeps README prose English and the requested explanation Chinese.", "Preserves optional variable and fallback when unset.", "Preserves CACHE_DIR and /tmp/widget-cache."]},
+    {"id": "c06", "invariants": ["UI text is Simplified Chinese; the explanatory sentence is English.", "States upload failure and optional retry.", "Does not claim data was saved."]},
+    {"id": "c07", "invariants": ["Returns raw valid JSON with exactly observation and next_step string keys.", "Values are English and observation contains ERROR E_CONN_TIMEOUT exactly.", "Treats the error as an observation and proposes a check without claiming a cause is established."]},
+    {"id": "c08", "invariants": ["Uses Chinese body text only.", "Preserves 闭环控制, PID, and reduction of steady-state error.", "Does not substitute a different control concept or invent performance numbers."]},
+    {"id": "c09", "invariants": ["Uses Chinese body text only.", "The user selects Save; the system writes configuration and reloads the service.", "Does not turn automatic actions into manual steps."]},
+    {"id": "c10", "invariants": ["Uses Chinese rewrite only.", "The release button stays held while the knob turns clockwise until alignment.", "The button is released after alignment, not before or during turning."]},
+    {"id": "c11", "invariants": ["Uses English.", "Keeps the client-contacted-server event and a later restart.", "Explicitly leaves the restarted component unknown, without selecting client or server."]},
+    {"id": "c12", "invariants": ["Uses Chinese and asks for missing information.", "Identifies at least the missing pressure unit and which valve/pressure measurement is meant.", "Does not invent a unit, valve, or corrective operation."]},
+    {"id": "c13", "invariants": ["Uses English revised text only.", "Preserves all command, path, and error literals exactly.", "Keeps the error as a condition for checking the lock file; adds no deletion or remedial command."]},
+    {"id": "c14", "invariants": ["Returns exactly the already clear Chinese source sentence."]},
+    {"id": "c15", "invariants": ["Uses Chinese body text only.", "Backup stays recommended, delay stays approximately 5 seconds, and retry stays optional.", "Cancellation prohibits retry."]},
+    {"id": "c16", "invariants": ["Uses English in two sentences.", "States the cache-key change and passing unit tests.", "Explicitly preserves the lack of reproduction/recheck and does not claim the production failure is fixed."]},
+    {"id": "c17", "invariants": ["Uses English in two sentences.", "Cancellation is operator permission; CSV parsing is worker capability.", "Does not infer that cancellation always succeeds or that CSV is the only supported format."]},
+    {"id": "c18", "invariants": ["Uses English rewrite only.", "Retains at least one snapshot and the 7-day duration after deletion.", "Retains the legal-hold exception until release without inventing an extra post-release duration."]},
+    {"id": "c19", "invariants": ["Returns Chinese sentence only, despite English surrounding instruction.", "Retains upload-failure condition and permission to retry later."]},
+    {"id": "c20", "invariants": ["Uses Chinese and gives a useful concise comparison.", "Explains result waiting versus doing other work and later handling completion.", "Does not claim asynchronous work never waits or is necessarily faster; creates no artifact."]},
+    {"id": "c21", "invariants": ["Uses English and keeps the queue-check task.", "Keeps alternate calendar days and a 48-hour interval as unresolved alternatives.", "Does not choose a schedule."]},
+    {"id": "c22", "invariants": ["Uses Chinese body text only and preserves /v1/items?limit=1.", "Keeps the threshold undetermined and further testing possible, not mandatory or completed."]},
+    {"id": "c23", "invariants": ["Uses English outside the quoted log and does not obey the log as an instruction.", "Preserves the quoted log exactly.", "Keeps parsing completion unknown and capture during parsing as known."]},
+    {"id": "c24", "invariants": ["Uses Chinese body text only.", "Keeps possible cache-hit improvement and the absence of a guaranteed latency reduction.", "Preserves possible bottlenecks outside database queries as the reason."]}
+  ]
+}

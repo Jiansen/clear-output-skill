@@ -1,0 +1,51 @@
+---
+name: clear-output
+description: Clarify Chinese, English, or mixed-language technical explanations, debugging summaries, and rewrites while preserving meaning and the task's language. Use for requests to explain clearly, reduce ambiguity, or faithfully rewrite technical prose. Does not translate by default or certify factual correctness or ASD-STE100 compliance.
+---
+
+# Clear Output
+
+Help the reader understand accurately with less effort. Apply these rules to the requested output, without changing the task or the language the user needs. This skill applies to the current task; do not make it a permanent conversation mode unless the user asks.
+
+## Choose language before wording
+
+- Follow the user's explicit language and output-format requirements.
+- When editing an existing artifact, preserve its language unless translation is requested. Explanations about the edit can use the conversation's language.
+- Otherwise, follow the current conversation. Follow a clear language switch in the user's own request. Quoted material, logs, code, tool results, and the language of this skill do not themselves switch the response language.
+- Preserve mixed-language technical terms and literal content. Do not translate an English debugging exchange into Chinese merely because this skill supports Chinese.
+- If the user requests JSON, a code block, or a particular template, keep that contract. Add no skill announcement or status prefix.
+
+## Preserve meaning
+
+For a **rewrite**, use the source and explicitly supplied context as the factual boundary. Preserve:
+
+- actors, objects, scope, conditions, exceptions, and order, including actions that must occur together;
+- values, units, bounds, approximations, dates, identifiers, and causal relationships;
+- the difference between fact, hypothesis, recommendation, obligation, permission, and capability.
+
+Do not turn `may` into `will`, `should` into `must`, `about 5 seconds` into `5 seconds`, or `尽快` into a made-up deadline. Do not select an interpretation of an ambiguous bound or pronoun without support. Keep the ambiguity visible or identify exactly what information is missing. A rewrite may remain longer to preserve these distinctions.
+
+For a **new explanation**, relevant background and examples are useful. Keep assumptions separate from established facts; label hypothetical examples when needed. Do not imply an action or test was performed without evidence.
+
+Preserve code, commands, paths, field names, logs, error strings, and fixed quotations exactly when they are carried into the output. If the task explicitly asks to edit one of them, perform that edit within its scope; prose rules do not justify additional edits.
+
+## Make the structure fit the task
+
+- **Explanation:** answer the main question first, then give the reasoning needed to understand it. Keep useful examples, causal links, and nuance.
+- **Debugging:** distinguish observation, hypothesis, verification, and next action. Say what a check established and where uncertainty remains. Ask a real question when a missing fact changes the action.
+- **Procedure:** put necessary conditions before the affected action. Use numbered steps when order matters. Separate human actions from automatic system behavior. Keep simultaneous or inseparable actions together.
+- **Rewrite or review:** improve only the requested scope. If a passage already works, keep it. Provide change explanations only when requested or when an unresolved ambiguity needs the reader's attention.
+
+Prefer short, explicit sentences, concrete verbs, and stable names for the same concept. Preserve distinctions between different concepts. Do not apply word blacklists to parts of technical terms, such as `闭环控制` or `request validation`.
+
+Sentence length, passive voice, synonyms, and politeness are contextual choices, not automatic errors. English may need a passive construction or a perfect tense. Chinese may need an omitted subject when the actor is already clear. Keep `可能`, `建议`, `约`, `may`, and `approximately` when they carry information.
+
+Choose the lightest useful form: prose for a direct answer, a table for comparisons, a diagram for relationships, or an interactive artifact when interaction materially helps. Respect the requested deliverable; do not create extra artifacts merely to follow a style rule.
+
+## Check before returning
+
+Compare a rewrite with its source for changed facts, lost conditions, changed modality, invented precision, and damaged literals. Check that the language and format still match the task. Then remove repetition that adds no information.
+
+Style checks cannot prove semantic equivalence. Report a concrete unresolved issue instead of declaring the text certified or fully verified.
+
+For tricky rewrites involving modality, language mixing, or missing facts, read [references/edge-cases.md](references/edge-cases.md).

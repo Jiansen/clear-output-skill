@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-08",
+  "generation": {
+    "host": "Codex desktop",
+    "method": "Three independent subagents; one batch per condition; fork_turns=none",
+    "model": "Inherited host model; exact backend revision not exposed to the evaluator",
+    "temperature": "Host default; not controlled",
+    "samples_per_case_per_condition": 1,
+    "case_isolation": "Instruction only within each batch; not a fresh model context per case",
+    "conditioning": "Host system/developer instructions apply to all conditions"
+  },
+  "sha256": {
+    "SKILL.md": "5b52a67b0d85d598d6d5bf95dc688db667cc4379b503d9976b1b2473e776ced2",
+    "references/edge-cases.md": "a0b02cd58381cf10a4b9aa98df246922ac1c11e61e852993fbd7d55a4df78b92",
+    "evals/cases.json": "0ba149541afc4aca7a4ec9ad2c628dbdbd2d439da166b6e7a18dff45ba45e58f",
+    "evals/rubric.json": "92f81632dc5b236455235ffaa3ba38e48a14c3296e8e72ff95ee57029708758b"
+  },
+  "blind_review": {
+    "shuffle_seed": 20261108,
+    "method": "Separate model reviewer, condition labels withheld; source prompts and frozen invariants provided"
+  },
+  "revision": {
+    "change": "Ask which object or actor is meant when identifying missing operational information.",
+    "sha256": {
+      "SKILL.md": "1ff7598975d42c469bd5d87e1092ca9445aad50cb45f79dbe63439e1a872b9db",
+      "evals/holdout-cases.json": "ff2ba27c77c1cacca97905d49cf5a99a4c92d0dce84bfd38a3b59698096989e4",
+      "evals/holdout-rubric.json": "7306296de6a8160368413cfea6ffe3c130bd25f8b84c471ce69f4a8ea1258ed4",
+      "evals/retest-cases.json": "a56110bb91ac57707fcaf2ea789f5cc0ade5d11055bb61525c13cccab84f1a92"
+    },
+    "new_independent_subject": true,
+    "regression_cases": [
+      "c03",
+      "c12"
+    ],
+    "new_transfer_cases": 8,
+    "samples_per_case": 1
+  },
+  "validation": {
+    "local_python": "3.14.4",
+    "official_skill_validator": "skill-creator/scripts/quick_validate.py: passed with PyYAML 6.0.3 in an isolated local environment",
+    "evaluation_helper_tests": 11
+  }
+}

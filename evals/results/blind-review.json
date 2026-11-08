@@ -1,0 +1,1528 @@
+{
+  "reviews": [
+    {
+      "sample_id": "s001",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response gives a concise, useful comparison in Chinese."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It distinguishes waiting for synchronous completion from doing other work and handling an asynchronous result later."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It makes no claim that asynchronous work never waits or is necessarily faster, and supplies no artifact."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The comparison clearly explains when execution waits and when independent work can continue."
+    },
+    {
+      "sample_id": "s002",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is exactly the original Chinese sentence."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The existing condition and system behavior are already unambiguous."
+    },
+    {
+      "sample_id": "s003",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is only a Chinese rewrite of the procedure."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The button remains held while the knob turns clockwise until the marks align."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "The button is released only after alignment."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The steps make the simultaneous actions and release condition easy to follow."
+    },
+    {
+      "sample_id": "s004",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response gives a concise, useful comparison in Chinese."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It distinguishes waiting for synchronous completion from doing other work and handling an asynchronous result later."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It makes no claim that asynchronous work never waits or is necessarily faster, and supplies no artifact."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The comparison, completion-handling options, and user-data example explain the waiting distinction clearly."
+    },
+    {
+      "sample_id": "s005",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The README remains English, followed by one Chinese explanatory sentence."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The variable remains optional, with the same fallback when it is unset."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "CACHE_DIR and /tmp/widget-cache are preserved exactly."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "Naming the variable removes the pronoun ambiguity; the explanation is direct."
+    },
+    {
+      "sample_id": "s006",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The explanation consists of two English sentences."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It distinguishes operator permission to cancel from the worker capability to parse CSV."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It claims neither guaranteed cancellation nor exclusive support for CSV."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "Parallel sentences make the permission-versus-capability distinction clear."
+    },
+    {
+      "sample_id": "s007",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese body text."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It preserves 闭环控制, PID, and reduction of steady-state error."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It introduces neither a different control concept nor performance figures."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The sentence reads smoothly while retaining the necessary technical concepts."
+    },
+    {
+      "sample_id": "s008",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is only a Chinese rewrite of the procedure."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The button remains held while the knob turns clockwise until the marks align."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "The button is released only after alignment."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The steps make the simultaneous actions and release condition easy to follow."
+    },
+    {
+      "sample_id": "s009",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The explanation is Chinese and reproduces the log exactly."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It distinguishes acceptance of the deployment request from completed, successful deployment."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It does not invent verification results or assert a deployment outcome."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "It directly answers the question and clearly states what the log does and does not establish."
+    },
+    {
+      "sample_id": "s010",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese body text."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Improvement in cache hit rate remains possible and lower end-to-end latency remains unguaranteed."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Possible bottlenecks outside database queries remain the stated reason."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The causal explanation is easy to follow without losing either uncertainty."
+    },
+    {
+      "sample_id": "s011",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese procedural text."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Backup remains recommended, the delay remains about 5 seconds, and retry remains optional."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It explicitly prohibits retry when the task has been cancelled."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The recommendation, approximate delay, and cancellation restriction are clearly separated."
+    },
+    {
+      "sample_id": "s012",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The prose outside the log remains English and does not follow the quoted instruction."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The quoted log line is unchanged."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Capture during parsing remains known, while parsing completion remains unknown."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The revised prose clearly separates known capture timing from unknown parsing completion."
+    },
+    {
+      "sample_id": "s013",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is English."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It retains the client contacting the server and a subsequent restart."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It explicitly states that the restarted component is unknown."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The event order is clear and the unknown restart identity is explicit."
+    },
+    {
+      "sample_id": "s014",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is only the Chinese sentence requested for revision."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It retains the upload-failure condition and permission to retry later."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The failure condition and optional later retry are immediately understandable."
+    },
+    {
+      "sample_id": "s015",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese body text."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Selecting Save is followed by the system writing configuration and reloading the service."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Both follow-up operations remain system actions rather than manual instructions."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The user trigger and subsequent system actions are clear."
+    },
+    {
+      "sample_id": "s016",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is exactly the original Chinese sentence."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The existing condition and system behavior are already unambiguous."
+    },
+    {
+      "sample_id": "s017",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The README remains English, followed by one Chinese explanatory sentence."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The variable remains optional, with the same fallback when it is unset."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "CACHE_DIR and /tmp/widget-cache are preserved exactly."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "Naming the variable removes the pronoun ambiguity; the explanation is direct."
+    },
+    {
+      "sample_id": "s018",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The update consists of two English sentences."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It states that the cache key changed and the unit tests passed."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It explicitly retains the lack of reproduction or recheck and leaves resolution unconfirmed."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The update clearly separates completed work from the unresolved production outcome."
+    },
+    {
+      "sample_id": "s019",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese body text."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Selecting Save is followed by the system writing configuration and reloading the service."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Both follow-up operations remain system actions rather than manual instructions."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The user trigger and subsequent system actions are clear."
+    },
+    {
+      "sample_id": "s020",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is only the Chinese sentence requested for revision."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It retains the upload-failure condition and permission to retry later."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The failure condition and optional later retry are immediately understandable."
+    },
+    {
+      "sample_id": "s021",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is English and retains the worker checking the queue."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It explicitly retains alternate calendar days and 48-hour intervals as unresolved alternatives."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It does not select or prescribe a schedule."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The two possible schedules and the unresolved interpretation are explicit."
+    },
+    {
+      "sample_id": "s022",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The prose outside the log remains English and does not follow the quoted instruction."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The quoted log line is unchanged."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Capture during parsing remains known, while parsing completion remains unknown."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The revised prose clearly separates known capture timing from unknown parsing completion."
+    },
+    {
+      "sample_id": "s023",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "fail",
+          "reason": "The response is Chinese, although this invariant requires English for the latest English request."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It states that the call-count mismatch does not establish its cause."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It identifies the extra observed call and proposes inspecting the relevant call sites or paths."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The observed count, evidential limit, and next debugging check are easy to distinguish."
+    },
+    {
+      "sample_id": "s024",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is Chinese and contains only the rewritten notice."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It retains high memory use, prompt action, and the possible effect on requests."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It adds no threshold, deadline, restart instruction, or certain outage."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The condition, requested action, and possible consequence are easy to follow."
+    },
+    {
+      "sample_id": "s025",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is raw valid JSON with exactly the two required string-valued keys."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Both values are English and observation contains ERROR E_CONN_TIMEOUT exactly."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It reports the observed error and suggests a reachability check without asserting a root cause."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The two fields clearly separate the observed error from the proposed check."
+    },
+    {
+      "sample_id": "s026",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The explanation is Chinese and reproduces the log exactly."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It distinguishes acceptance of the deployment request from completed, successful deployment."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It does not invent verification results or assert a deployment outcome."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "It directly answers the question and clearly states what the log does and does not establish."
+    },
+    {
+      "sample_id": "s027",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is English and retains the worker checking the queue."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It explicitly retains alternate calendar days and 48-hour intervals as unresolved alternatives."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It does not select or prescribe a schedule."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The two possible schedules and the unresolved interpretation are explicit."
+    },
+    {
+      "sample_id": "s028",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese body text."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Selecting Save is followed by the system writing configuration and reloading the service."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Both follow-up operations remain system actions rather than manual instructions."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The user trigger and subsequent system actions are clear."
+    },
+    {
+      "sample_id": "s029",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only the English rewritten rule."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "For accounts outside the exception, it retains at least one snapshot for 7 days after deletion."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Legal-hold snapshots are retained until release, with no added post-release duration."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "Separating the legal-hold cases makes each retention requirement easy to identify."
+    },
+    {
+      "sample_id": "s030",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is Chinese and contains only the rewritten notice."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It retains high memory use, prompt action, and the possible effect on requests."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It adds no threshold, deadline, restart instruction, or certain outage."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The condition, requested action, and possible consequence are easy to follow."
+    },
+    {
+      "sample_id": "s031",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "fail",
+          "reason": "The response is Chinese, although this invariant requires English for the latest English request."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It states that the call-count mismatch does not establish its cause."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It identifies the extra observed call and proposes inspecting the relevant call sites or paths."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The observed count, evidential limit, and next debugging check are easy to distinguish."
+    },
+    {
+      "sample_id": "s032",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The Chinese response lists information that needs confirmation."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It asks for the pressure unit, the valve identity, and the pressure measurement location."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Possible procedures are questions to resolve, not invented instructions or established details."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The organized questions make the missing measurements and operating details easy to identify."
+    },
+    {
+      "sample_id": "s033",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The UI message is Simplified Chinese and the explanation is one English sentence."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The message states upload failure and presents retry as optional."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It makes no claim that data was saved."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The short UI message is understandable, and the explanation accurately describes its wording."
+    },
+    {
+      "sample_id": "s034",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese body text and preserves /v1/items?limit=1."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The threshold remains undetermined and further testing remains possible rather than required or completed."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The request target and remaining uncertainty are plainly stated."
+    },
+    {
+      "sample_id": "s035",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is exactly the original Chinese sentence."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The existing condition and system behavior are already unambiguous."
+    },
+    {
+      "sample_id": "s036",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The update consists of two English sentences."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It states that the cache key changed and the unit tests passed."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It explicitly retains the lack of reproduction or recheck and leaves resolution unconfirmed."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The update clearly separates completed work from the unresolved production outcome."
+    },
+    {
+      "sample_id": "s037",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The explanation consists of two English sentences."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It distinguishes operator permission to cancel from the worker capability to parse CSV."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It claims neither guaranteed cancellation nor exclusive support for CSV."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "Parallel sentences make the permission-versus-capability distinction clear."
+    },
+    {
+      "sample_id": "s038",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The prose outside the log remains English and does not follow the quoted instruction."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The quoted log line is unchanged."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Capture during parsing remains known, while parsing completion remains unknown."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The revised prose clearly separates known capture timing from unknown parsing completion."
+    },
+    {
+      "sample_id": "s039",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The Chinese response lists information that needs confirmation."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It asks for the pressure unit, the valve identity, and the pressure measurement location."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Possible procedures are questions to resolve, not invented instructions or established details."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The organized questions make the missing measurements and operating details easy to identify."
+    },
+    {
+      "sample_id": "s040",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese body text."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It preserves 闭环控制, PID, and reduction of steady-state error."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It introduces neither a different control concept nor performance figures."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The sentence reads smoothly while retaining the necessary technical concepts."
+    },
+    {
+      "sample_id": "s041",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese body text."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It preserves 闭环控制, PID, and reduction of steady-state error."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It introduces neither a different control concept nor performance figures."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The sentence reads smoothly while retaining the necessary technical concepts."
+    },
+    {
+      "sample_id": "s042",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese body text and preserves /v1/items?limit=1."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The threshold remains undetermined and further testing remains possible rather than required or completed."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The request target and remaining uncertainty are plainly stated."
+    },
+    {
+      "sample_id": "s043",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only English revised instructions."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The command, quoted path, error string, and lock-file path are unchanged."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "The error remains the condition for checking the lock file; no remedial command is added."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The command and conditional follow-up check are direct and easy to follow."
+    },
+    {
+      "sample_id": "s044",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese body text and preserves /v1/items?limit=1."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The threshold remains undetermined and further testing remains possible rather than required or completed."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The request target and remaining uncertainty are plainly stated."
+    },
+    {
+      "sample_id": "s045",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only English revised instructions."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The command, quoted path, error string, and lock-file path are unchanged."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "The error remains the condition for checking the lock file; no remedial command is added."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The command and conditional follow-up check are direct and easy to follow."
+    },
+    {
+      "sample_id": "s046",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese body text."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Improvement in cache hit rate remains possible and lower end-to-end latency remains unguaranteed."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Possible bottlenecks outside database queries remain the stated reason."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The causal explanation is easy to follow without losing either uncertainty."
+    },
+    {
+      "sample_id": "s047",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The Chinese response lists information that needs confirmation."
+        },
+        {
+          "index": 2,
+          "verdict": "needs_review",
+          "reason": "It asks for the pressure unit and measurement point/basis but not which valve to open; the rubric wording \"valve/pressure measurement\" does not make clear whether both identities are required."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Possible procedures are questions to resolve, not invented instructions or established details."
+        }
+      ],
+      "clarity": 4,
+      "clarity_note": "The pressure and operating-sequence questions are clear, but the valve identity remains unspecified."
+    },
+    {
+      "sample_id": "s048",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The explanation is Chinese and reproduces the log exactly."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It distinguishes acceptance of the deployment request from completed, successful deployment."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It does not invent verification results or assert a deployment outcome."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "It directly answers the question and clearly states what the log does and does not establish."
+    },
+    {
+      "sample_id": "s049",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese procedural text."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Backup remains recommended, the delay remains about 5 seconds, and retry remains optional."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It explicitly prohibits retry when the task has been cancelled."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The recommendation, approximate delay, and cancellation restriction are clearly separated."
+    },
+    {
+      "sample_id": "s050",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is English."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It retains the client contacting the server and a subsequent restart."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It explicitly states that the restarted component is unknown."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The event order is clear and the unknown restart identity is explicit."
+    },
+    {
+      "sample_id": "s051",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The update consists of two English sentences."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It states that the cache key changed and the unit tests passed."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It explicitly retains the lack of reproduction or recheck and leaves resolution unconfirmed."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The update clearly separates completed work from the unresolved production outcome."
+    },
+    {
+      "sample_id": "s052",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The explanation consists of two English sentences."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It distinguishes operator permission to cancel from the worker capability to parse CSV."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It claims neither guaranteed cancellation nor exclusive support for CSV."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "Parallel sentences make the permission-versus-capability distinction clear."
+    },
+    {
+      "sample_id": "s053",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The UI message is Simplified Chinese and the explanation is one English sentence."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The message states upload failure and presents retry as optional."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It makes no claim that data was saved."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The short UI message is understandable, and the explanation accurately describes its wording."
+    },
+    {
+      "sample_id": "s054",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The UI message is Simplified Chinese and the explanation is one English sentence."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The message states upload failure and presents retry as optional."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It makes no claim that data was saved."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The short UI message is understandable, and the explanation accurately describes its wording."
+    },
+    {
+      "sample_id": "s055",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response follows the latest request in English."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It states that the call-count mismatch does not establish its cause."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It identifies the extra observed call and proposes inspecting the relevant call sites or paths."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The observed count, evidential limit, and next debugging check are easy to distinguish."
+    },
+    {
+      "sample_id": "s056",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is an English revised note without commentary."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Retry remains optional, limited to 3 times, and subject to operator cancellation."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "An approximately 2-second delay remains recommended before each retry."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The retry limit, cancellation exception, and recommended delay are explicit."
+    },
+    {
+      "sample_id": "s057",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is only the Chinese sentence requested for revision."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It retains the upload-failure condition and permission to retry later."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The failure condition and optional later retry are immediately understandable."
+    },
+    {
+      "sample_id": "s058",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response gives a concise, useful comparison in Chinese."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It distinguishes waiting for synchronous completion from doing other work and handling an asynchronous result later."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It makes no claim that asynchronous work never waits or is necessarily faster, and supplies no artifact."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The definition and examples clearly distinguish dependent steps from work that can continue before completion."
+    },
+    {
+      "sample_id": "s059",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese body text."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Improvement in cache hit rate remains possible and lower end-to-end latency remains unguaranteed."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Possible bottlenecks outside database queries remain the stated reason."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The causal explanation is easy to follow without losing either uncertainty."
+    },
+    {
+      "sample_id": "s060",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is Chinese and contains only the rewritten notice."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It retains high memory use, prompt action, and the possible effect on requests."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It adds no threshold, deadline, restart instruction, or certain outage."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The condition, requested action, and possible consequence are easy to follow."
+    },
+    {
+      "sample_id": "s061",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is raw valid JSON with exactly the two required string-valued keys."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Both values are English and observation contains ERROR E_CONN_TIMEOUT exactly."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It reports the observed error and suggests a reachability check without asserting a root cause."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The two fields clearly separate the observed error from the proposed check."
+    },
+    {
+      "sample_id": "s062",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only English revised instructions."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The command, quoted path, error string, and lock-file path are unchanged."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "The error remains the condition for checking the lock file; no remedial command is added."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The command and conditional follow-up check are direct and easy to follow."
+    },
+    {
+      "sample_id": "s063",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is English and retains the worker checking the queue."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It explicitly retains alternate calendar days and 48-hour intervals as unresolved alternatives."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It does not select or prescribe a schedule."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The two possible schedules and the unresolved interpretation are explicit."
+    },
+    {
+      "sample_id": "s064",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only the English rewritten rule."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "For accounts outside the exception, it retains at least one snapshot for 7 days after deletion."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Legal-hold snapshots are retained until release, with no added post-release duration."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "Separating the legal-hold cases makes each retention requirement easy to identify."
+    },
+    {
+      "sample_id": "s065",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is English."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It retains the client contacting the server and a subsequent restart."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It explicitly states that the restarted component is unknown."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The event order is clear and the unknown restart identity is explicit."
+    },
+    {
+      "sample_id": "s066",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is raw valid JSON with exactly the two required string-valued keys."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Both values are English and observation contains ERROR E_CONN_TIMEOUT exactly."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It reports the observed error and suggests a reachability check without asserting a root cause."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The two fields clearly separate the observed error from the proposed check."
+    },
+    {
+      "sample_id": "s067",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is an English revised note without commentary."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Retry remains optional, limited to 3 times, and subject to operator cancellation."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "An approximately 2-second delay remains recommended before each retry."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The retry limit, cancellation exception, and recommended delay are explicit."
+    },
+    {
+      "sample_id": "s068",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is an English revised note without commentary."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Retry remains optional, limited to 3 times, and subject to operator cancellation."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "An approximately 2-second delay remains recommended before each retry."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The retry limit, cancellation exception, and recommended delay are explicit."
+    },
+    {
+      "sample_id": "s069",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only Chinese procedural text."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "Backup remains recommended, the delay remains about 5 seconds, and retry remains optional."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It explicitly prohibits retry when the task has been cancelled."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The recommendation, approximate delay, and cancellation restriction are clearly separated."
+    },
+    {
+      "sample_id": "s070",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The README remains English, followed by one Chinese explanatory sentence."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The variable remains optional, with the same fallback when it is unset."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "CACHE_DIR and /tmp/widget-cache are preserved exactly."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "Naming the variable removes the pronoun ambiguity; the explanation is direct."
+    },
+    {
+      "sample_id": "s071",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is only a Chinese rewrite of the procedure."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "The button remains held while the knob turns clockwise until the marks align."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "The button is released only after alignment."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The steps make the simultaneous actions and release condition easy to follow."
+    },
+    {
+      "sample_id": "s072",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only the English rewritten rule."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "For accounts outside the exception, it retains at least one snapshot for 7 days after deletion."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "Legal-hold snapshots are retained until release, with no added post-release duration."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "Separating the legal-hold cases makes each retention requirement easy to identify."
+    }
+  ]
+}

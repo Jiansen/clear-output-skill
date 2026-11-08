@@ -1,0 +1,224 @@
+{
+  "reviews": [
+    {
+      "id": "c03",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is entirely in English."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It explicitly states that the mismatch does not establish its cause."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It explains that 3 calls were observed instead of 2 and gives one useful next check: inspect the exercised call sites."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "Briefly separates the observed count, the limit of that evidence, and the next check."
+    },
+    {
+      "id": "c12",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The Chinese response asks explicit questions about the missing information."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It asks which valve by position or identifier, which pressure location and instrument to observe, and the unit and pressure reference for 5. All three required ambiguities are covered."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It supplies no unit, valve identity, or corrective operation. The possible actions after reaching the threshold are presented as alternatives requiring confirmation."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The questions clearly distinguish the valve, pressure measurement, threshold interpretation, and intended actions."
+    },
+    {
+      "id": "h01",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The Chinese list requests the connected devices or parts, connection type, disconnect method, and the specific connection or state and method meant by restoration."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It requests the measured quantity, reading location or instrument, units, and measurement reference without supplying values or equipment identities."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It asks when monitoring begins, how to confirm the reading is below 12, and what other restoration conditions apply. It requests missing methods rather than prescribing a procedure."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The list makes the missing information easy to identify, including the threshold and restoration conditions."
+    },
+    {
+      "id": "h02",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The English response requests an unambiguous identifier or location for the device to turn off."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It requests the measured quantity, the instrument or display to read, the reading and threshold units, and any measurement reference needed for interpretation."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It does not identify an assumed device, supply units, or replace the threshold of 8."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "Each bullet names a distinct missing item in direct English."
+    },
+    {
+      "id": "h03",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is in English despite the preceding Chinese exchange."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It explains that no retry was observed although one was expected and explicitly says the cause is not established."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It gives one useful next check: rerun while recording cancellation status at the retry decision point. It retains the current cancellation status as unknown."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The interpretation and proposed check are brief and clearly distinguish known from unknown information."
+    },
+    {
+      "id": "h04",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The release note remains English and the final confirmation note is Chinese."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It preserves the possible reduction in duplicate requests, passed local integration checks, and the untested customer scenario."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It does not claim a fix; the Chinese note explicitly identifies effectiveness in the customer scenario as still needing confirmation."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The concise release note retains the qualification and test limitation, followed by a specific unresolved question."
+    },
+    {
+      "id": "h05",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response is a raw JSON object with exactly message and retry_hint, both containing Chinese string values."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It states that upload failed, that a partial upload cannot be confirmed, and that retrying later is permitted."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It makes no claim that upload completed, that no data was saved, or that a retry is safe or guaranteed to succeed."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The two fields convey the failure, uncertainty, and optional retry directly in the requested format."
+    },
+    {
+      "id": "h06",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The English rewrite preserves reviewer permission to approve up to 4 requests per day and excludes periods when access is suspended."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It retains a recommendation to wait roughly 30 seconds before resubmitting a rejected request."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It adds neither an exact mandatory delay nor any automatic approval claim."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "The exception is stated plainly, and permission, recommendation, and approximation remain distinct."
+    },
+    {
+      "id": "h07",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The response contains only the Chinese rewrite."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It requires a continuous upward pull while pressing and holding the unlock button, with release occurring after the indicator turns green."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It explicitly releases the unlock button first and the handle second."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "Simultaneous holding and pulling, the green-light condition, and the release order are explicit."
+    },
+    {
+      "id": "h08",
+      "invariants": [
+        {
+          "index": 1,
+          "verdict": "pass",
+          "reason": "The explanatory prose is English. The command widget check --limit=08 --label 'A B' and the output 检查已提交 / check submitted are preserved exactly within backticks."
+        },
+        {
+          "index": 2,
+          "verdict": "pass",
+          "reason": "It states that the check was submitted and that the final result is unknown."
+        },
+        {
+          "index": 3,
+          "verdict": "pass",
+          "reason": "It makes no claim that the check passed."
+        }
+      ],
+      "clarity": 5,
+      "clarity_note": "Separate sentences clearly distinguish successful submission from the unknown final result."
+    }
+  ]
+}

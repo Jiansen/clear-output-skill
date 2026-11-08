@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {"id": "h01", "invariants": ["Chinese questions identify which connection/object and what disconnect/restore action is intended.", "Asks which quantity, measurement reference, and unit define the threshold; does not invent values or equipment.", "Clarifies the trigger and restoration condition as needed without supplying an operational procedure."]},
+    {"id": "h02", "invariants": ["Uses English and asks which unit/device is meant.", "Asks what reading is measured, where/by what reference, and in which units.", "Does not assume a device, unit, or replacement threshold."]},
+    {"id": "h03", "invariants": ["Answers in English after Chinese context.", "Explains the observed retry mismatch without asserting that cancellation caused it.", "Gives one useful next check and does not invent cancellation status."]},
+    {"id": "h04", "invariants": ["Release-note prose remains English; the requested note is Chinese.", "Retains possible reduction, passed local integration checks, and untested customer scenario.", "Does not claim the customer issue is fixed."]},
+    {"id": "h05", "invariants": ["Returns raw JSON only, with exactly message and retry_hint, both Chinese string values.", "Retains upload failure, optional later retry, and unknown partial-upload state.", "Does not assert complete upload, no saved data, or safe/guaranteed retry."]},
+    {"id": "h06", "invariants": ["Uses English and preserves reviewer permission, up to 4 per day, and suspended-access exception.", "Retains recommended approximate 30-second delay for resubmission of rejected requests.", "Adds no exact delay requirement or automatic approval claim."]},
+    {"id": "h07", "invariants": ["Uses Chinese rewrite only.", "Maintains upward pull while pressing unlock until green indication.", "Releases unlock before releasing the handle."]},
+    {"id": "h08", "invariants": ["Uses English explanatory prose and preserves the exact command and quoted mixed-language output.", "States submission as known and the final result as unknown.", "Does not claim that the check passed."]}
+  ]
+}

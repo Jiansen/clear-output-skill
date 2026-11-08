@@ -1,0 +1,49 @@
+{
+  "initial_pilot": {
+    "short-prompt": {
+      "independent_review": {
+        "pass": 23,
+        "fail": 1,
+        "needs_review": 0
+      },
+      "adjudicated": {
+        "pass": 23,
+        "fail": 1,
+        "needs_review": 0
+      },
+      "clarity_mean": 5
+    },
+    "baseline": {
+      "independent_review": {
+        "pass": 23,
+        "fail": 1,
+        "needs_review": 0
+      },
+      "adjudicated": {
+        "pass": 23,
+        "fail": 1,
+        "needs_review": 0
+      },
+      "clarity_mean": 5
+    },
+    "full-skill": {
+      "independent_review": {
+        "pass": 23,
+        "fail": 0,
+        "needs_review": 1
+      },
+      "adjudicated": {
+        "pass": 23,
+        "fail": 1,
+        "needs_review": 0
+      },
+      "clarity_mean": 4.958
+    }
+  },
+  "revised_skill_retest": {
+    "pass": 10,
+    "fail": 0,
+    "needs_review": 0
+  },
+  "human_comprehension_test": false
+}

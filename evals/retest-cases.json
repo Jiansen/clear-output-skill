@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "c03",
+      "messages": [
+        {
+          "role": "user",
+          "content": "我们先用中文讨论这个服务的缓存问题。"
+        },
+        {
+          "role": "assistant",
+          "content": "可以。请提供现象和相关日志。"
+        },
+        {
+          "role": "user",
+          "content": "The failing test says `expected 2 calls, received 3`. Explain what this establishes and give one next debugging step. We have not inspected the call sites yet."
+        }
+      ]
+    },
+    {
+      "id": "c12",
+      "messages": [
+        {
+          "role": "user",
+          "content": "这条维修说明可能有歧义，请指出需要确认什么，不要替我猜：打开阀门，直到压力低于 5。"
+        }
+      ]
+    },
+    {
+      "id": "h01",
+      "messages": [
+        {
+          "role": "user",
+          "content": "维修交接只写了：断开连接，等数值降到 12 以下后恢复。请列出执行前必须补充的信息，不要替我填值。"
+        }
+      ]
+    },
+    {
+      "id": "h02",
+      "messages": [
+        {
+          "role": "user",
+          "content": "List what is missing from this instruction before a technician can follow it: Turn off the unit when the reading exceeds 8. Do not assume the unit, measurement, or threshold units."
+        }
+      ]
+    },
+    {
+      "id": "h03",
+      "messages": [
+        {
+          "role": "user",
+          "content": "接下来我们检查重试逻辑。"
+        },
+        {
+          "role": "assistant",
+          "content": "请提供测试结果。"
+        },
+        {
+          "role": "user",
+          "content": "The test expected one retry but observed zero. Give a brief interpretation and one next check. Cancellation status was not recorded."
+        }
+      ]
+    },
+    {
+      "id": "h04",
+      "messages": [
+        {
+          "role": "user",
+          "content": "帮我精简这段英文发布说明，正文保持英文，最后用中文说明是否还有待确认的问题：The patch may reduce duplicate requests. Local integration checks passed, but the customer scenario has not been tested."
+        }
+      ]
+    },
+    {
+      "id": "h05",
+      "messages": [
+        {
+          "role": "user",
+          "content": "只返回一个 JSON 对象，字段为 message 和 retry_hint，值使用中文。已知上传失败，允许稍后重试，无法确认是否存在部分上传。不要添加其他字段或解释。"
+        }
+      ]
+    },
+    {
+      "id": "h06",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Rewrite this more clearly without adding details: A reviewer may approve up to 4 requests per day, except while access is suspended. We recommend waiting roughly 30 seconds before resubmitting a rejected request."
+        }
+      ]
+    },
+    {
+      "id": "h07",
+      "messages": [
+        {
+          "role": "user",
+          "content": "把这段操作说明写清楚，只给改写：握住手柄并持续向上拉，同时按下解锁键；指示灯变绿后，先松开解锁键，再松开手柄。"
+        }
+      ]
+    },
+    {
+      "id": "h08",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Improve only the explanatory prose; keep the command and quoted output exactly as written. Run `widget check --limit=08 --label 'A B'`. The output `检查已提交 / check submitted` means the check was submitted; the final result is unknown."
+        }
+      ]
+    }
+  ]
+}

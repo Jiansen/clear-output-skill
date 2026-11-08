@@ -1,0 +1,44 @@
+{
+  "responses": [
+    {
+      "id": "c03",
+      "response": "The test recorded 3 calls where it expected 2. This establishes a call-count mismatch, but not its cause. Next, inspect the call sites exercised by the test to locate the extra call."
+    },
+    {
+      "id": "c12",
+      "response": "执行前需要确认：\n\n- 打开哪个阀门：设备位置或编号是什么？\n- 观察哪一处压力，读取哪个仪表？“5”的单位和压力基准是什么？\n- 阀门应如何打开、开到什么程度？\n- 压力低于 5 后，应停止开阀、关闭阀门，还是保持当前开度？"
+    },
+    {
+      "id": "h01",
+      "response": "执行前必须补充：\n\n- 断开哪个设备或部件之间的哪种连接，以及具体的断开方法。\n- “数值”对应的测量量、读取位置或仪表、单位和测量基准。\n- 从何时开始监测，以及如何确认数值已低于 12。\n- “恢复”具体指恢复哪个连接或状态，以及恢复方法和其他必要条件。\n- 谁负责断开、监测和恢复，哪些动作由系统自动完成。"
+    },
+    {
+      "id": "h02",
+      "response": "The instruction needs:\n\n- An unambiguous identifier or location for the unit to turn off.\n- The quantity being measured and the instrument or display to read.\n- The units for the reading and the threshold of 8, plus any measurement reference needed to interpret them.\n- When to monitor the reading.\n- The shutdown procedure, including which control to use."
+    },
+    {
+      "id": "h03",
+      "response": "The test observed no retry where it expected one. It does not establish why; cancellation status is unknown. Next, rerun the test and record cancellation status at the retry decision point."
+    },
+    {
+      "id": "h04",
+      "response": "The patch may reduce duplicate requests. Local integration checks passed; the customer scenario remains untested.\n\n仍需确认：补丁在客户场景中是否能减少重复请求。"
+    },
+    {
+      "id": "h05",
+      "response": "{\"message\":\"上传失败，无法确认是否已有部分内容上传。\",\"retry_hint\":\"可以稍后重试。\"}"
+    },
+    {
+      "id": "h06",
+      "response": "A reviewer may approve up to 4 requests per day unless access is suspended. We recommend waiting roughly 30 seconds before resubmitting a rejected request."
+    },
+    {
+      "id": "h07",
+      "response": "握住手柄并持续向上拉，同时按下并按住解锁键。指示灯变绿后，先松开解锁键，再松开手柄。"
+    },
+    {
+      "id": "h08",
+      "response": "Run `widget check --limit=08 --label 'A B'`. The output `检查已提交 / check submitted` means the check was submitted. The final result is unknown."
+    }
+  ]
+}

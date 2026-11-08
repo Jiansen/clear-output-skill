@@ -1,0 +1,290 @@
+{
+  "s001": {
+    "condition": "short-prompt",
+    "case_id": "c20"
+  },
+  "s002": {
+    "condition": "baseline",
+    "case_id": "c14"
+  },
+  "s003": {
+    "condition": "baseline",
+    "case_id": "c10"
+  },
+  "s004": {
+    "condition": "full-skill",
+    "case_id": "c20"
+  },
+  "s005": {
+    "condition": "full-skill",
+    "case_id": "c05"
+  },
+  "s006": {
+    "condition": "full-skill",
+    "case_id": "c17"
+  },
+  "s007": {
+    "condition": "baseline",
+    "case_id": "c08"
+  },
+  "s008": {
+    "condition": "short-prompt",
+    "case_id": "c10"
+  },
+  "s009": {
+    "condition": "baseline",
+    "case_id": "c04"
+  },
+  "s010": {
+    "condition": "full-skill",
+    "case_id": "c24"
+  },
+  "s011": {
+    "condition": "baseline",
+    "case_id": "c15"
+  },
+  "s012": {
+    "condition": "full-skill",
+    "case_id": "c23"
+  },
+  "s013": {
+    "condition": "short-prompt",
+    "case_id": "c11"
+  },
+  "s014": {
+    "condition": "baseline",
+    "case_id": "c19"
+  },
+  "s015": {
+    "condition": "short-prompt",
+    "case_id": "c09"
+  },
+  "s016": {
+    "condition": "short-prompt",
+    "case_id": "c14"
+  },
+  "s017": {
+    "condition": "baseline",
+    "case_id": "c05"
+  },
+  "s018": {
+    "condition": "baseline",
+    "case_id": "c16"
+  },
+  "s019": {
+    "condition": "baseline",
+    "case_id": "c09"
+  },
+  "s020": {
+    "condition": "full-skill",
+    "case_id": "c19"
+  },
+  "s021": {
+    "condition": "full-skill",
+    "case_id": "c21"
+  },
+  "s022": {
+    "condition": "baseline",
+    "case_id": "c23"
+  },
+  "s023": {
+    "condition": "short-prompt",
+    "case_id": "c03"
+  },
+  "s024": {
+    "condition": "short-prompt",
+    "case_id": "c01"
+  },
+  "s025": {
+    "condition": "short-prompt",
+    "case_id": "c07"
+  },
+  "s026": {
+    "condition": "full-skill",
+    "case_id": "c04"
+  },
+  "s027": {
+    "condition": "baseline",
+    "case_id": "c21"
+  },
+  "s028": {
+    "condition": "full-skill",
+    "case_id": "c09"
+  },
+  "s029": {
+    "condition": "baseline",
+    "case_id": "c18"
+  },
+  "s030": {
+    "condition": "full-skill",
+    "case_id": "c01"
+  },
+  "s031": {
+    "condition": "baseline",
+    "case_id": "c03"
+  },
+  "s032": {
+    "condition": "short-prompt",
+    "case_id": "c12"
+  },
+  "s033": {
+    "condition": "full-skill",
+    "case_id": "c06"
+  },
+  "s034": {
+    "condition": "full-skill",
+    "case_id": "c22"
+  },
+  "s035": {
+    "condition": "full-skill",
+    "case_id": "c14"
+  },
+  "s036": {
+    "condition": "short-prompt",
+    "case_id": "c16"
+  },
+  "s037": {
+    "condition": "short-prompt",
+    "case_id": "c17"
+  },
+  "s038": {
+    "condition": "short-prompt",
+    "case_id": "c23"
+  },
+  "s039": {
+    "condition": "baseline",
+    "case_id": "c12"
+  },
+  "s040": {
+    "condition": "short-prompt",
+    "case_id": "c08"
+  },
+  "s041": {
+    "condition": "full-skill",
+    "case_id": "c08"
+  },
+  "s042": {
+    "condition": "short-prompt",
+    "case_id": "c22"
+  },
+  "s043": {
+    "condition": "baseline",
+    "case_id": "c13"
+  },
+  "s044": {
+    "condition": "baseline",
+    "case_id": "c22"
+  },
+  "s045": {
+    "condition": "short-prompt",
+    "case_id": "c13"
+  },
+  "s046": {
+    "condition": "short-prompt",
+    "case_id": "c24"
+  },
+  "s047": {
+    "condition": "full-skill",
+    "case_id": "c12"
+  },
+  "s048": {
+    "condition": "short-prompt",
+    "case_id": "c04"
+  },
+  "s049": {
+    "condition": "full-skill",
+    "case_id": "c15"
+  },
+  "s050": {
+    "condition": "full-skill",
+    "case_id": "c11"
+  },
+  "s051": {
+    "condition": "full-skill",
+    "case_id": "c16"
+  },
+  "s052": {
+    "condition": "baseline",
+    "case_id": "c17"
+  },
+  "s053": {
+    "condition": "baseline",
+    "case_id": "c06"
+  },
+  "s054": {
+    "condition": "short-prompt",
+    "case_id": "c06"
+  },
+  "s055": {
+    "condition": "full-skill",
+    "case_id": "c03"
+  },
+  "s056": {
+    "condition": "short-prompt",
+    "case_id": "c02"
+  },
+  "s057": {
+    "condition": "short-prompt",
+    "case_id": "c19"
+  },
+  "s058": {
+    "condition": "baseline",
+    "case_id": "c20"
+  },
+  "s059": {
+    "condition": "baseline",
+    "case_id": "c24"
+  },
+  "s060": {
+    "condition": "baseline",
+    "case_id": "c01"
+  },
+  "s061": {
+    "condition": "baseline",
+    "case_id": "c07"
+  },
+  "s062": {
+    "condition": "full-skill",
+    "case_id": "c13"
+  },
+  "s063": {
+    "condition": "short-prompt",
+    "case_id": "c21"
+  },
+  "s064": {
+    "condition": "full-skill",
+    "case_id": "c18"
+  },
+  "s065": {
+    "condition": "baseline",
+    "case_id": "c11"
+  },
+  "s066": {
+    "condition": "full-skill",
+    "case_id": "c07"
+  },
+  "s067": {
+    "condition": "baseline",
+    "case_id": "c02"
+  },
+  "s068": {
+    "condition": "full-skill",
+    "case_id": "c02"
+  },
+  "s069": {
+    "condition": "short-prompt",
+    "case_id": "c15"
+  },
+  "s070": {
+    "condition": "short-prompt",
+    "case_id": "c05"
+  },
+  "s071": {
+    "condition": "full-skill",
+    "case_id": "c10"
+  },
+  "s072": {
+    "condition": "short-prompt",
+    "case_id": "c18"
+  }
+}

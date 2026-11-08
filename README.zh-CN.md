@@ -1,0 +1,82 @@
+# Clear Output
+
+[English](README.md)
+
+一个兼容中文、英文和中英混合内容的表达技能。目标是让读者更容易准确理解，同时保留原意、语言、不确定性和技术原文。
+
+适用于调试说明、进展汇报、操作说明和忠实改写。技能本体只有提示词和参考示例，不需要运行脚本或访问网络；评估工具只使用 Python 标准库。
+
+## 语言怎么选
+
+| 场景 | 输出 |
+| --- | --- |
+| 英文提问，讨论英文调试问题 | 英文回答 |
+| 中文提问，附英文日志 | 中文解释，日志原样保留 |
+| 中文要求润色英文 README | README 保持英文；修改说明可用中文 |
+| 英文对话中要求中文 UI 文案 | 文案用中文；说明按用户要求 |
+| 要求仅输出 JSON | 只返回指定 JSON |
+
+明确的用户要求优先。代码、日志、引文和技能文件使用的语言，不会单独改变回复语言。规则作用于当前任务，不会把后续对话永久切换成中文或某种文风。
+
+## 核心原则
+
+- 清楚，但不捏造：不把“尽快”补成 10 分钟，不把“占用过高”补成 90%。
+- 简洁，但不丢含义：保留“可能、建议、约”、条件、例外、操作顺序和同时发生的动作。
+- 说明证据：代码改了、单元测试通过、生产问题已验证，是不同结论。
+- 保护技术内容：命令、路径、日志、错误码和专业术语保持准确。
+- 按任务选形式：短文、步骤、表格或图示各有用途，不设置统一字数门槛或词语黑名单。
+
+它不验证原始事实是否正确，也不宣称符合完整的 ASD-STE100 标准。
+
+## 安装与使用
+
+在 Codex 中使用内置安装器：
+
+```text
+$skill-installer install https://github.com/Jiansen/clear-output-skill
+```
+
+技能位于仓库根目录，名称为 `clear-output`。也可以按照当前 [Codex 文档](https://developers.openai.com/codex/skills)的用户目录手动安装：
+
+```bash
+mkdir -p ~/.agents/skills
+git clone https://github.com/Jiansen/clear-output-skill.git ~/.agents/skills/clear-output
+```
+
+选择一种方式，避免重复安装。不同宿主版本的技能目录可能不同，内置安装器遵循当前宿主配置。
+
+```text
+$clear-output 把这段操作说明改清楚，保持原意。
+```
+
+```text
+$clear-output Explain this error in English. Preserve the exact log text.
+```
+
+```text
+$clear-output 润色这段英文 README，正文保持英文，用中文解释修改。
+```
+
+宿主也可以按描述自动选择该技能；显式调用更便于测试。自动触发是否稳定，需要在具体宿主中验证。
+
+## 我们怎么测试
+
+仓库提供 24 个合成用例，覆盖中英切换、改写忠实度、英文日志、JSON、权限与能力、数值范围、模糊指代和证据范围。对比三组真实模型输出：普通回答、简短清晰表达提示、完整技能。
+
+见[测试方法](evals/README.md)和[实测报告](evals/pilot-report.md)。保留原始输出和逐项评审，允许发现技能没有提升甚至退步。
+
+```bash
+python3 -m unittest discover -s tests -v
+python3 tools/make_prompt.py full-skill > /tmp/clear-output-prompt.txt
+python3 tools/check_responses.py evals/results/full-skill.json
+```
+
+自动检查只覆盖响应完整性、部分技术原文和格式约束。语义是否保持、阅读是否更轻松，需要另外评审。小规模开发测试不能证明普遍优于原模型。
+
+## 来源与开源
+
+受 [Karpathy 关于 AI 表达的分享](https://x.com/karpathy/status/2105819303471976479)、[ASD-STE100](https://www.asd-ste100.org/)及相关开源项目启发，参见[来源说明](ATTRIBUTION.md)。本项目是原创的双语技能，不是 ASD 官方中文版，没有复制其受控词典。
+
+欢迎提交真实失败案例、需要保持的语义条件，以及改动前后的输出。先证明问题，再增加规则。公开测试请使用合成内容或已获发布许可的内容。
+
+采用 [MIT 许可证](LICENSE)。

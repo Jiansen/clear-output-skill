@@ -1,0 +1,25 @@
+name: Check evaluation tools
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Test evaluation helpers
+        run: python3 -m unittest discover -s tests -v
+      - name: Check published pilot response contracts
+        run: |
+          python3 tools/check_responses.py evals/results/baseline.json
+          python3 tools/check_responses.py evals/results/short-prompt.json
+          python3 tools/check_responses.py evals/results/full-skill.json
+          python3 tools/check_responses.py evals/results/revised-skill.json --cases evals/retest-cases.json

@@ -1,0 +1,12 @@
+{
+  "reviewer": "Primary development agent; not a human reviewer",
+  "changes": [
+    {
+      "sample_id": "s047",
+      "invariant_index": 2,
+      "original_verdict": "needs_review",
+      "verdict": "fail",
+      "reason": "The initial rubric's 'which valve/pressure measurement' wording was ambiguous. For this development test, the intended requirement is to identify both the valve and the pressure measurement, plus the unit. The response asked about measurement and unit but omitted valve identity. Count this conservatively as a failure, retain the original review, and state this adjudication explicitly rather than silently changing the rubric."
+    }
+  ]
+}
