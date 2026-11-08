@@ -2,9 +2,11 @@
 
 [English](README.md)
 
+[最新版本](https://github.com/Jiansen/clear-output-skill/releases/latest) · [更新日志](CHANGELOG.md) · [订阅更新通知](references/updates.md)
+
 一个兼容中文、英文和中英混合内容的表达技能。通过文字、图示和交互，让读者更容易准确理解、核对结果，同时保留原意、语言、不确定性和技术原文。
 
-适用于调试说明、机制讲解、方案比较、进展汇报、操作说明和忠实改写。技能本体只有提示词和参考示例；生成图示或媒体时，使用宿主已有的工具，不绑定特定插件。核心评估工具只使用 Python 标准库，可选的浏览器实测使用 Node.js 工具。
+适用于调试说明、机制讲解、方案比较、进展汇报、操作说明和忠实改写。核心提示词无需运行时或后台服务；可选的本地检查器使用 Python 3.10+，不需要额外安装包。生成图示或媒体时，使用宿主已有的工具，不绑定特定插件。
 
 ## Before / after：看看表达形式的变化
 
@@ -118,7 +120,7 @@ git clone https://github.com/Jiansen/clear-output-skill.git ~/.cursor/skills/cle
 
 ### 仅当前项目与 Windows
 
-如果只想在一个项目使用，将 `SKILL.md`、完整的 `references/` 目录和 `LICENSE` 复制到表格中的项目目录，文件夹名保持 `clear-output`。需要团队共享时，把这些文件提交到项目仓库。Codex 的 `agents/openai.yaml` 可选。
+如果只想在一个项目使用，将[正式版 ZIP](https://github.com/Jiansen/clear-output-skill/releases/latest/download/clear-output.zip)解压到表格中的项目目录，文件夹名保持 `clear-output`。保留完整包，包括 `references/`、`scripts/` 和 `VERSION`。需要团队共享时，把这些文件提交到项目仓库。Codex 的 `agents/openai.yaml` 是可选显示信息。
 
 Windows PowerShell 示例：
 
@@ -133,17 +135,17 @@ Cursor 将 `.claude` 改为 `.cursor`；Codex 改为 `.agents`。技能应安装
 
 这些场景使用 Claude 账号的技能上传入口；本机 Claude Code 文件夹本身不会把技能安装到这些场景。
 
-在本仓库的 Git 工作目录中运行：
+直接下载可上传的[正式版 ZIP](https://github.com/Jiansen/clear-output-skill/releases/latest/download/clear-output.zip)，或在本仓库的 Git 工作目录中运行：
 
 ```bash
-git archive --format=zip --prefix=clear-output/ --output=../clear-output.zip HEAD SKILL.md references LICENSE
+python3 tools/build_release.py --output-dir dist
 ```
 
-ZIP 内含 `clear-output/SKILL.md`、`clear-output/references/` 和 `clear-output/LICENSE`。在 Claude 中按需启用代码执行／文件创建，然后进入 **Customize → Skills → + → Create skill → Upload a skill**，上传 ZIP 并启用。在对话中要求使用 `clear-output` 即可。参见官方[上传说明](https://support.claude.com/en/articles/12512180-use-skills-in-claude)和[打包结构](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)。
+命令生成 `dist/clear-output.zip` 和 `dist/SHA256SUMS`。ZIP 只有一个顶层 `clear-output/` 目录，包含提示词、参考资料、可选脚本、版本信息、更新日志和许可证。在 Claude 中按需启用代码执行／文件创建，然后进入 **Customize → Skills → + → Create skill → Upload a skill**，上传 ZIP 并启用。在对话中要求使用 `clear-output` 即可。参见官方[上传说明](https://support.claude.com/en/articles/12512180-use-skills-in-claude)和[打包结构](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)。
 
 ### 验证与更新
 
-确认安装目录中有 `SKILL.md` 和 `references/` 下的两个文件。在 Claude Code 或 Cursor 中试用：
+确认安装目录中有 `SKILL.md`、`VERSION`，以及完整的 `references/` 和 `scripts/` 目录。在 Claude Code 或 Cursor 中试用：
 
 ```text
 /clear-output Explain this failing test in English. Keep the error text unchanged: expected 2 calls, received 3.
@@ -161,9 +163,28 @@ $clear-output 润色这段英文 README，正文保持英文，用中文解释�
 
 在各宿主中使用对应的调用前缀。英文调试请求应得到英文回答；混合语言示例中的 README 应保持英文，修改说明用中文。宿主也可以按描述自动选择技能，具体触发和渲染能力取决于宿主。
 
-Git 克隆的安装可用 `git -C <安装目录> pull --ff-only` 更新，将占位符替换为实际目录；有本地修改时先处理这些修改。Claude 上传版需要从更新后的仓库重新生成 ZIP，并通过其界面更新技能。
+在仓库中选择 **Watch → Custom → Releases**，订阅正式发布通知。每次发布提供更新说明、技能 ZIP 和校验和。在安装目录中运行：
+
+```bash
+python3 scripts/clear_output.py --version
+python3 scripts/check_update.py
+```
+
+前者查看本地版本；后者主动请求 GitHub 的公开发布信息，只检查、不升级，也不上传文档。本地 skill 文件不会自行下载 GitHub 新版。Git 克隆并跟踪分支的安装，可在处理本地修改后用 `git -C <安装目录> pull --ff-only` 更新；它会跟随该分支，可能包含尚未正式发布的改动。下载／复制版和 Claude 上传版需更新完整发布包。固定 tag、备份和宿主重新加载的说明见[升级指南](references/updates.md)，改动内容见[更新日志](CHANGELOG.md)。
 
 安装目录和调用方式于 2026-11-08 对照上述官方文档核实，已检查目录结构和 ZIP 内容；尚未在真实 Claude Code／Cursor 会话中验证自动触发和输出效果。
+
+## 可选的本地检查器
+
+用于较长的忠实改写、明确的输出约束或项目术语检查。按目标文档选择语言，不由引用的日志决定：
+
+```bash
+python3 scripts/clear_output.py answer.md --lang en
+python3 scripts/clear_output.py answer.md --lang zh --source original.md --contract contract.json
+python3 scripts/clear_output.py answer.md --lang mixed --glossary references/glossary.example.json
+```
+
+检查器验证指定原文与 JSON 格式，对数值、单位和语气标记变化给出复核提示，也可使用项目词表。英文单词与中文字符分别统计；需要时才启用句长建议。它输出具体问题和未检查范围，不给“清晰度／合规分数”，不自动修改文件。示例词表需要显式传入，不会默认生效。详见[输入格式、退出码、示例和边界](references/checks.md)。
 
 ## 我们怎么测试
 
@@ -179,7 +200,7 @@ python3 tools/make_prompt.py full-skill > /tmp/clear-output-prompt.txt
 python3 tools/check_responses.py evals/results/full-skill.json
 ```
 
-自动检查只覆盖响应完整性、部分技术原文和格式约束。语义是否保持、阅读是否更轻松，需要另外评审。小规模开发测试不能证明普遍优于原模型。
+`tools/check_responses.py` 用于已有评测的完整性、部分技术原文和格式约束；`scripts/clear_output.py` 是新文档可用的可选检查器。测试还覆盖中英文、受保护内容、已知盲区、更新检查失败和独立 ZIP 安装。两种检查器都不能证明语义等价或阅读更轻松。已有模型评测早于这次程序检查器，不能作为新增检查器提升理解效果的证据。
 
 ## 来源与开源
 

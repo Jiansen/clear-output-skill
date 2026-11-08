@@ -1,0 +1,14 @@
+{
+  "terms": [
+    {
+      "id": "timeout",
+      "en": {"preferred": "timeout", "avoid": ["time-out"], "except": []},
+      "zh": {"preferred": "超时", "avoid": ["逾时"], "except": []}
+    },
+    {
+      "id": "retry",
+      "en": {"preferred": "retry", "avoid": ["re-try"], "except": []},
+      "zh": {"preferred": "重试", "avoid": ["重新尝试"], "except": []}
+    }
+  ]
+}

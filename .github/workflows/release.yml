@@ -1,0 +1,39 @@
+name: Publish skill release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    uses: ./.github/workflows/check.yml
+  publish:
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.14'
+      - name: Verify version and build the skill package
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: python tools/build_release.py --output-dir dist --tag "$RELEASE_TAG"
+      - name: Publish notes, ZIP, and checksum
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$RELEASE_TAG" dist/clear-output.zip dist/SHA256SUMS \
+            --verify-tag --title "Clear Output $RELEASE_TAG" --notes-file dist/release-notes.md

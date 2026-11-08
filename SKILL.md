@@ -1,6 +1,8 @@
 ---
 name: clear-output
 description: Clarify Chinese, English, or mixed technical content with faithful rewrites, diagrams, comparisons, or interactive explanations. Preserve meaning and the task's language.
+metadata:
+  version: "0.1.0"
 ---
 
 # Clear Output
@@ -69,3 +71,9 @@ Compare a rewrite with its source for changed facts, lost conditions, changed mo
 Style checks cannot prove semantic equivalence. Report a concrete unresolved issue instead of declaring the text certified or fully verified.
 
 For tricky rewrites involving modality, language mixing, or missing facts, read [references/edge-cases.md](references/edge-cases.md).
+
+For a substantial rewrite, an explicit validation request, or a supplied project glossary, use the optional local checker when it can catch a concrete error. Read [references/checks.md](references/checks.md) for its inputs and limits. Select `en`, `zh`, or `mixed` from the task, not from quoted text. Supply the source only for faithful rewrites, and encode exact literals or JSON constraints only when the task requires them. Simple answers do not require a script.
+
+Treat checker findings as evidence with limited scope: fix violated explicit contracts, review meaning changes against the source, and use style suggestions only when they help. Preserve authorized edits. Do not rewrite to remove every warning or treat an empty finding list as proof of equivalence. After corrections, recheck the affected constraints; if an ambiguity remains, report it instead of repeatedly rewriting. Keep diagnostics out of a requested JSON/code-only response.
+
+When the user asks about this skill's version or updates, read [references/updates.md](references/updates.md). Normal writing tasks do not trigger network update checks or change the installed skill.

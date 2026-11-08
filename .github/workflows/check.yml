@@ -1,27 +1,42 @@
-name: Check evaluation tools
+name: Check skill and tools
 
 on:
   push:
+    branches: ['**']
   pull_request:
   workflow_dispatch:
+  workflow_call:
 
 permissions:
   contents: read
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.14']
+    runs-on: ${{ matrix.os }}
+    env:
+      PYTHONUTF8: '1'
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
-      - name: Test evaluation helpers
-        run: python3 -m unittest discover -s tests -v
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Test checker, evaluation helpers, updates, and release package
+        run: python -m unittest discover -s tests -v
       - name: Check published pilot response contracts
         run: |
-          python3 tools/check_responses.py evals/results/baseline.json
-          python3 tools/check_responses.py evals/results/short-prompt.json
-          python3 tools/check_responses.py evals/results/full-skill.json
-          python3 tools/check_responses.py evals/results/revised-skill.json --cases evals/retest-cases.json
-          python3 tools/check_responses.py evals/forms/previous.json --cases evals/form-cases.json
-          python3 tools/check_responses.py evals/forms/current.json --cases evals/form-cases.json
+          python tools/check_responses.py evals/results/baseline.json
+          python tools/check_responses.py evals/results/short-prompt.json
+          python tools/check_responses.py evals/results/full-skill.json
+          python tools/check_responses.py evals/results/revised-skill.json --cases evals/retest-cases.json
+          python tools/check_responses.py evals/forms/previous.json --cases evals/form-cases.json
+          python tools/check_responses.py evals/forms/current.json --cases evals/form-cases.json

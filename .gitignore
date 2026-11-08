@@ -4,3 +4,4 @@ __pycache__/
 .venv/
 evals/local/
 node_modules
+dist/
