@@ -1,5 +1,7 @@
 # Representation and artifact evaluation — 2026-11-08
 
+This evaluation records the skill at commit `724ee51e0a62e56134d1ae43bf36e62d2b6de5da`. Later installation documentation and discovery metadata may differ; the recorded responses and hashes are unchanged.
+
 **The expanded guidance makes representation choice and artifact verification explicit. This small comparison did not show a quality gain over the previous skill: both versions passed all 10 cases.** The previous version already chose useful diagrams under this host's general instructions.
 
 The change follows the full [Karpathy post](https://x.com/karpathy/status/2105819303471976479), supplied by the user during review. Its motivation is human understanding and oversight as models do more work. It encourages diagrams/images, interactive HTML, and custom explainer videos, including artifacts made for a single question. See [source notes](../ATTRIBUTION.md) for the distinction between that motivation and this project's implementation choices.

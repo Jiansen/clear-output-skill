@@ -1,6 +1,6 @@
 ---
 name: clear-output
-description: Make Chinese, English, or mixed-language technical explanations easier to understand and verify. Choose effective words, diagrams, comparisons, or interactive explanations while preserving meaning and the task's language. Use to explain clearly, clarify a mechanism, compare options, or faithfully rewrite technical prose. Does not translate by default or certify ASD-STE100 compliance.
+description: Clarify Chinese, English, or mixed technical content with faithful rewrites, diagrams, comparisons, or interactive explanations. Preserve meaning and the task's language.
 ---
 
 # Clear Output

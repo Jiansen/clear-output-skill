@@ -18,26 +18,89 @@ The skill applies to the current task. It does not turn the whole conversation i
 
 ## Install and use
 
-In Codex, ask the built-in installer:
+The same `SKILL.md` and `references/` work in **Codex, Claude Code, and Cursor**. The optional `agents/openai.yaml` supplies Codex display metadata; the instructions require no host-specific tools. The terminal examples below use Bash on macOS/Linux and require Git.
+
+| Host | Personal installation directory | Project-only directory | Invoke |
+| --- | --- | --- | --- |
+| Codex | `~/.agents/skills/clear-output/` | `.agents/skills/clear-output/` | `$clear-output` |
+| Claude Code | `~/.claude/skills/clear-output/` | `.claude/skills/clear-output/` | `/clear-output` |
+| Cursor | `~/.cursor/skills/clear-output/` | `.cursor/skills/clear-output/` | Type `/` in Agent chat and select `clear-output` |
+
+Choose the section for your host. If it already lists `clear-output`, use that installation instead of adding another copy.
+
+### Codex
+
+Ask the built-in installer:
 
 ```text
 $skill-installer install https://github.com/Jiansen/clear-output-skill
 ```
 
-The skill is at the repository root; its name is `clear-output`. To install manually in the current documented Codex user location:
+Or install manually:
 
 ```bash
 mkdir -p ~/.agents/skills
 git clone https://github.com/Jiansen/clear-output-skill.git ~/.agents/skills/clear-output
 ```
 
-Use one installation method to avoid duplicate entries. Host versions can use different skill directories; the built-in installer follows its host's configuration. See [Codex skill documentation](https://developers.openai.com/codex/skills).
+Host versions can use different skill directories; the built-in installer follows its host's configuration. See [Codex skill documentation](https://developers.openai.com/codex/skills).
 
-Examples:
+### Claude Code
+
+Install for your local Claude Code sessions:
+
+```bash
+mkdir -p ~/.claude/skills
+git clone https://github.com/Jiansen/clear-output-skill.git ~/.claude/skills/clear-output
+```
+
+Then invoke `/clear-output` in Claude Code. If it is missing, run `/reload-skills` or start a new session. See [Claude Code skills](https://code.claude.com/docs/en/skills).
+
+### Cursor
+
+Install for your local Cursor Agent:
+
+```bash
+mkdir -p ~/.cursor/skills
+git clone https://github.com/Jiansen/clear-output-skill.git ~/.cursor/skills/clear-output
+```
+
+Open a new Agent chat, type `/`, and select `clear-output`; restart Cursor if the new skill is not discovered. Cursor also reads `.agents/skills/`, `.claude/skills/`, and `.codex/skills/` and their user-level equivalents, so an existing Codex or Claude Code installation may already appear. Its **From GitHub Repository** UI installs marketplace plugins; this repository provides a standalone skill, so use the directory installation above. See [Cursor skills](https://cursor.com/docs/skills).
+
+### Project-only and Windows installations
+
+For one repository, copy `SKILL.md`, the complete `references/` directory, and `LICENSE` into the project-only directory in the table. Keep the folder name `clear-output`. Commit those files if teammates should receive the skill. Codex's `agents/openai.yaml` is optional.
+
+In Windows PowerShell, for example:
+
+```powershell
+New-Item -ItemType Directory -Force "$HOME/.claude/skills" | Out-Null
+git clone https://github.com/Jiansen/clear-output-skill.git "$HOME/.claude/skills/clear-output"
+```
+
+Replace `.claude` with `.cursor` for Cursor or `.agents` for Codex. Install in the environment where the agent runs; a local installation is not automatically a remote/cloud installation. For Cursor Cloud Agents, use the documented [personal-skill sync](https://cursor.com/help/customization/skills) or project skills.
+
+### Claude on the web, Desktop chat, or Cowork
+
+Use Claude's account-level skill upload. Local Claude Code folders do not by themselves install a skill into these surfaces.
+
+From a checkout of this repository, create a ZIP containing only the skill resources and license:
+
+```bash
+git archive --format=zip --prefix=clear-output/ --output=../clear-output.zip HEAD SKILL.md references LICENSE
+```
+
+The archive contains `clear-output/SKILL.md`, `clear-output/references/`, and `clear-output/LICENSE`. In Claude, enable code execution/file creation if needed, then open **Customize → Skills → + → Create skill → Upload a skill**, upload the ZIP, and enable it. Ask Claude to use `clear-output` for your task. See [Claude's upload instructions](https://support.claude.com/en/articles/12512180-use-skills-in-claude) and [ZIP structure](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills).
+
+### Verify and update
+
+Check that the installed `clear-output` folder contains `SKILL.md` and both files in `references/`. Try this in Claude Code or Cursor:
 
 ```text
-$clear-output Explain this failing test in English. Keep the error text unchanged.
+/clear-output Explain this failing test in English. Keep the error text unchanged: expected 2 calls, received 3.
 ```
+
+For Codex, use `$clear-output` instead of `/clear-output`. Chinese and mixed-language examples:
 
 ```text
 $clear-output 帮我改清楚这段说明，保留原意、数值和不确定性。
@@ -47,7 +110,11 @@ $clear-output 帮我改清楚这段说明，保留原意、数值和不确定性
 $clear-output 润色下面的英文 README，正文保持英文，用中文解释修改。
 ```
 
-The description also permits the host to select the skill for matching tasks. Explicit invocation is useful when testing; automatic selection is host-dependent.
+Use your host's invocation prefix in these examples. Expect English for the English debugging request and English README text with Chinese edit commentary for the mixed-language request. The description also permits automatic selection for matching tasks; triggering and available rendering tools depend on the host.
+
+For a Git-based installation, update it with `git -C <installation-directory> pull --ff-only`, replacing the placeholder with the actual directory. If there are local edits, reconcile them before updating. For an uploaded Claude skill, rebuild the ZIP from the updated checkout and update the skill through Claude's UI.
+
+Installation paths and invocation methods were checked against the linked official documentation on 2026-11-08. We verified the directory layouts and ZIP contents; automatic activation and output quality have not been tested in live Claude Code or Cursor sessions.
 
 ## A small example
 

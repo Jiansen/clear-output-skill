@@ -44,34 +44,103 @@
 
 ## 安装与使用
 
-在 Codex 中使用内置安装器：
+**Codex、Claude Code 和 Cursor 共用同一份 `SKILL.md` 与 `references/`。** `agents/openai.yaml` 仅提供 Codex 显示信息，技能正文不依赖特定宿主工具。下面的终端命令使用 macOS/Linux 的 Bash，需要已安装 Git。
+
+| 宿主 | 个人安装目录 | 仅当前项目 | 调用方式 |
+| --- | --- | --- | --- |
+| Codex | `~/.agents/skills/clear-output/` | `.agents/skills/clear-output/` | `$clear-output` |
+| Claude Code | `~/.claude/skills/clear-output/` | `.claude/skills/clear-output/` | `/clear-output` |
+| Cursor | `~/.cursor/skills/clear-output/` | `.cursor/skills/clear-output/` | 在 Agent 聊天中输入 `/`，选择 `clear-output` |
+
+按使用的宿主选择一种安装方式。如果技能列表中已经有 `clear-output`，先使用已有安装，避免重复。
+
+### Codex
+
+使用内置安装器：
 
 ```text
 $skill-installer install https://github.com/Jiansen/clear-output-skill
 ```
 
-技能位于仓库根目录，名称为 `clear-output`。也可以按照当前 [Codex 文档](https://developers.openai.com/codex/skills)的用户目录手动安装：
+也可以手动安装：
 
 ```bash
 mkdir -p ~/.agents/skills
 git clone https://github.com/Jiansen/clear-output-skill.git ~/.agents/skills/clear-output
 ```
 
-选择一种方式，避免重复安装。不同宿主版本的技能目录可能不同，内置安装器遵循当前宿主配置。
+不同宿主版本的技能目录可能不同，内置安装器遵循当前配置。参见 [Codex 官方文档](https://developers.openai.com/codex/skills)。
+
+### Claude Code
+
+安装到本机 Claude Code 的个人技能目录：
+
+```bash
+mkdir -p ~/.claude/skills
+git clone https://github.com/Jiansen/clear-output-skill.git ~/.claude/skills/clear-output
+```
+
+在 Claude Code 中输入 `/clear-output`。如果没有出现，运行 `/reload-skills` 或开启新会话。参见 [Claude Code 官方文档](https://code.claude.com/docs/en/skills)。
+
+### Cursor
+
+安装到本机 Cursor Agent 的个人技能目录：
+
+```bash
+mkdir -p ~/.cursor/skills
+git clone https://github.com/Jiansen/clear-output-skill.git ~/.cursor/skills/clear-output
+```
+
+打开新的 Agent 聊天，输入 `/` 并选择 `clear-output`；未发现新技能时重启 Cursor。Cursor 还会读取 `.agents/skills/`、`.claude/skills/`、`.codex/skills/` 及对应的个人目录，已有 Codex 或 Claude Code 安装可能已经可用。其 **From GitHub Repository** 界面用于 marketplace 插件；本仓库提供独立技能，请使用上述目录安装方式。参见 [Cursor 官方文档](https://cursor.com/docs/skills)。
+
+### 仅当前项目与 Windows
+
+如果只想在一个项目使用，将 `SKILL.md`、完整的 `references/` 目录和 `LICENSE` 复制到表格中的项目目录，文件夹名保持 `clear-output`。需要团队共享时，把这些文件提交到项目仓库。Codex 的 `agents/openai.yaml` 可选。
+
+Windows PowerShell 示例：
+
+```powershell
+New-Item -ItemType Directory -Force "$HOME/.claude/skills" | Out-Null
+git clone https://github.com/Jiansen/clear-output-skill.git "$HOME/.claude/skills/clear-output"
+```
+
+Cursor 将 `.claude` 改为 `.cursor`；Codex 改为 `.agents`。技能应安装在代理实际运行的环境，本机目录不会自动成为远程或云端安装。Cursor Cloud Agents 可使用官方的[个人技能同步](https://cursor.com/help/customization/skills)或项目技能。
+
+### Claude 网页版、桌面聊天与 Cowork
+
+这些场景使用 Claude 账号的技能上传入口；本机 Claude Code 文件夹本身不会把技能安装到这些场景。
+
+在本仓库的 Git 工作目录中运行：
+
+```bash
+git archive --format=zip --prefix=clear-output/ --output=../clear-output.zip HEAD SKILL.md references LICENSE
+```
+
+ZIP 内含 `clear-output/SKILL.md`、`clear-output/references/` 和 `clear-output/LICENSE`。在 Claude 中按需启用代码执行／文件创建，然后进入 **Customize → Skills → + → Create skill → Upload a skill**，上传 ZIP 并启用。在对话中要求使用 `clear-output` 即可。参见官方[上传说明](https://support.claude.com/en/articles/12512180-use-skills-in-claude)和[打包结构](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)。
+
+### 验证与更新
+
+确认安装目录中有 `SKILL.md` 和 `references/` 下的两个文件。在 Claude Code 或 Cursor 中试用：
+
+```text
+/clear-output Explain this failing test in English. Keep the error text unchanged: expected 2 calls, received 3.
+```
+
+Codex 将 `/clear-output` 换成 `$clear-output`。中文与混合语言示例：
 
 ```text
 $clear-output 把这段操作说明改清楚，保持原意。
 ```
 
 ```text
-$clear-output Explain this error in English. Preserve the exact log text.
-```
-
-```text
 $clear-output 润色这段英文 README，正文保持英文，用中文解释修改。
 ```
 
-宿主也可以按描述自动选择该技能；显式调用更便于测试。自动触发是否稳定，需要在具体宿主中验证。
+在各宿主中使用对应的调用前缀。英文调试请求应得到英文回答；混合语言示例中的 README 应保持英文，修改说明用中文。宿主也可以按描述自动选择技能，具体触发和渲染能力取决于宿主。
+
+Git 克隆的安装可用 `git -C <安装目录> pull --ff-only` 更新，将占位符替换为实际目录；有本地修改时先处理这些修改。Claude 上传版需要从更新后的仓库重新生成 ZIP，并通过其界面更新技能。
+
+安装目录和调用方式于 2026-11-08 对照上述官方文档核实，已检查目录结构和 ZIP 内容；尚未在真实 Claude Code／Cursor 会话中验证自动触发和输出效果。
 
 ## 我们怎么测试
 
