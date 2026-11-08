@@ -6,6 +6,29 @@ One skill for clearer Chinese, English, and mixed-language technical communicati
 
 Use it for debugging explanations, mechanisms, comparisons, status updates, instructions, and faithful rewrites. It is an instruction-only skill with no required runtime or background service. Producing visual artifacts uses whatever rendering tools the host provides; the skill does not depend on a specific plugin. The core evaluation helpers use Python's standard library; optional rendered-artifact checks use Node.js browser tooling.
 
+## Before / after
+
+The same release rule, shown as prose and a dependency diagram:
+
+![Before: the release rule in prose. After: unit tests and a security scan run in parallel after the build; both must pass to deploy, and either failure stops the release.](assets/showcase/release-en-landscape.png)
+
+These are editorial examples of presentation, not measured model A/B results. [Browse the bilingual images and post drafts](assets/showcase/README.md), or see the [actual evaluation](evals/pilot-report.md).
+
+<details>
+<summary>Two more examples: debugging evidence and working interaction</summary>
+
+Keep the observation, the unconfirmed cause, and the next check distinct:
+
+![A debugging paragraph becomes separate observed evidence, an unconfirmed proxy hypothesis, and a next check; ECONNRESET stays exact.](assets/showcase/debugging-en-landscape.png)
+
+Change a parameter and inspect the result. This animation uses screenshots of actual working HTML states; playback speed does not represent retry duration:
+
+![A backoff explorer updates individual waits, total waiting, and attempt count when its base-delay and retry-count sliders change.](assets/showcase/retry-en.gif)
+
+Download/open the [standalone preview](assets/showcase/showcase.html) to use the controls. GitHub's source view does not run HTML. [Static retry preview](assets/showcase/retry-en-landscape.png).
+
+</details>
+
 ## What it does
 
 - Chooses language from the user's request and the artifact being edited. An English debugging conversation stays English. A Chinese question about an English log gets a Chinese explanation with the log intact.
@@ -153,6 +176,7 @@ The checker validates response coverage, selected literal preservation, and outp
 | [evals/](evals/) | Test inputs, criteria, raw responses, and review |
 | [tools/](tools/) | Local evaluation helpers; not needed to use the skill |
 | [examples/](examples/) | An actual generated and browser-tested explanation |
+| [assets/showcase/](assets/showcase/) | Bilingual before/after graphics, working preview, post copy, and provenance |
 
 ## Origins and contributions
 

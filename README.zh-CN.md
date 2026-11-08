@@ -6,6 +6,29 @@
 
 适用于调试说明、机制讲解、方案比较、进展汇报、操作说明和忠实改写。技能本体只有提示词和参考示例；生成图示或媒体时，使用宿主已有的工具，不绑定特定插件。核心评估工具只使用 Python 标准库，可选的浏览器实测使用 Node.js 工具。
 
+## Before / after：看看表达形式的变化
+
+同一条发布规则，分别用文字和依赖图呈现：
+
+![左侧是发布流程文字；右侧画出构建后的单元测试与安全扫描并行执行，两项都通过才部署，任意一项失败都停止发布。](assets/showcase/release-zh-landscape.png)
+
+这些是编排后的表达示例，并非模型前后效果实测。可以查看[完整中英文素材与发帖文案](assets/showcase/README.md)，或阅读[实际评测报告](evals/pilot-report.md)。
+
+<details>
+<summary>再看两组：调试证据与可操作的交互解释</summary>
+
+把已观察到的错误、尚未确认的原因和下一步检查分开：
+
+![同一段调试说明被分成现象、假设和下一步；ECONNRESET 原样保留，代理关闭连接仍是未确认的假设。](assets/showcase/debugging-zh-landscape.png)
+
+改变参数，直接核对结果。动图由实际运行的 HTML 页面状态截图组成；播放速度不代表重试时长：
+
+![调整基础等待和重试次数后，每次等待、总等待时间和总尝试次数随之变化。](assets/showcase/retry-zh.gif)
+
+下载并打开[独立 HTML 预览](assets/showcase/showcase.html)即可操作，顶部可切换中文。GitHub 源码页面不会运行 HTML。[静态交互预览图](assets/showcase/retry-zh-landscape.png)。
+
+</details>
+
 ## 先选表达形式，再润色文字
 
 | 读者需要理解什么 | 合适的起点 |

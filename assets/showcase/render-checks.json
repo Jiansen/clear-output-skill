@@ -1,0 +1,734 @@
+{
+  "kind": "editorial-showcase-render-checks",
+  "date": "2026-11-08",
+  "disclosure": "Illustrative before/after compositions, not raw model outputs or evidence of a measured skill advantage.",
+  "browser": "157.0.8103.38",
+  "source_sha256": "807f686320e04f7742f9bb55c5c420c71bbdd364c60c6b68d175928bf2fbadbf",
+  "images": [
+    {
+      "file": "release-en-landscape.png",
+      "width": 1600,
+      "height": 1000,
+      "layout": "passed"
+    },
+    {
+      "file": "release-en-portrait.png",
+      "width": 1080,
+      "height": 1350,
+      "layout": "passed"
+    },
+    {
+      "file": "debugging-en-landscape.png",
+      "width": 1600,
+      "height": 1000,
+      "layout": "passed"
+    },
+    {
+      "file": "debugging-en-portrait.png",
+      "width": 1080,
+      "height": 1350,
+      "layout": "passed"
+    },
+    {
+      "file": "retry-en-landscape.png",
+      "width": 1600,
+      "height": 1000,
+      "layout": "passed"
+    },
+    {
+      "file": "retry-en-portrait.png",
+      "width": 1080,
+      "height": 1350,
+      "layout": "passed"
+    },
+    {
+      "file": "release-zh-landscape.png",
+      "width": 1600,
+      "height": 1000,
+      "layout": "passed"
+    },
+    {
+      "file": "release-zh-portrait.png",
+      "width": 1080,
+      "height": 1350,
+      "layout": "passed"
+    },
+    {
+      "file": "debugging-zh-landscape.png",
+      "width": 1600,
+      "height": 1000,
+      "layout": "passed"
+    },
+    {
+      "file": "debugging-zh-portrait.png",
+      "width": 1080,
+      "height": 1350,
+      "layout": "passed"
+    },
+    {
+      "file": "retry-zh-landscape.png",
+      "width": 1600,
+      "height": 1000,
+      "layout": "passed"
+    },
+    {
+      "file": "retry-zh-portrait.png",
+      "width": 1080,
+      "height": 1350,
+      "layout": "passed"
+    }
+  ],
+  "animations": [
+    {
+      "file": "retry-en.gif",
+      "width": 1200,
+      "height": 750,
+      "seconds": 10,
+      "source": "Actual rendered page states changed through keyboard controls; screenshots assembled into GIF.",
+      "states": [
+        {
+          "base_delay_s": 1,
+          "retries": 3,
+          "total_wait_s": 7
+        },
+        {
+          "base_delay_s": 2,
+          "retries": 3,
+          "total_wait_s": 14
+        },
+        {
+          "base_delay_s": 2,
+          "retries": 4,
+          "total_wait_s": 30
+        },
+        {
+          "base_delay_s": 2,
+          "retries": 0,
+          "total_wait_s": 0
+        },
+        {
+          "base_delay_s": 1,
+          "retries": 3,
+          "total_wait_s": 7
+        }
+      ]
+    },
+    {
+      "file": "retry-zh.gif",
+      "width": 1200,
+      "height": 750,
+      "seconds": 10,
+      "source": "Actual rendered page states changed through keyboard controls; screenshots assembled into GIF.",
+      "states": [
+        {
+          "base_delay_s": 1,
+          "retries": 3,
+          "total_wait_s": 7
+        },
+        {
+          "base_delay_s": 2,
+          "retries": 3,
+          "total_wait_s": 14
+        },
+        {
+          "base_delay_s": 2,
+          "retries": 4,
+          "total_wait_s": 30
+        },
+        {
+          "base_delay_s": 2,
+          "retries": 0,
+          "total_wait_s": 0
+        },
+        {
+          "base_delay_s": 1,
+          "retries": 3,
+          "total_wait_s": 7
+        }
+      ]
+    }
+  ],
+  "interaction_states": [
+    {
+      "language": "en",
+      "base_delay_s": 0.5,
+      "retries": 0,
+      "total_wait_s": 0,
+      "attempts": 1,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 0.5,
+      "retries": 1,
+      "total_wait_s": 0.5,
+      "attempts": 2,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 0.5,
+      "retries": 2,
+      "total_wait_s": 1.5,
+      "attempts": 3,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 0.5,
+      "retries": 3,
+      "total_wait_s": 3.5,
+      "attempts": 4,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 0.5,
+      "retries": 4,
+      "total_wait_s": 7.5,
+      "attempts": 5,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 0.5,
+      "retries": 5,
+      "total_wait_s": 15.5,
+      "attempts": 6,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 1,
+      "retries": 0,
+      "total_wait_s": 0,
+      "attempts": 1,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 1,
+      "retries": 1,
+      "total_wait_s": 1,
+      "attempts": 2,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 1,
+      "retries": 2,
+      "total_wait_s": 3,
+      "attempts": 3,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 1,
+      "retries": 3,
+      "total_wait_s": 7,
+      "attempts": 4,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 1,
+      "retries": 4,
+      "total_wait_s": 15,
+      "attempts": 5,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 1,
+      "retries": 5,
+      "total_wait_s": 31,
+      "attempts": 6,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 1.5,
+      "retries": 0,
+      "total_wait_s": 0,
+      "attempts": 1,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 1.5,
+      "retries": 1,
+      "total_wait_s": 1.5,
+      "attempts": 2,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 1.5,
+      "retries": 2,
+      "total_wait_s": 4.5,
+      "attempts": 3,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 1.5,
+      "retries": 3,
+      "total_wait_s": 10.5,
+      "attempts": 4,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 1.5,
+      "retries": 4,
+      "total_wait_s": 22.5,
+      "attempts": 5,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 1.5,
+      "retries": 5,
+      "total_wait_s": 46.5,
+      "attempts": 6,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 2,
+      "retries": 0,
+      "total_wait_s": 0,
+      "attempts": 1,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 2,
+      "retries": 1,
+      "total_wait_s": 2,
+      "attempts": 2,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 2,
+      "retries": 2,
+      "total_wait_s": 6,
+      "attempts": 3,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 2,
+      "retries": 3,
+      "total_wait_s": 14,
+      "attempts": 4,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 2,
+      "retries": 4,
+      "total_wait_s": 30,
+      "attempts": 5,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 2,
+      "retries": 5,
+      "total_wait_s": 62,
+      "attempts": 6,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 2.5,
+      "retries": 0,
+      "total_wait_s": 0,
+      "attempts": 1,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 2.5,
+      "retries": 1,
+      "total_wait_s": 2.5,
+      "attempts": 2,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 2.5,
+      "retries": 2,
+      "total_wait_s": 7.5,
+      "attempts": 3,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 2.5,
+      "retries": 3,
+      "total_wait_s": 17.5,
+      "attempts": 4,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 2.5,
+      "retries": 4,
+      "total_wait_s": 37.5,
+      "attempts": 5,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 2.5,
+      "retries": 5,
+      "total_wait_s": 77.5,
+      "attempts": 6,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 3,
+      "retries": 0,
+      "total_wait_s": 0,
+      "attempts": 1,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 3,
+      "retries": 1,
+      "total_wait_s": 3,
+      "attempts": 2,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 3,
+      "retries": 2,
+      "total_wait_s": 9,
+      "attempts": 3,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 3,
+      "retries": 3,
+      "total_wait_s": 21,
+      "attempts": 4,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 3,
+      "retries": 4,
+      "total_wait_s": 45,
+      "attempts": 5,
+      "passed": true
+    },
+    {
+      "language": "en",
+      "base_delay_s": 3,
+      "retries": 5,
+      "total_wait_s": 93,
+      "attempts": 6,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 0.5,
+      "retries": 0,
+      "total_wait_s": 0,
+      "attempts": 1,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 0.5,
+      "retries": 1,
+      "total_wait_s": 0.5,
+      "attempts": 2,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 0.5,
+      "retries": 2,
+      "total_wait_s": 1.5,
+      "attempts": 3,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 0.5,
+      "retries": 3,
+      "total_wait_s": 3.5,
+      "attempts": 4,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 0.5,
+      "retries": 4,
+      "total_wait_s": 7.5,
+      "attempts": 5,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 0.5,
+      "retries": 5,
+      "total_wait_s": 15.5,
+      "attempts": 6,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 1,
+      "retries": 0,
+      "total_wait_s": 0,
+      "attempts": 1,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 1,
+      "retries": 1,
+      "total_wait_s": 1,
+      "attempts": 2,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 1,
+      "retries": 2,
+      "total_wait_s": 3,
+      "attempts": 3,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 1,
+      "retries": 3,
+      "total_wait_s": 7,
+      "attempts": 4,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 1,
+      "retries": 4,
+      "total_wait_s": 15,
+      "attempts": 5,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 1,
+      "retries": 5,
+      "total_wait_s": 31,
+      "attempts": 6,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 1.5,
+      "retries": 0,
+      "total_wait_s": 0,
+      "attempts": 1,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 1.5,
+      "retries": 1,
+      "total_wait_s": 1.5,
+      "attempts": 2,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 1.5,
+      "retries": 2,
+      "total_wait_s": 4.5,
+      "attempts": 3,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 1.5,
+      "retries": 3,
+      "total_wait_s": 10.5,
+      "attempts": 4,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 1.5,
+      "retries": 4,
+      "total_wait_s": 22.5,
+      "attempts": 5,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 1.5,
+      "retries": 5,
+      "total_wait_s": 46.5,
+      "attempts": 6,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 2,
+      "retries": 0,
+      "total_wait_s": 0,
+      "attempts": 1,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 2,
+      "retries": 1,
+      "total_wait_s": 2,
+      "attempts": 2,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 2,
+      "retries": 2,
+      "total_wait_s": 6,
+      "attempts": 3,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 2,
+      "retries": 3,
+      "total_wait_s": 14,
+      "attempts": 4,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 2,
+      "retries": 4,
+      "total_wait_s": 30,
+      "attempts": 5,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 2,
+      "retries": 5,
+      "total_wait_s": 62,
+      "attempts": 6,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 2.5,
+      "retries": 0,
+      "total_wait_s": 0,
+      "attempts": 1,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 2.5,
+      "retries": 1,
+      "total_wait_s": 2.5,
+      "attempts": 2,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 2.5,
+      "retries": 2,
+      "total_wait_s": 7.5,
+      "attempts": 3,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 2.5,
+      "retries": 3,
+      "total_wait_s": 17.5,
+      "attempts": 4,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 2.5,
+      "retries": 4,
+      "total_wait_s": 37.5,
+      "attempts": 5,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 2.5,
+      "retries": 5,
+      "total_wait_s": 77.5,
+      "attempts": 6,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 3,
+      "retries": 0,
+      "total_wait_s": 0,
+      "attempts": 1,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 3,
+      "retries": 1,
+      "total_wait_s": 3,
+      "attempts": 2,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 3,
+      "retries": 2,
+      "total_wait_s": 9,
+      "attempts": 3,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 3,
+      "retries": 3,
+      "total_wait_s": 21,
+      "attempts": 4,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 3,
+      "retries": 4,
+      "total_wait_s": 45,
+      "attempts": 5,
+      "passed": true
+    },
+    {
+      "language": "zh",
+      "base_delay_s": 3,
+      "retries": 5,
+      "total_wait_s": 93,
+      "attempts": 6,
+      "passed": true
+    }
+  ],
+  "page_errors": [],
+  "network_attempts": [],
+  "keyboard_and_mouse_controls": true,
+  "preview_navigation_and_mobile_fit": true,
+  "ok": true
+}
