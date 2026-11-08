@@ -1,0 +1,28 @@
+html { scroll-padding-top:24px; }
+.site-hero,.install-panel { max-width:900px; margin:0 auto; padding:0 12px; }
+.site-nav { display:flex; gap:24px; align-items:center; padding:26px 0; font-size:15px; }
+.site-nav a { text-decoration:none; }
+.brand { margin-right:auto; font-weight:750; font-size:22px; letter-spacing:-.04em; }
+.brand span { margin-left:7px; }
+.kicker { margin:38px 0 18px; font-size:12px; font-weight:750; letter-spacing:.09em; color:var(--green); }
+.site-hero h1 { font-size:clamp(32px,5vw,55px); line-height:1.08; font-weight:730; letter-spacing:-.045em; margin:0 0 22px; max-width:850px; }
+.hero-summary { max-width:720px; font-size:18px; line-height:1.55; margin:0 0 24px; }
+.site-actions { display:flex; flex-wrap:wrap; gap:12px; }
+.primary,.secondary,button { display:inline-block; padding:11px 16px; border-radius:7px; border:1px solid var(--green); font:inherit; font-weight:600; text-decoration:none; cursor:pointer; }
+.primary { background:var(--green); color:white; }
+.secondary,button { background:transparent; color:var(--green); }
+.hero-note { font-size:13px; line-height:1.5; color:var(--muted); margin:19px 0 40px; }
+.toolbar { border-top:1px solid var(--line); padding-top:24px; }
+.toolbar h2 { font-size:25px; margin-bottom:16px; }
+.install-panel { margin:44px auto 30px; padding:26px; border:1px solid var(--line); border-radius:14px; background:#fffefa; }
+.install-panel .kicker { margin:0 0 12px; }
+.install-panel h2 { font-size:30px; }
+.install-panel p { line-height:1.55; }
+.command-row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; background:var(--pale); padding:16px; border-radius:8px; }
+.command-row code { flex:1; min-width:0; overflow-wrap:anywhere; font-size:14px; line-height:1.5; }
+.command-row button { font-size:13px; }
+.install-help { font-size:14px; color:var(--muted); }
+.install-panel label { display:block; margin:24px 0 9px; font-weight:650; }
+.sample-prompt { white-space:pre-wrap; overflow-wrap:anywhere; font:15px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace; padding:16px; background:#f0f0e8; border-radius:8px; }
+#copy-status { font-size:14px; min-height:22px; }
+@media(max-width:600px) { .site-nav { gap:15px; font-size:13px; }.brand { font-size:19px; }.site-hero .kicker{margin-top:24px;}.hero-summary{font-size:17px;}.install-panel{margin:28px 12px;padding:18px;}.install-panel h2{font-size:25px;} }

@@ -1,0 +1,35 @@
+name: Share a clarity example
+description: Show where Clear Output helped, failed, or changed the meaning.
+title: '[Example] '
+body:
+  - type: markdown
+    attributes:
+      value: 'A small reproducible example helps us improve the skill. Remove private data before posting. Chinese and English are both welcome.'
+  - type: input
+    id: setup
+    attributes:
+      label: Agent, model, and skill version
+      placeholder: 'For example: Codex, model name, Clear Output 0.1.1'
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: Your request and source material
+      description: Include the requested language and format.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: What the agent actually returned
+      description: Paste text or attach the relevant image. Include the comparison output if you tried without the skill.
+    validations:
+      required: true
+  - type: textarea
+    id: finding
+    attributes:
+      label: What became easier or went wrong?
+      description: Point to a specific condition, value, word, visual relation, or action. Positive and negative examples are useful.
+    validations:
+      required: true

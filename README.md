@@ -2,7 +2,7 @@
 
 [简体中文](README.zh-CN.md)
 
-[Latest release](https://github.com/Jiansen/clear-output-skill/releases/latest) · [What's changed](CHANGELOG.md) · [Get update notifications](references/updates.md)
+[Live demo](https://jiansen.github.io/clear-output-skill/) · [Install](#install-and-use) · [Latest release](https://github.com/Jiansen/clear-output-skill/releases/latest) · [What's changed](CHANGELOG.md) · [Get update notifications](references/updates.md)
 
 One skill for clearer AI output in Chinese, English, and mixed-language tasks. It uses words, diagrams, and interaction to help the reader understand and verify the result while preserving language, factual meaning, uncertainty, and technical literals.
 
@@ -29,7 +29,7 @@ Six examples of making the same information easier to inspect. Choose the form t
 
 These are editorial examples of presentation, not measured model A/B results. The travel, workshop, and survey scenarios are fictional. The linked animation uses actual working HTML states; playback speed does not represent retry duration.
 
-Click a card for the full-size image. Download/open the [bilingual interactive gallery](assets/readme/examples.html) to use its controls; GitHub's source view does not run HTML. [Animated retry preview](assets/readme/retry-en.gif) · [Static retry preview](assets/readme/retry-en.png) · [All six examples and sources](assets/readme/README.md) · [Social images and post drafts](assets/showcase/README.md) · [Actual evaluation](evals/pilot-report.md).
+Click a card for the full-size image. Try the [live bilingual demo](https://jiansen.github.io/clear-output-skill/) in your browser, or download/open the [offline gallery](assets/readme/examples.html); GitHub's source view does not run HTML. [Animated retry preview](assets/readme/retry-en.gif) · [Static retry preview](assets/readme/retry-en.png) · [All six examples and sources](assets/readme/README.md) · [Social images and post drafts](assets/showcase/README.md) · [Actual evaluation](evals/pilot-report.md).
 
 ## What it does
 
@@ -42,6 +42,14 @@ Click a card for the full-size image. Download/open the [bilingual interactive g
 The skill applies to the current task. It does not turn the whole conversation into a permanent language or style mode. It does not check whether source facts are true, and it does not certify ASD-STE100 compliance.
 
 ## Install and use
+
+With the optional [skills CLI](https://github.com/vercel-labs/skills), run this in your project:
+
+```bash
+npx skills add Jiansen/clear-output-skill --skill clear-output
+```
+
+Requires Node.js 22.20+. Select your agent when prompted; add `-g` for a personal installation. Already installed? Use your existing copy. The CLI has its own [installation telemetry](https://skills.sh/docs/cli); set `DISABLE_TELEMETRY=1` to opt out. Manual installation and release ZIPs are available below. The CLI installation was checked in isolated Codex, Claude Code, and Cursor project locations; this does not establish model-output quality in those hosts.
 
 The core instructions work without a runtime or background service. Optional local checks use Python 3.10+ with no extra packages. Producing visual artifacts uses whatever rendering tools the host provides; the skill does not depend on a specific plugin.
 
@@ -222,6 +230,8 @@ python3 tools/check_responses.py evals/results/full-skill.json
 ## Origins and contributions
 
 The project takes inspiration from [Andrej Karpathy's discussion of clearer AI output](https://x.com/karpathy/status/2105819303471976479), [ASD-STE100](https://www.asd-ste100.org/), and the open-source projects listed in [ATTRIBUTION.md](ATTRIBUTION.md). These are original bilingual instructions, not an official Chinese edition or a reproduction of the ASD dictionary.
+
+Try it on one real task, then [share what helped or failed](https://github.com/Jiansen/clear-output-skill/issues/new?template=clarity-feedback.yml). See [CONTRIBUTING.md](CONTRIBUTING.md) for examples and checks.
 
 Contributions should include a realistic failure case, the intended semantic invariants, and before/after responses. Prefer a narrow, demonstrated correction over adding universal rules. Keep evaluation inputs synthetic or explicitly licensed for publication.
 

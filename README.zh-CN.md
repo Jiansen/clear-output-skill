@@ -2,7 +2,7 @@
 
 [English](README.md)
 
-[最新版本](https://github.com/Jiansen/clear-output-skill/releases/latest) · [更新日志](CHANGELOG.md) · [订阅更新通知](references/updates.md)
+[在线体验](https://jiansen.github.io/clear-output-skill/?lang=zh) · [安装](#安装与使用) · [最新版本](https://github.com/Jiansen/clear-output-skill/releases/latest) · [更新日志](CHANGELOG.md) · [订阅更新通知](references/updates.md)
 
 一个让 AI 输出更清楚的技能，兼容中文、英文和中英混合任务。通过文字、图示和交互，让读者更容易准确理解、核对结果，同时保留原意、语言、不确定性和技术原文。
 
@@ -29,7 +29,7 @@
 
 这些是编排后的表达示例，并非模型前后效果实测；行程、工作坊和调查场景均为虚构。链接中的动图来自实际运行的 HTML 状态，播放速度不代表重试时长。
 
-点击卡片可看原图。下载并打开[中英文交互预览](assets/readme/examples.html)即可操作，GitHub 源码页面不会运行 HTML。[重试动图](assets/readme/retry-zh.gif) · [静态重试图](assets/readme/retry-zh.png) · [六组素材与来源](assets/readme/README.md) · [社交媒体图片与发帖文案](assets/showcase/README.md) · [实际评测报告](evals/pilot-report.md)。
+点击卡片可看原图。可直接打开[中英文在线体验](https://jiansen.github.io/clear-output-skill/?lang=zh)，也可以下载[离线预览](assets/readme/examples.html)。GitHub 源码页面不会运行 HTML。[重试动图](assets/readme/retry-zh.gif) · [静态重试图](assets/readme/retry-zh.png) · [六组素材与来源](assets/readme/README.md) · [社交媒体图片与发帖文案](assets/showcase/README.md) · [实际评测报告](evals/pilot-report.md)。
 
 ## 先选表达形式，再润色文字
 
@@ -68,6 +68,14 @@
 它不验证原始事实是否正确，也不宣称符合完整的 ASD-STE100 标准。
 
 ## 安装与使用
+
+可选用 [skills CLI](https://github.com/vercel-labs/skills)，在项目目录运行：
+
+```bash
+npx skills add Jiansen/clear-output-skill --skill clear-output
+```
+
+需要 Node.js 22.20+。按提示选择 agent；加 `-g` 可安装到个人目录。已经安装过则继续使用已有副本。CLI 有自己的[安装遥测](https://skills.sh/docs/cli)，设置 `DISABLE_TELEMETRY=1` 可关闭。下方也提供手动安装和正式版 ZIP。已在隔离项目中核对 Codex、Claude Code、Cursor 的 CLI 安装结果；这不代表已验证这些宿主的模型输出质量。
 
 核心提示词无需运行时或后台服务；可选的本地检查器使用 Python 3.10+，不需要额外安装包。生成图示或媒体时，使用宿主已有的工具，不绑定特定插件。
 

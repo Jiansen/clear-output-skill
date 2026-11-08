@@ -2,6 +2,48 @@
 
 Use the three portrait cards together for an introduction, or publish each example with its own caption. Chinese and English are separate versions so an English post can remain entirely in English. All comparisons are editorial illustrations; the project's measured results belong in the linked evaluation reports.
 
+## Current launch drafts: everyday work and technical work
+
+These drafts are prepared for the maintainer to review and publish. They have not been posted to a social account. Link to the [live demo](https://jiansen.github.io/clear-output-skill/) so readers can inspect the examples without downloading a file.
+
+### Short English post
+
+> AI did the work. Can you understand and check the result?
+>
+> We built Clear Output: a skill for clearer words, diagrams, and interactive explanations—in English or Chinese.
+>
+> Try the examples: https://jiansen.github.io/clear-output-skill/
+
+Attach [the share card](../../site/social-card.png), or a [meeting-notes example](../readme/meeting-en.png). Alt text for the share card: Clear Output helps make AI answers easier to understand and check, using words, diagrams, and interaction in English and Chinese.
+
+### 中文短帖
+
+> AI 把活做完了，结果你能看懂、核对清楚吗？
+>
+> 我们开源了 Clear Output：让 agent 根据问题选择文字、图示或交互，兼容中文和英文。
+>
+> 比较方案、整理会议行动项、读懂调查结果，也适用于技术任务。六组示例可以直接体验：
+> https://jiansen.github.io/clear-output-skill/?lang=zh
+
+配图：[日常选择](../readme/choices-zh.png)、[会议行动项](../readme/meeting-zh.png)、[调查解读](../readme/reading-zh.png)。这些是虚构情境的编排示例。
+
+### Longer introduction
+
+> We built Clear Output because getting an answer from an AI agent still leaves us with the work of understanding and checking it.
+>
+> It is an open-source skill for English, Chinese, and mixed-language tasks. It helps the agent choose a useful form: a shared-criteria table for a decision, clear action items for meeting notes, a dependency diagram for a process, or working controls for exploring a variable.
+>
+> It is designed to preserve the task's language, conditions, numbers, and uncertainty. An English debugging task stays English. A possible cause stays a hypothesis.
+>
+> The demo includes everyday choices, meeting notes, survey interpretation, release conditions, debugging evidence, and a working retry calculator. The examples are authored illustrations. The repository separately publishes actual evaluation outputs and their limitations.
+>
+> Try the demo: https://jiansen.github.io/clear-output-skill/
+> Install or inspect the source: https://github.com/Jiansen/clear-output-skill
+>
+> Try it on one real task and tell us where the output became easier to inspect—or where it lost something important.
+
+These drafts make no measured comprehension-speed or adoption claim. For Hacker News, follow its requirement to write and post your own text; these AI-assisted drafts are not intended for HN.
+
 ## 中文：项目介绍
 
 配图顺序：[发布流程](release-zh-portrait.png)、[调试说明](debugging-zh-portrait.png)、[重试交互](retry-zh-portrait.png)。
