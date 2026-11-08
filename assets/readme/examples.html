@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clear Output — everyday and technical examples</title>
+<style>
+:root { --ink:#16332f; --muted:#52645d; --green:#0b6556; --line:#d3ded5; --pale:#e7f1e9; --paper:#f7f6f0; --red:#983e32; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; }
+.toolbar { max-width:900px; margin:24px auto 18px; padding:0 12px; }
+.toolbar h1 { font-size:26px; margin:0 0 12px; letter-spacing:-.025em; }
+.toolbar p { font-size:15px; color:var(--muted); line-height:1.5; margin:10px 0; }
+select { font:inherit; padding:7px 12px; background:white; border:1px solid var(--line); border-radius:7px; }
+a { color:var(--green); }
+#gallery { max-width:900px; margin:0 auto 24px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; align-items:start; }
+.card { width:440px; padding:20px; background:#fffefa; border:1px solid var(--line); border-radius:14px; }
+.eyebrow { color:var(--green); font-size:11px; font-weight:750; letter-spacing:.07em; line-height:1.5; text-transform:uppercase; }
+h2 { margin:7px 0 16px; font-size:22px; line-height:1.23; letter-spacing:-.025em; }
+.label { margin:0 0 6px; font-size:11px; font-weight:750; letter-spacing:.065em; color:var(--muted); text-transform:uppercase; }
+.source { font-size:16.5px; line-height:1.45; margin:0; }
+.before { padding:12px 14px; margin-bottom:16px; background:#f0f0e8; border-radius:8px; }
+.after .label { color:var(--green); margin-bottom:10px; }
+code { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:.88em; }
+.formula { white-space:nowrap; }
+table { width:100%; border-collapse:collapse; font-size:16px; line-height:1.35; }
+th,td { text-align:left; padding:7px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+thead { background:var(--pale); }
+th { font-weight:650; }
+.choice th:first-child { width:39%; }
+.condition { margin:12px 0 0; font-size:15px; line-height:1.5; }
+.decision { font-size:16px; padding:9px 11px; border-radius:6px; margin:0 0 10px; background:var(--pale); }
+.actions { font-size:15px; }
+.actions td:first-child { font-weight:650; width:17%; }
+.actions td:nth-child(2) { width:37%; }
+.open { font-size:15px; padding:9px 11px; margin:11px 0 0; background:#f5eddd; border-radius:6px; }
+.survey-stat { display:flex; gap:20px; align-items:center; }
+.stat { font-size:43px; font-weight:720; line-height:1.1; letter-spacing:-.045em; }
+.stat small { font-size:24px; font-weight:450; color:var(--muted); }
+.dots { display:grid; grid-template-columns:repeat(10,12px); gap:5px; }
+.dot { width:12px; height:12px; border-radius:50%; border:1.5px solid var(--green); background:transparent; }
+.dot.filled { background:var(--green); }
+.survey-caption { margin:10px 0 0; font-size:16px; line-height:1.45; }
+.limit { margin:12px 0 0; padding:10px 12px; border-left:3px solid var(--green); background:var(--pale); font-size:16px; line-height:1.4; }
+.flow { display:block; width:100%; height:auto; }
+.flow text { font-family:inherit; fill:var(--ink); font-size:20px; font-weight:550; text-anchor:middle; dominant-baseline:middle; }
+.flow .edge-label { font-size:17px; }
+.flow .note { font-size:16px; fill:var(--muted); }
+.flow .stop-label { font-size:18px; fill:var(--red); }
+.flow .white { fill:white; }
+.evidence { display:grid; gap:10px; }
+.evidence-row { display:grid; grid-template-columns:104px 1fr; gap:10px; border-top:1px solid var(--line); padding-top:10px; }
+.evidence-row:first-child { border:0; padding-top:0; }
+.evidence h3 { font-size:14px; line-height:1.45; margin:0; color:var(--green); }
+.evidence p { font-size:16px; line-height:1.4; margin:0; }
+.evidence code { display:inline-block; background:var(--pale); padding:3px 7px; border-radius:4px; margin-top:5px; font-size:15px; }
+.evidence .unknown { color:var(--muted); margin-top:5px; font-size:14px; }
+.explorer { display:grid; gap:10px; }
+.inputs { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.input-label { display:flex; justify-content:space-between; gap:5px; font-size:15px; }
+.input-label output { font-weight:700; }
+input[type=range] { width:100%; margin:7px 0 0; accent-color:var(--green); cursor:pointer; }
+.range-limits { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); }
+.metrics { display:grid; grid-template-columns:1.35fr 1fr; gap:16px; background:var(--pale); border-radius:7px; padding:10px 13px; }
+.metric-value { font-size:35px; font-weight:730; letter-spacing:-.04em; line-height:1.05; font-variant-numeric:tabular-nums; }
+.metric-value small { font-size:18px; font-weight:450; }
+.metric-label { font-size:12px; color:var(--muted); line-height:1.35; margin-top:5px; }
+.attempts { border-left:1px solid #abc8b9; padding-left:16px; }
+.bar-chart { min-height:96px; display:grid; gap:6px; align-content:center; }
+.bar-row { display:grid; grid-template-columns:61px 1fr 48px; align-items:center; gap:9px; font-size:13px; }
+.bar-track { height:10px; border-radius:3px; background:#edf1e9; overflow:hidden; }
+.bar-fill { height:100%; border-radius:3px; background:var(--green); }
+.value { text-align:right; font-variant-numeric:tabular-nums; }
+.scale-note,.artifact-note { font-size:12px; color:var(--muted); line-height:1.4; margin:0; }
+.artifact-note { padding-top:7px; border-top:1px solid var(--line); }
+.zero { font-size:15px; line-height:1.45; margin:0; }
+.footer { max-width:900px; margin:0 auto 28px; font-size:14px; color:var(--muted); line-height:1.5; }
+:focus-visible { outline:3px solid #aa6318; outline-offset:3px; }
+@media(max-width:920px) { #gallery { padding:0 12px; gap:12px; } .card { width:100%; } .toolbar,.footer { padding:0 12px; } }
+@media(max-width:680px) { #gallery { grid-template-columns:1fr; max-width:464px; } }
+[data-export=true] .toolbar,[data-export=true] .footer { display:none; }
+[data-export=true] #gallery { width:896px; padding:0; margin:0; }
+[data-export=true] .card { width:440px; }
+</style>
+</head>
+<body>
+<header class="toolbar">
+  <h1 id="page-title">Clear Output, in everyday work and in code</h1>
+  <label><span id="language-label">Language</span> <select id="language"><option value="en">English</option><option value="zh">简体中文</option></select></label>
+  <p id="intro"></p>
+</header>
+<main id="gallery"></main>
+<footer class="footer" id="footer"></footer>
+<script>
+const COPY = {
+ en: {
+  page:'Clear Output, in everyday work and in code', language:'Language', before:'Before', after:'After',
+  intro:'Six ways to make an AI answer easier to understand and check. These are authored examples, not measured model before/after results. The first three use fictional situations.',
+  footer:'The retry controls work here. README images are previews; GIF playback speed does not represent retry timing. No external services or fonts are used.',
+  cases:[
+   {id:'choices',category:'01 · Everyday decisions',title:'Which option fits my priorities?',form:'A comparison you can scan',before:'For this fictional trip, Plan A costs US$60 and takes 2 hours with no changes. Plan B costs US$40 and takes 3 hours with one change. Choose A if saving time matters more; B if spending less matters more.'},
+   {id:'meeting',category:'02 · Notes into action',title:'Who does what next?',form:'Decisions, actions, and open items',before:'The team agreed to hold the workshop on Friday. Maya will confirm the room by Tuesday. Leo will send invitations after the room is confirmed. The budget is still undecided.'},
+   {id:'reading',category:'03 · Reading and learning',title:'What does the survey tell us?',form:'A result with its limits',before:'In a fictional class survey, 18 of 30 students said they preferred morning lessons. The survey records a preference; it does not show that morning classes improve learning.'},
+   {id:'release',category:'04 · Following a process',title:'When can we deploy?',form:'Dependency diagram',before:'After the build completes, unit tests and the security scan run in parallel. Deploy only if both pass. Stop the release if either fails.'},
+   {id:'debugging',category:'05 · Checking a hypothesis',title:'What do we actually know?',form:'Evidence → hypothesis → check',before:'The request failed with <code>ECONNRESET</code>. A proxy may have closed the connection, but the cause is not confirmed. Check the proxy logs to test that hypothesis.'},
+   {id:'retry',category:'06 · Exploring a variable',title:'What does one more retry cost?',form:'Interactive HTML preview',before:'Each retry waits twice as long as the previous one, starting at b seconds. For n retries, total waiting time is <span class="formula">b × (2ⁿ − 1)</span>. There are <span class="formula">n + 1</span> attempts. Execution time is excluded.'}
+  ],
+  choice:{criterion:'Compare',a:'Plan A',b:'Plan B',cost:'Cost',time:'Travel time',changes:'Changes',two:'2 hours',three:'3 hours',priority:'If time matters more → A.<br>If spending less matters more → B.'},
+  meeting:{decision:'Decided: workshop on Friday.',owner:'Owner',action:'Action',when:'When',room:'Confirm the room',tuesday:'By Tuesday',invite:'Send invitations',confirmed:'After the room is confirmed',open:'Still open: the budget.'},
+  reading:{caption:'18 of 30 students preferred morning lessons (60%).',limit:'This preference does not establish a learning benefit.',dots:'30 students surveyed; 18 reported a preference for morning lessons. Remaining responses are not specified.'},
+  flow:{build:'Build complete',parallel:'RUN IN PARALLEL',tests:'Unit tests',scan:'Security scan',pass:'Pass',fail:'Fail',stop:'Stop release',join:'Both passed',deploy:'Deploy'},
+  evidence:{observed:'Observed',observation:'The request failed.',hypothesis:'Hypothesis',cause:'A proxy may have closed the connection.',unknown:'Cause not confirmed.',next:'Next check',check:'Inspect the proxy logs.'},
+  retry:{base:'Base delay',retries:'Retries',wait:'Total waiting · execution excluded',attempts:'Total attempts',zero:'0 retries → 0 s waiting, 1 initial attempt.',scale:'Bar scale',scaleTail:'adjusts to the longest wait',note:'Live controls in the HTML · PNG is a static preview',seconds:'seconds'}
+ },
+ zh: {
+  page:'Clear Output：日常工作与技术任务都适用', language:'语言', before:'改写前', after:'改写后',
+  intro:'六种让 AI 回答更容易理解和核对的方式。这些是编排后的示例，并非模型前后效果评测；前三个使用虚构情境。',
+  footer:'此页的重试控件可以操作。README 中是预览；GIF 播放速度不代表重试耗时。无需外部服务或字体。',
+  cases:[
+   {id:'choices',category:'01 · 日常选择',title:'哪个方案更适合我？',form:'按相同标准比较',before:'在这个虚构行程中，方案 A 花费 60 美元，需 2 小时，无需换乘；方案 B 花费 40 美元，需 3 小时，换乘 1 次。更看重时间就选 A；更看重少花钱就选 B。'},
+   {id:'meeting',category:'02 · 笔记变成行动',title:'接下来谁做什么？',form:'决定、行动项、待定事项',before:'团队决定周五举办工作坊。Maya 最晚周二确认场地；Leo 会在场地确认后发出邀请。预算仍未确定。'},
+   {id:'reading',category:'03 · 阅读与学习',title:'这份调查说明了什么？',form:'看清结果，也保留边界',before:'在一份虚构的班级调查中，30 名学生里有 18 名表示更喜欢上午上课。这项调查记录的是偏好，不能说明上午上课能提高学习效果。'},
+   {id:'release',category:'04 · 看懂流程',title:'什么时候可以部署？',form:'依赖关系图',before:'构建完成后，单元测试和安全扫描并行进行。两者都通过才部署，任意一项失败就停止发布。'},
+   {id:'debugging',category:'05 · 核对假设',title:'我们到底知道什么？',form:'现象 → 假设 → 下一步',before:'请求失败，错误为 <code>ECONNRESET</code>。可能是代理关闭了连接，但原因尚未确认。需要查看代理日志，验证这个假设。'},
+   {id:'retry',category:'06 · 探索变量',title:'多重试一次，会多等多久？',form:'可操作的 HTML 预览',before:'首次重试前等待 b 秒，此后每次等待时间翻倍。重试 n 次，总等待时间为 <span class="formula">b × (2ⁿ − 1)</span>，总尝试次数为 <span class="formula">n + 1</span>。不计执行耗时。'}
+  ],
+  choice:{criterion:'比较项',a:'方案 A',b:'方案 B',cost:'花费',time:'行程时间',changes:'换乘次数',two:'2 小时',three:'3 小时',priority:'更看重时间 → A。<br>更看重少花钱 → B。'},
+  meeting:{decision:'已决定：周五举办工作坊。',owner:'负责人',action:'行动项',when:'时间／条件',room:'确认场地',tuesday:'最晚周二',invite:'发出邀请',confirmed:'场地确认后',open:'待定：预算。'},
+  reading:{caption:'18 / 30 名学生更喜欢上午上课（60%）。',limit:'这项偏好不能证明学习效果更好。',dots:'共调查 30 名学生，18 名表示更喜欢上午上课；其余回答未说明。'},
+  flow:{build:'构建完成',parallel:'并行执行',tests:'单元测试',scan:'安全扫描',pass:'通过',fail:'失败',stop:'停止发布',join:'两项都通过',deploy:'部署'},
+  evidence:{observed:'已观察到',observation:'请求失败。',hypothesis:'待验证假设',cause:'可能是代理关闭了连接。',unknown:'原因尚未确认。',next:'下一步',check:'查看代理日志，验证假设。'},
+  retry:{base:'基础等待',retries:'重试次数',wait:'总等待时间 · 不计执行耗时',attempts:'总尝试次数',zero:'重试 0 次 → 等待 0 秒，仅初次尝试。',scale:'条形尺度',scaleTail:'随最长等待调整',note:'HTML 中可调节参数 · PNG 为静态预览',seconds:'秒'}
+ }
+};
+let language=new URLSearchParams(location.search).get('lang')==='zh'?'zh':'en';
+document.body.dataset.export=new URLSearchParams(location.search).get('export')==='1';
+function choice(c) {
+ return `<table class="choice"><thead><tr><th>${c.criterion}</th><th>${c.a}</th><th>${c.b}</th></tr></thead><tbody><tr><th>${c.cost}</th><td>US$60</td><td>US$40</td></tr><tr><th>${c.time}</th><td>${c.two}</td><td>${c.three}</td></tr><tr><th>${c.changes}</th><td>0</td><td>1</td></tr></tbody></table><p class="condition">${c.priority}</p>`;
+}
+function meeting(c) {
+ return `<p class="decision">${c.decision}</p><table class="actions"><thead><tr><th>${c.owner}</th><th>${c.action}</th><th>${c.when}</th></tr></thead><tbody><tr><td>Maya</td><td>${c.room}</td><td>${c.tuesday}</td></tr><tr><td>Leo</td><td>${c.invite}</td><td>${c.confirmed}</td></tr></tbody></table><p class="open">${c.open}</p>`;
+}
+function reading(c) {
+ return `<div class="survey-stat"><div class="stat">18 <small>/ 30</small></div><div class="dots" role="img" aria-label="${c.dots}">${Array.from({length:30},(_,i)=>`<span class="dot ${i<18?'filled':''}"></span>`).join('')}</div></div><p class="survey-caption">${c.caption}</p><p class="limit">${c.limit}</p>`;
+}
+function flow(c) {
+ return `<svg class="flow" viewBox="0 0 450 286" role="img" aria-label="${COPY[language].cases.find(x=>x.id==='release').before}">
+ <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#0b6556"/></marker><marker id="fail-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#983e32"/></marker></defs>
+ <rect x="145" y="4" width="160" height="34" rx="7" fill="#e7f1e9" stroke="#a8c3b3"/><text x="225" y="22">${c.build}</text>
+ <path data-edge="build-tests" d="M225 38V56H105V85" stroke="#0b6556" stroke-width="2" fill="none" marker-end="url(#arrow)"/><path data-edge="build-scan" d="M225 56H345V85" stroke="#0b6556" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+ <text class="note" x="225" y="73">${c.parallel}</text>
+ <rect x="20" y="90" width="170" height="34" rx="7" fill="#fffefa" stroke="#a8c3b3"/><text x="105" y="108">${c.tests}</text><rect x="260" y="90" width="170" height="34" rx="7" fill="#fffefa" stroke="#a8c3b3"/><text x="345" y="108">${c.scan}</text>
+ <path data-edge="tests-pass-join" d="M145 124V154H185V183" stroke="#0b6556" stroke-width="2" fill="none" marker-end="url(#arrow)"/><path data-edge="scan-pass-join" d="M305 124V154H265V183" stroke="#0b6556" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+ <text class="edge-label" x="182" y="138">${c.pass}</text><text class="edge-label" x="268" y="138">${c.pass}</text>
+ <path data-edge="tests-fail-stop" d="M70 124V183" stroke="#983e32" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#fail-arrow)"/><path data-edge="scan-fail-stop" d="M380 124V183" stroke="#983e32" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#fail-arrow)"/>
+ <text class="edge-label stop-label" x="42" y="160">${c.fail}</text><text class="edge-label stop-label" x="413" y="160">${c.fail}</text>
+ <rect x="6" y="188" width="128" height="36" rx="7" fill="#fbede6" stroke="#d9ad9e"/><text class="stop-label" x="70" y="207">${c.stop}</text><rect x="316" y="188" width="128" height="36" rx="7" fill="#fbede6" stroke="#d9ad9e"/><text class="stop-label" x="380" y="207">${c.stop}</text>
+ <rect x="147" y="188" width="156" height="36" rx="7" fill="#e7f1e9" stroke="#a8c3b3"/><text x="225" y="207">${c.join}</text><path data-edge="join-deploy" d="M225 224V247" stroke="#0b6556" stroke-width="2" marker-end="url(#arrow)"/>
+ <rect x="155" y="252" width="140" height="30" rx="7" fill="#0b6556"/><text class="white" x="225" y="268">${c.deploy}</text></svg>`;
+}
+function evidence(c) {
+ return `<div class="evidence"><div class="evidence-row"><h3>${c.observed}</h3><div><p>${c.observation}</p><code>ECONNRESET</code></div></div><div class="evidence-row"><h3>${c.hypothesis}</h3><div><p>${c.cause}</p><p class="unknown">${c.unknown}</p></div></div><div class="evidence-row"><h3>${c.next}</h3><p>${c.check}</p></div></div>`;
+}
+function explorer(c) {
+ return `<div class="explorer"><div class="inputs"><div><div class="input-label"><label for="base">${c.base}</label><output id="base-value" for="base">1 s</output></div><input id="base" type="range" min="0.5" max="3" step="0.5" value="1"><div class="range-limits"><span>0.5 s</span><span>3 s</span></div></div><div><div class="input-label"><label for="retries">${c.retries}</label><output id="retry-value" for="retries">3</output></div><input id="retries" type="range" min="0" max="5" step="1" value="3"><div class="range-limits"><span>0</span><span>5</span></div></div></div><div class="metrics"><div><div class="metric-value"><span id="total">7</span> <small>s</small></div><div class="metric-label">${c.wait}</div></div><div class="attempts"><div class="metric-value" id="attempts">4</div><div class="metric-label">${c.attempts}</div></div></div><div id="bars" class="bar-chart"></div><p id="scale" class="scale-note"></p><p class="artifact-note">${c.note}</p></div>`;
+}
+function updateRetry() {
+ const c=COPY[language].retry, base=Number(document.getElementById('base').value), retries=Number(document.getElementById('retries').value);
+ const waits=Array.from({length:retries},(_,k)=>base*2**k), maximum=waits.at(-1)||0;
+ document.getElementById('base-value').textContent=base+' s';
+ document.getElementById('retry-value').textContent=String(retries);
+ document.getElementById('base').setAttribute('aria-valuetext',base+' '+c.seconds);
+ document.getElementById('total').textContent=String(waits.reduce((a,b)=>a+b,0));
+ document.getElementById('attempts').textContent=String(retries+1);
+ document.getElementById('bars').innerHTML=waits.length?waits.map((wait,k)=>`<div class="bar-row"><span>${language==='zh'?`第 ${k+1} 次`:`Retry ${k+1}`}</span><div class="bar-track" aria-hidden="true"><div class="bar-fill" style="width:${wait/maximum*100}%"></div></div><span class="value">${wait} s</span></div>`).join(''):`<p class="zero">${c.zero}</p>`;
+ document.getElementById('scale').textContent=`${c.scale}: 0–${maximum} s · ${c.scaleTail}`;
+}
+function render() {
+ const c=COPY[language]; document.documentElement.lang=language==='zh'?'zh-CN':'en';
+ document.getElementById('language').value=language;
+ document.getElementById('language-label').textContent=c.language;
+ document.getElementById('page-title').textContent=c.page;
+ document.getElementById('intro').textContent=c.intro;
+ document.getElementById('footer').textContent=c.footer;
+ const after={choices:choice(c.choice),meeting:meeting(c.meeting),reading:reading(c.reading),release:flow(c.flow),debugging:evidence(c.evidence),retry:explorer(c.retry)};
+ document.getElementById('gallery').innerHTML=c.cases.map(item=>`<article class="card" id="${item.id}"><div class="eyebrow">${item.category}</div><h2>${item.title}</h2><section class="before"><p class="label">${c.before}</p><p class="source">${item.before}</p></section><section class="after"><p class="label">${c.after} · ${item.form}</p>${after[item.id]}</section></article>`).join('');
+ document.getElementById('base').addEventListener('input',updateRetry);
+ document.getElementById('retries').addEventListener('input',updateRetry);
+ updateRetry();
+}
+document.getElementById('language').addEventListener('change',event=>{language=event.target.value;render();});
+render();
+</script>
+</body>
+</html>

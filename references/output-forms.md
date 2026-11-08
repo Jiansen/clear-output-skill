@@ -13,6 +13,12 @@ Choose for the reader's question. The availability of a renderer does not by its
 
 ## Examples of the decision
 
+**Everyday choices with different priorities.** Put options against the same criteria in a table. Keep missing information visible. If the source makes a recommendation conditional on cost, time, or another priority, preserve that condition instead of inventing an overall winner.
+
+**Meeting notes that need action.** Separate decisions, assigned actions, dependencies, and open questions. Preserve who committed to what and when. A prerequisite such as room confirmation is not a calendar deadline; an undecided budget is not an approved one.
+
+**A survey or reading summary.** A chart can make a count or proportion easier to inspect. Keep its denominator and the limits of the evidence visible. A reported preference does not by itself establish better outcomes or causation. Do not fill in unreported answers.
+
 **A cache with hit/miss branches.** Draw the branches and label the hit/miss conditions. Do not add a connection from cache to database unless the supplied architecture has it. A sentence beside the diagram can state the main difference between the two paths.
 
 **Two independent checks before deployment.** Draw a split and a join or otherwise make concurrency explicit. A chain of arrows would incorrectly imply sequential execution.

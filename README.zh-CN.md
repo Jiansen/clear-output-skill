@@ -4,32 +4,32 @@
 
 [最新版本](https://github.com/Jiansen/clear-output-skill/releases/latest) · [更新日志](CHANGELOG.md) · [订阅更新通知](references/updates.md)
 
-一个兼容中文、英文和中英混合内容的表达技能。通过文字、图示和交互，让读者更容易准确理解、核对结果，同时保留原意、语言、不确定性和技术原文。
+一个让 AI 输出更清楚的技能，兼容中文、英文和中英混合任务。通过文字、图示和交互，让读者更容易准确理解、核对结果，同时保留原意、语言、不确定性和技术原文。
 
-适用于调试说明、机制讲解、方案比较、进展汇报、操作说明和忠实改写。核心提示词无需运行时或后台服务；可选的本地检查器使用 Python 3.10+，不需要额外安装包。生成图示或媒体时，使用宿主已有的工具，不绑定特定插件。
+**适合谁？** 用 AI agent 比较方案、学习知识、整理行动项、讲解流程或核对结果的人。日常生活、学习、团队协作和技术工作都适用。
 
 ## Before / after：看看表达形式的变化
 
-同一条发布规则，分别用文字和依赖图呈现：
+六个例子，看看同样的信息怎样变得更容易理解和核对。按读者的需要选择形式；这些是起点，不是适用范围的上限。
 
-![左侧是发布流程文字；右侧画出构建后的单元测试与安全扫描并行执行，两项都通过才部署，任意一项失败都停止发布。](assets/showcase/release-zh-landscape.png)
+<p align="center">
+  <a href="assets/readme/choices-zh.png"><img src="assets/readme/choices-zh.png" width="400" align="top" alt="日常选择：按费用、时间和换乘次数比较两个虚构行程，再根据自己的优先项选择。"></a>
+  <a href="assets/readme/meeting-zh.png"><img src="assets/readme/meeting-zh.png" width="400" align="top" alt="会议行动项：分清工作坊的已定事项、Maya 最晚周二确认场地、Leo 等场地确认后发邀请，以及尚未确定的预算。"></a>
+</p>
 
-这些是编排后的表达示例，并非模型前后效果实测。可以查看[完整中英文素材与发帖文案](assets/showcase/README.md)，或阅读[实际评测报告](evals/pilot-report.md)。
+<p align="center">
+  <a href="assets/readme/reading-zh.png"><img src="assets/readme/reading-zh.png" width="400" align="top" alt="读懂调查：30 人中有 18 人，即 60%，更喜欢上午上课；偏好不等于学习效果更好。"></a>
+  <a href="assets/readme/release-zh.png"><img src="assets/readme/release-zh.png" width="400" align="top" alt="发布流程：构建后单元测试与安全扫描并行，两项都通过才部署，任意一项失败都停止发布。"></a>
+</p>
 
-<details>
-<summary>再看两组：调试证据与可操作的交互解释</summary>
+<p align="center">
+  <a href="assets/readme/debugging-zh.png"><img src="assets/readme/debugging-zh.png" width="400" align="top" alt="调试说明：把已观察到的 ECONNRESET 错误、尚未确认的代理假设和下一步检查分开。"></a>
+  <a href="assets/readme/retry-zh.png"><img src="assets/readme/retry-zh.png" width="400" align="top" alt="探索变量：调整基础等待和重试次数后，每次等待、总等待时间和总尝试次数随之变化；卡片展示其中一个状态。"></a>
+</p>
 
-把已观察到的错误、尚未确认的原因和下一步检查分开：
+这些是编排后的表达示例，并非模型前后效果实测；行程、工作坊和调查场景均为虚构。链接中的动图来自实际运行的 HTML 状态，播放速度不代表重试时长。
 
-![同一段调试说明被分成现象、假设和下一步；ECONNRESET 原样保留，代理关闭连接仍是未确认的假设。](assets/showcase/debugging-zh-landscape.png)
-
-改变参数，直接核对结果。动图由实际运行的 HTML 页面状态截图组成；播放速度不代表重试时长：
-
-![调整基础等待和重试次数后，每次等待、总等待时间和总尝试次数随之变化。](assets/showcase/retry-zh.gif)
-
-下载并打开[独立 HTML 预览](assets/showcase/showcase.html)即可操作，顶部可切换中文。GitHub 源码页面不会运行 HTML。[静态交互预览图](assets/showcase/retry-zh-landscape.png)。
-
-</details>
+点击卡片可看原图。下载并打开[中英文交互预览](assets/readme/examples.html)即可操作，GitHub 源码页面不会运行 HTML。[重试动图](assets/readme/retry-zh.gif) · [静态重试图](assets/readme/retry-zh.png) · [六组素材与来源](assets/readme/README.md) · [社交媒体图片与发帖文案](assets/showcase/README.md) · [实际评测报告](evals/pilot-report.md)。
 
 ## 先选表达形式，再润色文字
 
@@ -69,6 +69,8 @@
 
 ## 安装与使用
 
+核心提示词无需运行时或后台服务；可选的本地检查器使用 Python 3.10+，不需要额外安装包。生成图示或媒体时，使用宿主已有的工具，不绑定特定插件。
+
 **Codex、Claude Code 和 Cursor 共用同一份 `SKILL.md` 与 `references/`。** `agents/openai.yaml` 仅提供 Codex 显示信息，技能正文不依赖特定宿主工具。下面的终端命令使用 macOS/Linux 的 Bash，需要已安装 Git。
 
 | 宿主 | 个人安装目录 | 仅当前项目 | 调用方式 |
@@ -79,7 +81,8 @@
 
 按使用的宿主选择一种安装方式。如果技能列表中已经有 `clear-output`，先使用已有安装，避免重复。
 
-### Codex
+<details>
+<summary>Codex</summary>
 
 使用内置安装器：
 
@@ -96,7 +99,10 @@ git clone https://github.com/Jiansen/clear-output-skill.git ~/.agents/skills/cle
 
 不同宿主版本的技能目录可能不同，内置安装器遵循当前配置。参见 [Codex 官方文档](https://developers.openai.com/codex/skills)。
 
-### Claude Code
+</details>
+
+<details>
+<summary>Claude Code</summary>
 
 安装到本机 Claude Code 的个人技能目录：
 
@@ -107,7 +113,10 @@ git clone https://github.com/Jiansen/clear-output-skill.git ~/.claude/skills/cle
 
 在 Claude Code 中输入 `/clear-output`。如果没有出现，运行 `/reload-skills` 或开启新会话。参见 [Claude Code 官方文档](https://code.claude.com/docs/en/skills)。
 
-### Cursor
+</details>
+
+<details>
+<summary>Cursor</summary>
 
 安装到本机 Cursor Agent 的个人技能目录：
 
@@ -118,7 +127,10 @@ git clone https://github.com/Jiansen/clear-output-skill.git ~/.cursor/skills/cle
 
 打开新的 Agent 聊天，输入 `/` 并选择 `clear-output`；未发现新技能时重启 Cursor。Cursor 还会读取 `.agents/skills/`、`.claude/skills/`、`.codex/skills/` 及对应的个人目录，已有 Codex 或 Claude Code 安装可能已经可用。其 **From GitHub Repository** 界面用于 marketplace 插件；本仓库提供独立技能，请使用上述目录安装方式。参见 [Cursor 官方文档](https://cursor.com/docs/skills)。
 
-### 仅当前项目与 Windows
+</details>
+
+<details>
+<summary>仅当前项目与 Windows</summary>
 
 如果只想在一个项目使用，将[正式版 ZIP](https://github.com/Jiansen/clear-output-skill/releases/latest/download/clear-output.zip)解压到表格中的项目目录，文件夹名保持 `clear-output`。保留完整包，包括 `references/`、`scripts/` 和 `VERSION`。需要团队共享时，把这些文件提交到项目仓库。Codex 的 `agents/openai.yaml` 是可选显示信息。
 
@@ -131,7 +143,10 @@ git clone https://github.com/Jiansen/clear-output-skill.git "$HOME/.claude/skill
 
 Cursor 将 `.claude` 改为 `.cursor`；Codex 改为 `.agents`。技能应安装在代理实际运行的环境，本机目录不会自动成为远程或云端安装。Cursor Cloud Agents 可使用官方的[个人技能同步](https://cursor.com/help/customization/skills)或项目技能。
 
-### Claude 网页版、桌面聊天与 Cowork
+</details>
+
+<details>
+<summary>Claude 网页版、桌面聊天与 Cowork</summary>
 
 这些场景使用 Claude 账号的技能上传入口；本机 Claude Code 文件夹本身不会把技能安装到这些场景。
 
@@ -142,6 +157,8 @@ python3 tools/build_release.py --output-dir dist
 ```
 
 命令生成 `dist/clear-output.zip` 和 `dist/SHA256SUMS`。ZIP 只有一个顶层 `clear-output/` 目录，包含提示词、参考资料、可选脚本、版本信息、更新日志和许可证。在 Claude 中按需启用代码执行／文件创建，然后进入 **Customize → Skills → + → Create skill → Upload a skill**，上传 ZIP 并启用。在对话中要求使用 `clear-output` 即可。参见官方[上传说明](https://support.claude.com/en/articles/12512180-use-skills-in-claude)和[打包结构](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)。
+
+</details>
 
 ### 验证与更新
 

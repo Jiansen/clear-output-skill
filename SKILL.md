@@ -1,8 +1,8 @@
 ---
 name: clear-output
-description: Clarify Chinese, English, or mixed technical content with faithful rewrites, diagrams, comparisons, or interactive explanations. Preserve meaning and the task's language.
+description: Clarify Chinese, English, or mixed-language explanations, comparisons, plans, summaries, and rewrites through words, diagrams, or interaction. Preserve meaning and the task's language.
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # Clear Output

@@ -4,32 +4,32 @@
 
 [Latest release](https://github.com/Jiansen/clear-output-skill/releases/latest) · [What's changed](CHANGELOG.md) · [Get update notifications](references/updates.md)
 
-One skill for clearer Chinese, English, and mixed-language technical communication through words, diagrams, and interaction. It helps the reader understand and verify the result while preserving language, factual meaning, uncertainty, and technical literals.
+One skill for clearer AI output in Chinese, English, and mixed-language tasks. It uses words, diagrams, and interaction to help the reader understand and verify the result while preserving language, factual meaning, uncertainty, and technical literals.
 
-Use it for debugging explanations, mechanisms, comparisons, status updates, instructions, and faithful rewrites. The core instructions work without a runtime or background service. Optional local checks use Python 3.10+ with no extra packages. Producing visual artifacts uses whatever rendering tools the host provides; the skill does not depend on a specific plugin.
+**Who's it for?** People using AI agents to compare choices, learn something, turn notes into action, explain a process, or check a result—in everyday life, study, teamwork, and technical work.
 
 ## Before / after
 
-The same release rule, shown as prose and a dependency diagram:
+Six examples of making the same information easier to inspect. Choose the form that helps the reader; these are starting points, not a limit on the skill's uses.
 
-![Before: the release rule in prose. After: unit tests and a security scan run in parallel after the build; both must pass to deploy, and either failure stops the release.](assets/showcase/release-en-landscape.png)
+<p align="center">
+  <a href="assets/readme/choices-en.png"><img src="assets/readme/choices-en.png" width="400" align="top" alt="Everyday decisions: compare two fictional travel plans by cost, time, and changes, then choose according to your priority."></a>
+  <a href="assets/readme/meeting-en.png"><img src="assets/readme/meeting-en.png" width="400" align="top" alt="Meeting notes: separate a workshop decision, Maya's room confirmation by Tuesday, Leo's dependent invitation task, and the undecided budget."></a>
+</p>
 
-These are editorial examples of presentation, not measured model A/B results. [Browse the bilingual images and post drafts](assets/showcase/README.md), or see the [actual evaluation](evals/pilot-report.md).
+<p align="center">
+  <a href="assets/readme/reading-en.png"><img src="assets/readme/reading-en.png" width="400" align="top" alt="Reading a survey: show that 18 of 30 students, or 60%, prefer morning lessons; preference does not establish a learning benefit."></a>
+  <a href="assets/readme/release-en.png"><img src="assets/readme/release-en.png" width="400" align="top" alt="Release process: tests and a security scan run in parallel after the build; both must pass to deploy, and either failure stops the release."></a>
+</p>
 
-<details>
-<summary>Two more examples: debugging evidence and working interaction</summary>
+<p align="center">
+  <a href="assets/readme/debugging-en.png"><img src="assets/readme/debugging-en.png" width="400" align="top" alt="Debugging: separate the observed ECONNRESET error, an unconfirmed proxy hypothesis, and the next check."></a>
+  <a href="assets/readme/retry-en.png"><img src="assets/readme/retry-en.png" width="400" align="top" alt="Exploring a variable: changing base delay and retry count updates individual waits, total waiting, and attempt count in working HTML."></a>
+</p>
 
-Keep the observation, the unconfirmed cause, and the next check distinct:
+These are editorial examples of presentation, not measured model A/B results. The travel, workshop, and survey scenarios are fictional. The linked animation uses actual working HTML states; playback speed does not represent retry duration.
 
-![A debugging paragraph becomes separate observed evidence, an unconfirmed proxy hypothesis, and a next check; ECONNRESET stays exact.](assets/showcase/debugging-en-landscape.png)
-
-Change a parameter and inspect the result. This animation uses screenshots of actual working HTML states; playback speed does not represent retry duration:
-
-![A backoff explorer updates individual waits, total waiting, and attempt count when its base-delay and retry-count sliders change.](assets/showcase/retry-en.gif)
-
-Download/open the [standalone preview](assets/showcase/showcase.html) to use the controls. GitHub's source view does not run HTML. [Static retry preview](assets/showcase/retry-en-landscape.png).
-
-</details>
+Click a card for the full-size image. Download/open the [bilingual interactive gallery](assets/readme/examples.html) to use its controls; GitHub's source view does not run HTML. [Animated retry preview](assets/readme/retry-en.gif) · [Static retry preview](assets/readme/retry-en.png) · [All six examples and sources](assets/readme/README.md) · [Social images and post drafts](assets/showcase/README.md) · [Actual evaluation](evals/pilot-report.md).
 
 ## What it does
 
@@ -43,6 +43,8 @@ The skill applies to the current task. It does not turn the whole conversation i
 
 ## Install and use
 
+The core instructions work without a runtime or background service. Optional local checks use Python 3.10+ with no extra packages. Producing visual artifacts uses whatever rendering tools the host provides; the skill does not depend on a specific plugin.
+
 The same `SKILL.md` and `references/` work in **Codex, Claude Code, and Cursor**. The optional `agents/openai.yaml` supplies Codex display metadata; the instructions require no host-specific tools. The terminal examples below use Bash on macOS/Linux and require Git.
 
 | Host | Personal installation directory | Project-only directory | Invoke |
@@ -53,7 +55,8 @@ The same `SKILL.md` and `references/` work in **Codex, Claude Code, and Cursor**
 
 Choose the section for your host. If it already lists `clear-output`, use that installation instead of adding another copy.
 
-### Codex
+<details>
+<summary>Codex</summary>
 
 Ask the built-in installer:
 
@@ -70,7 +73,10 @@ git clone https://github.com/Jiansen/clear-output-skill.git ~/.agents/skills/cle
 
 Host versions can use different skill directories; the built-in installer follows its host's configuration. See [Codex skill documentation](https://developers.openai.com/codex/skills).
 
-### Claude Code
+</details>
+
+<details>
+<summary>Claude Code</summary>
 
 Install for your local Claude Code sessions:
 
@@ -81,7 +87,10 @@ git clone https://github.com/Jiansen/clear-output-skill.git ~/.claude/skills/cle
 
 Then invoke `/clear-output` in Claude Code. If it is missing, run `/reload-skills` or start a new session. See [Claude Code skills](https://code.claude.com/docs/en/skills).
 
-### Cursor
+</details>
+
+<details>
+<summary>Cursor</summary>
 
 Install for your local Cursor Agent:
 
@@ -92,7 +101,10 @@ git clone https://github.com/Jiansen/clear-output-skill.git ~/.cursor/skills/cle
 
 Open a new Agent chat, type `/`, and select `clear-output`; restart Cursor if the new skill is not discovered. Cursor also reads `.agents/skills/`, `.claude/skills/`, and `.codex/skills/` and their user-level equivalents, so an existing Codex or Claude Code installation may already appear. Its **From GitHub Repository** UI installs marketplace plugins; this repository provides a standalone skill, so use the directory installation above. See [Cursor skills](https://cursor.com/docs/skills).
 
-### Project-only and Windows installations
+</details>
+
+<details>
+<summary>Project-only and Windows installations</summary>
 
 For one repository, extract the [release ZIP](https://github.com/Jiansen/clear-output-skill/releases/latest/download/clear-output.zip) into the project-only directory in the table. Keep the folder name `clear-output` and the complete package, including `references/`, `scripts/`, and `VERSION`. Commit those files if teammates should receive the skill. Codex's `agents/openai.yaml` is optional display metadata.
 
@@ -105,7 +117,10 @@ git clone https://github.com/Jiansen/clear-output-skill.git "$HOME/.claude/skill
 
 Replace `.claude` with `.cursor` for Cursor or `.agents` for Codex. Install in the environment where the agent runs; a local installation is not automatically a remote/cloud installation. For Cursor Cloud Agents, use the documented [personal-skill sync](https://cursor.com/help/customization/skills) or project skills.
 
-### Claude on the web, Desktop chat, or Cowork
+</details>
+
+<details>
+<summary>Claude on the web, Desktop chat, or Cowork</summary>
 
 Use Claude's account-level skill upload. Local Claude Code folders do not by themselves install a skill into these surfaces.
 
@@ -116,6 +131,8 @@ python3 tools/build_release.py --output-dir dist
 ```
 
 The build writes `dist/clear-output.zip` and `dist/SHA256SUMS`. The ZIP contains one `clear-output/` directory with instructions, references, optional scripts, version metadata, changelog, and license. In Claude, enable code execution/file creation if needed, then open **Customize → Skills → + → Create skill → Upload a skill**, upload the ZIP, and enable it. Ask Claude to use `clear-output` for your task. See [Claude's upload instructions](https://support.claude.com/en/articles/12512180-use-skills-in-claude) and [ZIP structure](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills).
+
+</details>
 
 ### Verify and update
 
@@ -199,6 +216,7 @@ python3 tools/check_responses.py evals/results/full-skill.json
 | [evals/](evals/) | Test inputs, criteria, raw responses, and review |
 | [tools/](tools/) | Local evaluation helpers; not needed to use the skill |
 | [examples/](examples/) | An actual generated and browser-tested explanation |
+| [assets/readme/](assets/readme/) | Six compact bilingual examples and an interactive gallery |
 | [assets/showcase/](assets/showcase/) | Bilingual before/after graphics, working preview, post copy, and provenance |
 
 ## Origins and contributions
