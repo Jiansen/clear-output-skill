@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Exponential backoff — explore the waiting time</title>
+  <style>
+    :root { --paper:#f5f4ef; --card:#fff; --ink:#172e2d; --muted:#516563; --line:#d9e2dd; --green:#087b65; --pale:#e9f5ef; --amber:#f7ddb1; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { width:min(1140px,100%); margin:0 auto; padding:48px 32px 36px; }
+    .eyebrow { margin:0 0 8px; color:var(--green); font-size:12px; font-weight:750; letter-spacing:.13em; text-transform:uppercase; }
+    h1 { margin:0; font-size:clamp(32px,5vw,48px); line-height:1.13; letter-spacing:-.045em; }
+    .intro { max-width:760px; margin:16px 0 30px; font-size:18px; color:var(--muted); }
+    h2 { margin:0; font-size:20px; line-height:1.3; letter-spacing:-.02em; }
+    p { margin:0; }
+    .layout { display:grid; grid-template-columns:310px minmax(0,1fr); gap:24px; align-items:start; }
+    .card { border:1px solid var(--line); border-radius:20px; background:var(--card); }
+    .controls { padding:25px; }
+    .control { margin-top:30px; }
+    .label-row { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    label { font-weight:650; }
+    output { display:inline-block; min-width:68px; padding:3px 10px; border:1px solid var(--line); border-radius:8px; background:var(--paper); text-align:center; font-variant-numeric:tabular-nums; font-weight:700; }
+    input[type="range"] { width:100%; margin:19px 0 4px; height:30px; accent-color:var(--green); cursor:pointer; }
+    input:focus-visible, button:focus-visible { outline:3px solid #925713; outline-offset:5px; }
+    .ends { display:flex; justify-content:space-between; color:var(--muted); font-size:12px; }
+    .hint { margin-top:12px; color:var(--muted); font-size:13px; }
+    .keyboard { padding-top:22px; margin-top:26px; border-top:1px solid var(--line); }
+    .keyboard strong { display:block; color:var(--ink); margin-bottom:3px; }
+    kbd { font:inherit; font-weight:600; }
+    button { min-height:44px; width:100%; padding:10px 14px; margin-top:20px; border:1px solid var(--line); border-radius:9px; background:white; color:var(--ink); font:inherit; font-size:14px; font-weight:650; cursor:pointer; }
+    button:hover { background:var(--pale); border-color:var(--green); }
+    .result { overflow:hidden; }
+    .summary { padding:25px 28px 24px; background:var(--pale); border-bottom:1px solid var(--line); }
+    .metric-row { display:flex; align-items:flex-end; gap:30px; margin:17px 0 14px; }
+    .metric-label { color:var(--muted); font-size:13px; }
+    .metric { font-size:64px; font-weight:750; line-height:1.1; letter-spacing:-.055em; font-variant-numeric:tabular-nums; }
+    .metric .unit { font-size:25px; font-weight:500; letter-spacing:0; }
+    .attempts { border-left:1px solid #b9cec4; padding:2px 0 3px 28px; }
+    .attempts strong { display:block; font-size:33px; line-height:1.35; letter-spacing:-.03em; }
+    .summary-sentence { max-width:540px; font-size:15px; }
+    .breakdown { padding:26px 28px; }
+    .section-note { margin:8px 0 18px; color:var(--muted); font-size:14px; }
+    table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+    th { padding:0 0 10px; color:var(--muted); font-size:12px; font-weight:600; text-align:left; vertical-align:bottom; border-bottom:1px solid var(--line); }
+    td { padding:12px 0; border-bottom:1px solid #e9eeeb; vertical-align:middle; }
+    th:first-child { width:26%; }
+    th:nth-child(2) { width:48%; }
+    th:last-child, td:last-child { text-align:right; padding-left:14px; }
+    td:first-child { padding-right:12px; }
+    .retry-label { font-size:14px; font-weight:650; }
+    .attempt-label { display:block; color:var(--muted); font-size:12px; }
+    .wait-cell { padding-right:12px; }
+    .wait-number { display:block; font-size:14px; font-weight:650; }
+    .bar-track { height:9px; margin-top:6px; background:#edf1ee; border-radius:3px; overflow:hidden; }
+    .bar-fill { height:100%; background:var(--green); border-radius:3px; }
+    .scale { color:var(--muted); font-size:12px; margin:12px 0 0; }
+    .sum { margin-top:20px; padding:16px 18px; background:var(--paper); border-radius:10px; overflow-wrap:anywhere; }
+    .sum-label { display:block; font-size:12px; color:var(--muted); margin-bottom:4px; }
+    .sum-value { font-size:18px; font-weight:650; font-variant-numeric:tabular-nums; }
+    .empty { padding:27px 20px; border:1px dashed #b9cec4; border-radius:10px; background:#fafcfb; text-align:center; }
+    .empty strong { display:block; margin-bottom:4px; }
+    .empty p { font-size:14px; color:var(--muted); }
+    .explanation { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:24px; padding:26px 28px; }
+    .explanation p, .explanation li { font-size:14px; }
+    .explanation h2 { font-size:17px; margin-bottom:12px; }
+    .formula { display:block; margin:14px 0; padding:12px 14px; background:var(--pale); border-radius:8px; font-size:15px; font-weight:650; }
+    .explanation ul { margin:0; padding-left:19px; }
+    .explanation li + li { margin-top:7px; }
+    .explanation code { font-size:13px; overflow-wrap:anywhere; }
+    footer { margin-top:21px; font-size:12px; color:var(--muted); text-align:center; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    [hidden] { display:none !important; }
+    noscript p { margin:24px 0; padding:16px; background:var(--amber); border-radius:8px; }
+    @media (max-width:800px) {
+      main { padding:28px 20px; }
+      .layout { grid-template-columns:1fr; gap:20px; }
+      .controls { display:grid; grid-template-columns:1fr 1fr; gap:20px 28px; }
+      .controls h2 { grid-column:1/-1; }
+      .control { margin-top:0; }
+      .keyboard { margin:0; padding:0; border:0; align-self:center; }
+      button { margin:0; align-self:center; }
+      .explanation { gap:25px; }
+    }
+    @media (max-width:540px) {
+      main { padding:26px 16px; }
+      .intro { font-size:16px; margin-bottom:23px; }
+      .controls { display:block; padding:22px; }
+      .control { margin-top:22px; }
+      .keyboard { margin-top:23px; }
+      button { margin-top:17px; }
+      .summary, .breakdown { padding:22px; }
+      .metric { font-size:56px; }
+      .metric-row { gap:20px; }
+      .attempts { padding-left:20px; }
+      .explanation { grid-template-columns:1fr; padding:22px; }
+      th:first-child { width:29%; }
+      th:nth-child(2) { width:42%; }
+      .sum-value { font-size:16px; }
+    }
+    @media (prefers-reduced-motion:reduce) { *, *::before, *::after { scroll-behavior:auto !important; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">An interactive explanation</p>
+      <h1>Exponential backoff</h1>
+      <p class="intro">The first retry waits for the base delay. Each later retry doubles the previous wait. Change the inputs to see how those waits add up.</p>
+    </header>
+
+    <noscript><p>Enable JavaScript to explore different settings. The default example below uses a 1-second base delay and 3 retries.</p></noscript>
+
+    <div class="layout">
+      <section class="card controls" aria-labelledby="controls-title">
+        <h2 id="controls-title">Choose your settings</h2>
+        <div class="control">
+          <div class="label-row">
+            <label for="base-delay">Base delay</label>
+            <output id="base-value" for="base-delay">1 s</output>
+          </div>
+          <input id="base-delay" type="range" min="0.5" max="3" step="0.5" value="1" aria-describedby="base-hint" aria-valuetext="1 second">
+          <div class="ends" aria-hidden="true"><span>0.5 s</span><span>3 s</span></div>
+          <p class="hint" id="base-hint">The wait before retry 1, in 0.5-second steps.</p>
+        </div>
+        <div class="control">
+          <div class="label-row">
+            <label for="retry-count">Retries</label>
+            <output id="retry-value" for="retry-count">3</output>
+          </div>
+          <input id="retry-count" type="range" min="0" max="5" step="1" value="3" aria-describedby="retry-hint" aria-valuetext="3 retries">
+          <div class="ends" aria-hidden="true"><span>0</span><span>5</span></div>
+          <p class="hint" id="retry-hint">Extra attempts after the initial attempt.</p>
+        </div>
+        <p class="hint keyboard"><strong>Mouse or keyboard</strong>Drag a slider, or use <kbd>Tab</kbd> to focus it and the arrow keys to adjust it. <kbd>Home</kbd> and <kbd>End</kbd> select its limits.</p>
+        <button type="button" id="reset">Reset to 1 s · 3 retries</button>
+      </section>
+
+      <section class="card result" aria-labelledby="result-title">
+        <div class="summary">
+          <h2 id="result-title">Your total waiting time</h2>
+          <div class="metric-row">
+            <div>
+              <p class="metric"><span id="total-wait">7</span> <span class="unit">s</span></p>
+              <p class="metric-label">Waiting only · execution excluded</p>
+            </div>
+            <div class="attempts">
+              <strong id="total-attempts">4</strong>
+              <p class="metric-label">total attempts</p>
+            </div>
+          </div>
+          <p class="summary-sentence" id="summary-sentence">3 retries add 1 s, 2 s, and 4 s of waiting. The initial attempt has no preceding wait.</p>
+        </div>
+        <div class="breakdown">
+          <h2>Where the time goes</h2>
+          <p class="section-note" id="breakdown-note">Attempt 1 is the initial attempt. Each row below is an extra attempt.</p>
+          <div id="wait-details">
+            <table>
+              <caption class="sr-only">Each retry's waiting time and cumulative waiting time, in seconds</caption>
+              <thead><tr><th scope="col">Retry</th><th scope="col">Wait before retry</th><th scope="col">Total so far</th></tr></thead>
+              <tbody id="wait-rows">
+                <tr><td><span class="retry-label">Retry 1</span><span class="attempt-label">Attempt 2</span></td><td class="wait-cell"><span class="wait-number">1 s</span><div class="bar-track" aria-hidden="true"><div class="bar-fill" style="width:25%"></div></div></td><td>1 s</td></tr>
+                <tr><td><span class="retry-label">Retry 2</span><span class="attempt-label">Attempt 3</span></td><td class="wait-cell"><span class="wait-number">2 s</span><div class="bar-track" aria-hidden="true"><div class="bar-fill" style="width:50%"></div></div></td><td>3 s</td></tr>
+                <tr><td><span class="retry-label">Retry 3</span><span class="attempt-label">Attempt 4</span></td><td class="wait-cell"><span class="wait-number">4 s</span><div class="bar-track" aria-hidden="true"><div class="bar-fill" style="width:100%"></div></div></td><td>7 s</td></tr>
+              </tbody>
+            </table>
+            <p class="scale" id="chart-scale">Bar scale: 0–4 s. The scale adjusts to the longest wait in this setting.</p>
+          </div>
+          <div class="empty" id="empty-state" hidden>
+            <strong>No retries, no waiting.</strong>
+            <p>There is only the initial attempt, which has no preceding wait.</p>
+          </div>
+          <div class="sum"><span class="sum-label">Sum of the individual waits</span><p class="sum-value" id="wait-sum">1 s + 2 s + 4 s = 7 s</p></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="card explanation" aria-label="How the calculation works">
+      <div>
+        <h2>Why the total grows quickly</h2>
+        <p>At a fixed retry count, doubling the base delay doubles the total wait. The first retry adds one base delay. After that, each additional retry adds twice the previous retry's wait.</p>
+        <div class="formula">Total wait = base_delay × (2<sup>retries</sup> − 1)</div>
+        <p id="multiplier-explanation">With 3 retries, the multiplier is 7: a 1 s base delay gives 7 s of total waiting.</p>
+      </div>
+      <div>
+        <h2>Model assumptions</h2>
+        <ul>
+          <li>Retry <var>k</var> waits <code>base_delay * 2^(k-1)</code> seconds; <var>k</var> starts at 1.</li>
+          <li>The initial attempt has no preceding wait. Total attempts = retries + 1.</li>
+          <li>All selected retries are counted. Only their waiting time is included; execution time is excluded.</li>
+          <li>Base delay is 0.5–3 seconds in 0.5-second steps. Retry count is 0–5.</li>
+        </ul>
+      </div>
+    </section>
+    <p class="sr-only" id="live-summary" role="status" aria-live="polite" aria-atomic="true"></p>
+    <footer>A local calculation only. No network calls, timers, or real retries.</footer>
+  </main>
+  <script>
+    "use strict";
+
+    function calculateBackoff(baseDelay, retryCount) {
+      const waits = Array.from({ length: retryCount }, (_, index) => baseDelay * 2 ** index);
+      return {
+        waits,
+        total: waits.reduce((sum, wait) => sum + wait, 0),
+        attempts: retryCount + 1,
+        multiplier: 2 ** retryCount - 1
+      };
+    }
+
+    const baseInput = document.getElementById("base-delay");
+    const retryInput = document.getElementById("retry-count");
+    const format = (value) => Number.isInteger(value) ? String(value) : value.toFixed(1);
+    const seconds = (value) => `${format(value)} s`;
+    const saySeconds = (value) => `${format(value)} ${value === 1 ? "second" : "seconds"}`;
+    const retryPhrase = (count) => `${count} ${count === 1 ? "retry" : "retries"}`;
+
+    function update() {
+      const baseDelay = Number(baseInput.value);
+      const retryCount = Number(retryInput.value);
+      const { waits, total, attempts, multiplier } = calculateBackoff(baseDelay, retryCount);
+
+      document.getElementById("base-value").value = seconds(baseDelay);
+      document.getElementById("retry-value").value = String(retryCount);
+      baseInput.setAttribute("aria-valuetext", saySeconds(baseDelay));
+      retryInput.setAttribute("aria-valuetext", retryPhrase(retryCount));
+      document.getElementById("total-wait").textContent = format(total);
+      document.getElementById("total-attempts").textContent = String(attempts);
+
+      const waitList = waits.length < 3 ? waits.map(seconds).join(" and ") : `${waits.slice(0, -1).map(seconds).join(", ")}, and ${seconds(waits[waits.length - 1])}`;
+      document.getElementById("summary-sentence").textContent = retryCount === 0
+        ? "0 retries means 1 total attempt and 0 s of waiting. The initial attempt has no preceding wait."
+        : `${retryPhrase(retryCount)} ${retryCount === 1 ? "adds" : "add"} ${waitList} of waiting. The initial attempt has no preceding wait.`;
+
+      const rows = document.getElementById("wait-rows");
+      rows.replaceChildren();
+      let cumulative = 0;
+      const maxWait = waits.length ? waits[waits.length - 1] : 0;
+      waits.forEach((wait, index) => {
+        cumulative += wait;
+        const row = document.createElement("tr");
+        const retryCell = document.createElement("td");
+        const retryLabel = document.createElement("span");
+        retryLabel.className = "retry-label";
+        retryLabel.textContent = `Retry ${index + 1}`;
+        const attemptLabel = document.createElement("span");
+        attemptLabel.className = "attempt-label";
+        attemptLabel.textContent = `Attempt ${index + 2}`;
+        retryCell.append(retryLabel, attemptLabel);
+
+        const waitCell = document.createElement("td");
+        waitCell.className = "wait-cell";
+        const waitNumber = document.createElement("span");
+        waitNumber.className = "wait-number";
+        waitNumber.textContent = seconds(wait);
+        const track = document.createElement("div");
+        track.className = "bar-track";
+        track.setAttribute("aria-hidden", "true");
+        const fill = document.createElement("div");
+        fill.className = "bar-fill";
+        fill.style.width = `${wait / maxWait * 100}%`;
+        track.append(fill);
+        waitCell.append(waitNumber, track);
+
+        const cumulativeCell = document.createElement("td");
+        cumulativeCell.textContent = seconds(cumulative);
+        row.append(retryCell, waitCell, cumulativeCell);
+        rows.append(row);
+      });
+
+      document.getElementById("wait-details").hidden = retryCount === 0;
+      document.getElementById("empty-state").hidden = retryCount !== 0;
+      document.getElementById("breakdown-note").hidden = retryCount === 0;
+      document.getElementById("chart-scale").textContent = `Bar scale: 0–${seconds(maxWait)}. The scale adjusts to the longest wait in this setting.`;
+      document.getElementById("wait-sum").textContent = retryCount === 0 ? "No waits to add = 0 s" : `${waits.map(seconds).join(" + ")} = ${seconds(total)}`;
+      document.getElementById("multiplier-explanation").textContent = `With ${retryPhrase(retryCount)}, the multiplier is ${multiplier}: a ${seconds(baseDelay)} base delay gives ${seconds(total)} of total waiting.`;
+      document.getElementById("live-summary").textContent = `Base delay ${saySeconds(baseDelay)}. ${retryPhrase(retryCount)}. Total waiting time ${saySeconds(total)}, excluding execution time. ${attempts} total ${attempts === 1 ? "attempt" : "attempts"}.`;
+    }
+
+    baseInput.addEventListener("input", update);
+    retryInput.addEventListener("input", update);
+    document.getElementById("reset").addEventListener("click", () => {
+      baseInput.value = "1";
+      retryInput.value = "3";
+      update();
+    });
+    update();
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+{
+  "v01": {
+    "condition": "current",
+    "case_id": "f02"
+  },
+  "v02": {
+    "condition": "current",
+    "case_id": "f08"
+  },
+  "v03": {
+    "condition": "previous",
+    "case_id": "f09"
+  },
+  "v04": {
+    "condition": "current",
+    "case_id": "f04"
+  },
+  "v05": {
+    "condition": "current",
+    "case_id": "f05"
+  },
+  "v06": {
+    "condition": "current",
+    "case_id": "f03"
+  },
+  "v07": {
+    "condition": "current",
+    "case_id": "f07"
+  },
+  "v08": {
+    "condition": "current",
+    "case_id": "f01"
+  },
+  "v09": {
+    "condition": "previous",
+    "case_id": "f04"
+  },
+  "v10": {
+    "condition": "current",
+    "case_id": "f09"
+  },
+  "v11": {
+    "condition": "previous",
+    "case_id": "f08"
+  },
+  "v12": {
+    "condition": "previous",
+    "case_id": "f01"
+  },
+  "v13": {
+    "condition": "previous",
+    "case_id": "f03"
+  },
+  "v14": {
+    "condition": "current",
+    "case_id": "f10"
+  },
+  "v15": {
+    "condition": "previous",
+    "case_id": "f07"
+  },
+  "v16": {
+    "condition": "previous",
+    "case_id": "f05"
+  },
+  "v17": {
+    "condition": "previous",
+    "case_id": "f10"
+  },
+  "v18": {
+    "condition": "current",
+    "case_id": "f06"
+  },
+  "v19": {
+    "condition": "previous",
+    "case_id": "f02"
+  },
+  "v20": {
+    "condition": "previous",
+    "case_id": "f06"
+  }
+}

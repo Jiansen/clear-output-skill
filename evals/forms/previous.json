@@ -1,0 +1,44 @@
+{
+  "responses": [
+    {
+      "id": "f01",
+      "response": "TTL stands for “time to live,” the duration a cached entry remains valid before it expires."
+    },
+    {
+      "id": "f02",
+      "response": "可以先按已知条件逐项比较：\n\n| 比较项 | 方案 A | 方案 B | 方案 C |\n|---|---|---|---|\n| 持久化 | 有 | 有 | 无 |\n| 部署方式 | 单机 | 集群 | 单机 |\n| 运维工作量 | 少 | 多 | 少 |\n| 性能 | 未测试 | 未测试 | 未测试 |\n\nA 与 B 的已知区别是部署方式和运维工作量；A 与 C 的已知区别是是否有持久化。\n\n目前没有性能测试，也没有确定业务优先级，因此还不能判断哪种方案最合适。"
+    },
+    {
+      "id": "f03",
+      "response": "The API takes one of two routes after checking the cache:\n\n```mermaid\nsequenceDiagram\n    participant Client\n    participant API\n    participant Cache\n    participant DB as Database\n    Client->>API: Request\n    API->>Cache: Look up value\n    alt Cache hit\n        Cache-->>API: Cached value\n        API-->>Client: Return cached value\n    else Cache miss\n        Cache-->>API: No cached value\n        API->>DB: Query value\n        DB-->>API: Returned value\n        API->>Cache: Write returned value\n        API-->>Client: Return value\n    end\n```\n\nOn a miss, the API queries the database and writes the returned value to the cache before responding. The cache does not call the database."
+    },
+    {
+      "id": "f04",
+      "response": "单元测试和安全扫描都等待构建完成，之后可以并行开始。部署等待两项都通过；任意一项失败，就停止发布。\n\n```mermaid\nflowchart TD\n    B[\"构建完成\"] --> T[\"单元测试\"]\n    B --> S[\"安全扫描\"]\n    T -->|通过| G[\"等待两项都通过\"]\n    S -->|通过| G\n    T -->|失败| X[\"停止发布\"]\n    S -->|失败| X\n    G --> D[\"部署\"]\n```\n\n各步骤耗时未知，无法据此计算发布总耗时。"
+    },
+    {
+      "id": "f05",
+      "response": "| 周次 | 第1周 | 第2周 | 第3周 | 第4周 | 第5周 | 第6周 |\n|---|---|---|---|---|---|---|\n| 延迟 | 120 ms | 无数据 | 无数据 | 无数据 | 无数据 | 80 ms |\n\n第6周比第1周低 40 ms，约低 33.3%。第2—5周没有数据，无法判断这六周内的完整趋势，也无法确定下降发生在哪一周。"
+    },
+    {
+      "id": "f06",
+      "response": "构建完成后，同时启动测试和扫描。只有测试和扫描都通过才部署，否则停止发布。"
+    },
+    {
+      "id": "f07",
+      "response": "Latency stays at 40–42 ms for minutes 0–2, rises to 85–88 ms at minutes 3–4, and returns to 43 ms at minute 5.\n\n```mermaid\nxychart-beta\n    title \"Latency observations from one run\"\n    x-axis \"Minute\" [0, 1, 2, 3, 4, 5]\n    y-axis \"Latency (ms)\" 0 --> 100\n    line [40, 42, 41, 85, 88, 43]\n```\n\nThe highest observed latency is 88 ms at minute 4. These observations show a temporary increase in this run; they do not establish its cause."
+    },
+    {
+      "id": "f08",
+      "response": "The web service sends jobs to the queue. Workers take those jobs, write results to the database, and the web service reads the results from the database.\n\nArrows below show the direction of job and result data:\n\n```mermaid\nflowchart LR\n    W[\"Web service\"] -->|Jobs| Q[\"Queue\"]\n    Q -->|Jobs| R[\"Workers\"]\n    R -->|Results| D[\"Database\"]\n    D -->|Results| W\n```\n\nThere is no direct web-to-worker call: the queue carries jobs to workers, and the database stores results for the web service to read."
+    },
+    {
+      "id": "f09",
+      "response": "已观察到缓存命中率下降和数据库延迟上升，但现有信息不能确认两者之间的因果关系。\n\n| 类型 | 内容 |\n|---|---|\n| 观察 | 缓存命中率下降。 |\n| 观察 | 数据库延迟上升。 |\n| 假设 | 缓存未命中增加了数据库负载，进而使数据库延迟上升。 |\n| 证据缺口 | 没有请求追踪或负载测量，尚未验证上述因果链。 |"
+    },
+    {
+      "id": "f10",
+      "response": "**Status: 20-second storyboard and narration script provided below; no video has been rendered.**\n\nIllustrative outcome: the initial attempt and first two retries fail; the third retry succeeds. Attempt outcomes appear as instant markers, and the 1, 2, and 4 second waits play in real time.\n\n| Video time | Visual | Narration |\n|---|---|---|\n| 0–3 s | Show “Exponential retry waits,” then “Initial attempt failed.” | “When a request fails, wait before retrying.” |\n| 3–4 s | Fill a wait bar over exactly 1 second. Label it “Wait 1 s.” | “One second.” |\n| 4–6 s | At 4 s, show “Retry 1 failed.” Fill a wait bar over exactly 2 seconds. | “Then two seconds.” |\n| 6–10 s | At 6 s, show “Retry 2 failed.” Fill a wait bar over exactly 4 seconds. | “Then four seconds. Each wait doubles.” |\n| 10–13 s | At 10 s, show “Retry 3 succeeded.” Hold the success frame. | “In this example, the third retry succeeds.” |\n| 13–17 s | Show bars with widths in a 1:2:4 ratio, labeled “1 s,” “2 s,” and “4 s.” Add “Total waiting: 7 s.” | “The waits add up to seven seconds.” |\n| 17–20 s | End card: “1 → 2 → 4 seconds” and “7 seconds of waiting + request time.” | “Request time is additional.” |"
+    }
+  ]
+}

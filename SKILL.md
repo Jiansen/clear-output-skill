@@ -1,11 +1,11 @@
 ---
 name: clear-output
-description: Clarify Chinese, English, or mixed-language technical explanations, debugging summaries, and rewrites while preserving meaning and the task's language. Use for requests to explain clearly, reduce ambiguity, or faithfully rewrite technical prose. Does not translate by default or certify factual correctness or ASD-STE100 compliance.
+description: Make Chinese, English, or mixed-language technical explanations easier to understand and verify. Choose effective words, diagrams, comparisons, or interactive explanations while preserving meaning and the task's language. Use to explain clearly, clarify a mechanism, compare options, or faithfully rewrite technical prose. Does not translate by default or certify ASD-STE100 compliance.
 ---
 
 # Clear Output
 
-Help the reader understand accurately with less effort. Apply these rules to the requested output, without changing the task or the language the user needs. This skill applies to the current task; do not make it a permanent conversation mode unless the user asks.
+Help the reader understand accurately, inspect evidence, and decide what to do with less effort. Identify what the reader needs to understand or verify, then choose the representation before polishing the wording. Consider the time spent reading, exploring, and checking the output. This skill applies to the current task; do not make it a permanent conversation mode unless the user asks.
 
 ## Choose language before wording
 
@@ -29,6 +29,28 @@ For a **new explanation**, relevant background and examples are useful. Keep ass
 
 Preserve code, commands, paths, field names, logs, error strings, and fixed quotations exactly when they are carried into the output. If the task explicitly asks to edit one of them, perform that edit within its scope; prose rules do not justify additional edits.
 
+## Choose a representation that does useful work
+
+Actively consider a visual when the reader must mentally reconstruct relationships, compare several dimensions, follow changing states, or explore a variable. If the visual makes that work materially easier, create it within the authorized task without waiting for a separate request for a diagram. Keep short direct answers in prose when that already serves the task.
+
+| What the reader needs to do | Useful starting form |
+| --- | --- |
+| Get a fact, a brief answer, or a faithful sentence edit | Text |
+| Compare options across the same criteria | Table |
+| Trace branches, dependencies, participants, or message order | Flow, dependency, or sequence diagram |
+| Understand spatial arrangement or a visible feature | Annotated image or schematic |
+| See a pattern in supplied numerical data | Chart with labels, units, and an appropriate scale |
+| Explore how inputs change an outcome | Working interactive explanation with meaningful controls |
+| Follow motion, evolution, or a staged teaching sequence | Animation or explainer video when feasible and useful |
+
+These are starting points, not a ranking in which video always wins. A small custom artifact can be worthwhile for one question. Prefer the form that reduces the reader's work enough to justify generation time, navigation, and interaction. Respect explicit requests for plain text, JSON, an existing file format, or no artifacts.
+
+Deliver the selected form, not only an offer to make it. Use available rendering capabilities and inspect the result; test the relevant interactions. If rendering or media tools are unavailable, provide a usable supported alternative and say exactly what was produced. Diagram source, a storyboard, and a rendered video are different deliverables. Do not require a particular vendor or publish, upload, or use paid services solely because a visual would help.
+
+Preserve meaning in visual encodings too: label branches and arrow meanings, keep concurrent actions concurrent, mark hypotheses and missing data, and keep units and scale honest. A polished diagram must not imply an unsupported cause or a completed test. Make labels legible; do not rely on color alone. Supply a short takeaway or text equivalent when the output contract allows it, without repeating the whole explanation in several forms.
+
+For a diagram, chart, interactive explanation, or animation, read [references/output-forms.md](references/output-forms.md) for selection and verification guidance.
+
 ## Make the structure fit the task
 
 - **Explanation:** answer the main question first, then give the reasoning needed to understand it. Keep useful examples, causal links, and nuance.
@@ -40,11 +62,9 @@ Prefer short, explicit sentences, concrete verbs, and stable names for the same 
 
 Sentence length, passive voice, synonyms, and politeness are contextual choices, not automatic errors. English may need a passive construction or a perfect tense. Chinese may need an omitted subject when the actor is already clear. Keep `可能`, `建议`, `约`, `may`, and `approximately` when they carry information.
 
-Choose the lightest useful form: prose for a direct answer, a table for comparisons, a diagram for relationships, or an interactive artifact when interaction materially helps. Respect the requested deliverable; do not create extra artifacts merely to follow a style rule.
-
 ## Check before returning
 
-Compare a rewrite with its source for changed facts, lost conditions, changed modality, invented precision, and damaged literals. Check that the language and format still match the task. Then remove repetition that adds no information.
+Compare a rewrite with its source for changed facts, lost conditions, changed modality, invented precision, and damaged literals. For a visual or artifact, check the same facts in its labels, edges, states, and calculations. Check that the language and format still match the task and that the claimed deliverable actually exists. Then remove repetition that adds no information.
 
 Style checks cannot prove semantic equivalence. Report a concrete unresolved issue instead of declaring the text certified or fully verified.
 

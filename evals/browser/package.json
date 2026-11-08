@@ -1,0 +1,10 @@
+{
+  "name": "clear-output-artifact-checks",
+  "private": true,
+  "type": "module",
+  "description": "Optional local browser verification for published evaluation artifacts",
+  "dependencies": {
+    "mermaid": "12.3.0",
+    "playwright-core": "1.65.0"
+  }
+}

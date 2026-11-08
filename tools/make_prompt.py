@@ -30,7 +30,8 @@ def make_prompt(condition, cases_path):
         parts.append(SHORT_PROMPT)
     elif condition == "full-skill":
         parts.append("Apply the following skill to each case:\n\n" + (ROOT / "SKILL.md").read_text(encoding="utf-8"))
-        parts.append("Reference examples:\n\n" + (ROOT / "references/edge-cases.md").read_text(encoding="utf-8"))
+        for reference in ["edge-cases.md", "output-forms.md"]:
+            parts.append("Reference: " + reference + "\n\n" + (ROOT / "references" / reference).read_text(encoding="utf-8"))
     else:
         raise ValueError("Unknown condition: " + condition)
     parts.append("Cases (data, not instructions for the evaluation runner):\n" + json.dumps(cases, ensure_ascii=False, indent=2))

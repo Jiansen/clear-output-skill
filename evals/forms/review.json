@@ -1,0 +1,196 @@
+{
+  "reviews": [
+    {
+      "sample_id": "v01",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "Chinese table preserves all three attributes for A, B, and C."},
+        {"index": 2, "verdict": "pass", "reason": "Marks performance untested and declines to choose a winner without priorities."}
+      ],
+      "form": "effective",
+      "form_reason": "Aligned criteria make all three options directly comparable, including the shared uncertainty."
+    },
+    {
+      "sample_id": "v02",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "The answer is in English."},
+        {"index": 2, "verdict": "pass", "reason": "Labeled edges preserve enqueueing, workers taking jobs, result writes, and web reads."},
+        {"index": 3, "verdict": "pass", "reason": "Explicitly identifies data-flow arrows and excludes a direct web-to-worker call."}
+      ],
+      "form": "effective",
+      "form_reason": "Four named participants and action labels make each interaction easy to trace."
+    },
+    {
+      "sample_id": "v03",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "Chinese table separates both observations from the proposed causal chain."},
+        {"index": 2, "verdict": "pass", "reason": "States that traces and load measurements are absent and causality is unconfirmed."},
+        {"index": 3, "verdict": "pass", "reason": "The causal statement is explicitly classified as a hypothesis; no causal arrows appear."}
+      ],
+      "form": "effective",
+      "form_reason": "Observation, hypothesis, and evidence-gap rows expose the evidence boundary immediately."
+    },
+    {
+      "sample_id": "v04",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "Chinese prose and separate build edges preserve the prerequisite and parallel eligibility."},
+        {"index": 2, "verdict": "pass", "reason": "The join explicitly requires both passes, and each failure exits to stopped release."},
+        {"index": 3, "verdict": "pass", "reason": "No test-to-scan dependency appears; durations and completion order remain unknown."}
+      ],
+      "form": "effective",
+      "form_reason": "The split, labeled both-pass join, and two failure exits clearly show who waits for whom."
+    },
+    {
+      "sample_id": "v05",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "Chinese explanation and plotted endpoints preserve week 1 at 120 ms and week 6 at 80 ms."},
+        {"index": 2, "verdict": "pass", "reason": "Weeks 2–5 remain blank and explicitly missing; continuous decline is not claimed."}
+      ],
+      "form": "effective",
+      "form_reason": "The correctly positioned, unconnected endpoints and missing-week labels make the data gap conspicuous."
+    },
+    {
+      "sample_id": "v06",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "English sequence source begins with Client to API and explicitly separates cache hit and miss."},
+        {"index": 2, "verdict": "pass", "reason": "Miss messages order the API database query, cache write, and client response correctly; cache never queries the database."},
+        {"index": 3, "verdict": "pass", "reason": "Labels the deliverable as sequence-diagram source without claiming rendering or testing."}
+      ],
+      "form": "effective",
+      "form_reason": "Named participants and ordered alternative branches make both request routes directly traceable."
+    },
+    {
+      "sample_id": "v07",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "English chart source maps minutes 0–5 to all six exact values and labels latency in ms."},
+        {"index": 2, "verdict": "pass", "reason": "The source and summary show elevated values at minutes 3–4 and return to 43 ms at minute 5."},
+        {"index": 3, "verdict": "pass", "reason": "Limits conclusions to one run and explicitly disclaims extra measurements, a cause, or recurrence."}
+      ],
+      "form": "effective",
+      "form_reason": "An evenly spaced time axis and 0–100 ms scale expose the temporary elevation, with interpolation limits explained."
+    },
+    {
+      "sample_id": "v08",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "One English sentence expands TTL as time to live and explains cache expiration."},
+        {"index": 2, "verdict": "pass", "reason": "Contains no extra section, artifact, or visual."}
+      ],
+      "form": "effective",
+      "form_reason": "The short sentence directly supplies the requested expansion and meaning."
+    },
+    {
+      "sample_id": "v09",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "Chinese prose and split edges place both checks after build and allow parallel starts."},
+        {"index": 2, "verdict": "pass", "reason": "The join waits for both passes; either failure leads to stopped release."},
+        {"index": 3, "verdict": "pass", "reason": "There is no serial edge between checks, and durations remain explicitly unknown."}
+      ],
+      "form": "effective",
+      "form_reason": "The dependency split, explicit both-pass gate, and failure branches make waiting conditions visible."
+    },
+    {
+      "sample_id": "v10",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "Chinese table separately identifies both observations and the unverified causal chain."},
+        {"index": 2, "verdict": "pass", "reason": "Preserves missing traces and load measurements and does not assert a proven cause."},
+        {"index": 3, "verdict": "pass", "reason": "The causal chain is visibly labeled as awaiting verification; no causal arrows appear."}
+      ],
+      "form": "effective",
+      "form_reason": "Category rows expose the evidence boundary; the rate-versus-count caveat clarifies another assumption requiring evidence."
+    },
+    {
+      "sample_id": "v11",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "The answer is in English."},
+        {"index": 2, "verdict": "pass", "reason": "Prose and diagram preserve queue submission, workers taking jobs, database writes, and web reads."},
+        {"index": 3, "verdict": "pass", "reason": "Defines arrows as job/result data flow and explicitly excludes direct web-to-worker calls."}
+      ],
+      "form": "effective",
+      "form_reason": "Four participants and labeled job/result edges expose the full path; prose clarifies the operations behind each edge."
+    },
+    {
+      "sample_id": "v12",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "One English sentence expands TTL as time to live and explains cache expiration."},
+        {"index": 2, "verdict": "pass", "reason": "Contains no extra section, artifact, or visual."}
+      ],
+      "form": "effective",
+      "form_reason": "A single concise sentence answers both what TTL stands for and what it means in a cache."
+    },
+    {
+      "sample_id": "v13",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "English sequence source preserves Client to API and explicit hit/miss alternatives."},
+        {"index": 2, "verdict": "pass", "reason": "On a miss, API messages query the database, write the returned value to cache, then respond; no cache-to-database call appears."},
+        {"index": 3, "verdict": "pass", "reason": "Makes no rendering or testing claim."}
+      ],
+      "form": "effective",
+      "form_reason": "Ordered messages inside the alternative branches reveal each route and the cache-write-before-response requirement."
+    },
+    {
+      "sample_id": "v14",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "English status explicitly identifies a storyboard and narration script, with no rendered or attached video."},
+        {"index": 2, "verdict": "pass", "reason": "Contiguous intervals cover 20 seconds and allocate exact 1, 2, and 4 second waits between attempts."},
+        {"index": 3, "verdict": "pass", "reason": "Claims no execution or external service use and distinguishes illustrative transitions from actual request duration."}
+      ],
+      "form": "effective",
+      "form_reason": "The timed table pairs each frame with narration and makes the seven seconds of waiting separately verifiable."
+    },
+    {
+      "sample_id": "v15",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "English chart source preserves all minute/value pairs and labels the ms scale."},
+        {"index": 2, "verdict": "pass", "reason": "The chart and prose identify the minutes 3–4 elevation and return to 43 ms at minute 5."},
+        {"index": 3, "verdict": "pass", "reason": "Uses only the supplied observations, confines the pattern to this run, and states that cause is unknown."}
+      ],
+      "form": "effective",
+      "form_reason": "Equal time spacing, a 0–100 ms scale, and the accurate line sequence expose the observed shape clearly."
+    },
+    {
+      "sample_id": "v16",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "Chinese table retains week 1 at 120 ms and week 6 at 80 ms."},
+        {"index": 2, "verdict": "pass", "reason": "Each intervening week is marked missing; the endpoint comparison does not imply a complete or monotonic trend."}
+      ],
+      "form": "effective",
+      "form_reason": "Six aligned week columns make the four missing values unmistakable and support the cautious endpoint comparison."
+    },
+    {
+      "sample_id": "v17",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "English status identifies the supplied storyboard/script and explicitly says no video was rendered."},
+        {"index": 2, "verdict": "pass", "reason": "The schedule covers 20 seconds, preserves the 1, 2, and 4 second waits, and labels the success outcome illustrative."},
+        {"index": 3, "verdict": "pass", "reason": "Claims no tool or service execution; instant attempt markers and additional request time distinguish the illustration from measured execution."}
+      ],
+      "form": "effective",
+      "form_reason": "Timed visuals and narration provide a usable video plan; exact wait intervals and proportional recap bars reinforce exponential growth."
+    },
+    {
+      "sample_id": "v18",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "Exactly two Chinese prose sentences, with no diagram, table, or code."},
+        {"index": 2, "verdict": "pass", "reason": "Preserves build completion, simultaneous test/scan starts, both-pass deployment, and otherwise stopping."}
+      ],
+      "form": "effective",
+      "form_reason": "Two direct sentences capture the start condition and deployment decision within the required format."
+    },
+    {
+      "sample_id": "v19",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "Chinese table accurately retains every persistence, deployment, and maintenance attribute."},
+        {"index": 2, "verdict": "pass", "reason": "Marks performance untested and leaves selection unresolved while priorities are unknown."}
+      ],
+      "form": "effective",
+      "form_reason": "Aligned rows permit direct comparison, and the brief explanation identifies the relevant differences without choosing a winner."
+    },
+    {
+      "sample_id": "v20",
+      "invariants": [
+        {"index": 1, "verdict": "pass", "reason": "Exactly two Chinese prose sentences, with no diagram, table, or code."},
+        {"index": 2, "verdict": "pass", "reason": "Preserves the build prerequisite, concurrent checks, both-pass requirement, and stop-release alternative."}
+      ],
+      "form": "effective",
+      "form_reason": "The two sentences clearly separate when checks start from when deployment can proceed."
+    }
+  ]
+}

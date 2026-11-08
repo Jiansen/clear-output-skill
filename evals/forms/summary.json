@@ -1,0 +1,20 @@
+{
+  "current": {
+    "cases_passed": 10,
+    "cases_total": 10,
+    "invariants_passed": 26,
+    "invariants_total": 26,
+    "forms": {
+      "effective": 10
+    }
+  },
+  "previous": {
+    "cases_passed": 10,
+    "cases_total": 10,
+    "invariants_passed": 26,
+    "invariants_total": 26,
+    "forms": {
+      "effective": 10
+    }
+  }
+}

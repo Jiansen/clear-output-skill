@@ -1,0 +1,264 @@
+{
+  "browser": "157.0.8103.38",
+  "playwright": "1.65.0",
+  "states": [
+    {
+      "base_delay": 0.5,
+      "retries": 0,
+      "total_wait": 0,
+      "total_attempts": 1,
+      "passed": true
+    },
+    {
+      "base_delay": 0.5,
+      "retries": 1,
+      "total_wait": 0.5,
+      "total_attempts": 2,
+      "passed": true
+    },
+    {
+      "base_delay": 0.5,
+      "retries": 2,
+      "total_wait": 1.5,
+      "total_attempts": 3,
+      "passed": true
+    },
+    {
+      "base_delay": 0.5,
+      "retries": 3,
+      "total_wait": 3.5,
+      "total_attempts": 4,
+      "passed": true
+    },
+    {
+      "base_delay": 0.5,
+      "retries": 4,
+      "total_wait": 7.5,
+      "total_attempts": 5,
+      "passed": true
+    },
+    {
+      "base_delay": 0.5,
+      "retries": 5,
+      "total_wait": 15.5,
+      "total_attempts": 6,
+      "passed": true
+    },
+    {
+      "base_delay": 1,
+      "retries": 0,
+      "total_wait": 0,
+      "total_attempts": 1,
+      "passed": true
+    },
+    {
+      "base_delay": 1,
+      "retries": 1,
+      "total_wait": 1,
+      "total_attempts": 2,
+      "passed": true
+    },
+    {
+      "base_delay": 1,
+      "retries": 2,
+      "total_wait": 3,
+      "total_attempts": 3,
+      "passed": true
+    },
+    {
+      "base_delay": 1,
+      "retries": 3,
+      "total_wait": 7,
+      "total_attempts": 4,
+      "passed": true
+    },
+    {
+      "base_delay": 1,
+      "retries": 4,
+      "total_wait": 15,
+      "total_attempts": 5,
+      "passed": true
+    },
+    {
+      "base_delay": 1,
+      "retries": 5,
+      "total_wait": 31,
+      "total_attempts": 6,
+      "passed": true
+    },
+    {
+      "base_delay": 1.5,
+      "retries": 0,
+      "total_wait": 0,
+      "total_attempts": 1,
+      "passed": true
+    },
+    {
+      "base_delay": 1.5,
+      "retries": 1,
+      "total_wait": 1.5,
+      "total_attempts": 2,
+      "passed": true
+    },
+    {
+      "base_delay": 1.5,
+      "retries": 2,
+      "total_wait": 4.5,
+      "total_attempts": 3,
+      "passed": true
+    },
+    {
+      "base_delay": 1.5,
+      "retries": 3,
+      "total_wait": 10.5,
+      "total_attempts": 4,
+      "passed": true
+    },
+    {
+      "base_delay": 1.5,
+      "retries": 4,
+      "total_wait": 22.5,
+      "total_attempts": 5,
+      "passed": true
+    },
+    {
+      "base_delay": 1.5,
+      "retries": 5,
+      "total_wait": 46.5,
+      "total_attempts": 6,
+      "passed": true
+    },
+    {
+      "base_delay": 2,
+      "retries": 0,
+      "total_wait": 0,
+      "total_attempts": 1,
+      "passed": true
+    },
+    {
+      "base_delay": 2,
+      "retries": 1,
+      "total_wait": 2,
+      "total_attempts": 2,
+      "passed": true
+    },
+    {
+      "base_delay": 2,
+      "retries": 2,
+      "total_wait": 6,
+      "total_attempts": 3,
+      "passed": true
+    },
+    {
+      "base_delay": 2,
+      "retries": 3,
+      "total_wait": 14,
+      "total_attempts": 4,
+      "passed": true
+    },
+    {
+      "base_delay": 2,
+      "retries": 4,
+      "total_wait": 30,
+      "total_attempts": 5,
+      "passed": true
+    },
+    {
+      "base_delay": 2,
+      "retries": 5,
+      "total_wait": 62,
+      "total_attempts": 6,
+      "passed": true
+    },
+    {
+      "base_delay": 2.5,
+      "retries": 0,
+      "total_wait": 0,
+      "total_attempts": 1,
+      "passed": true
+    },
+    {
+      "base_delay": 2.5,
+      "retries": 1,
+      "total_wait": 2.5,
+      "total_attempts": 2,
+      "passed": true
+    },
+    {
+      "base_delay": 2.5,
+      "retries": 2,
+      "total_wait": 7.5,
+      "total_attempts": 3,
+      "passed": true
+    },
+    {
+      "base_delay": 2.5,
+      "retries": 3,
+      "total_wait": 17.5,
+      "total_attempts": 4,
+      "passed": true
+    },
+    {
+      "base_delay": 2.5,
+      "retries": 4,
+      "total_wait": 37.5,
+      "total_attempts": 5,
+      "passed": true
+    },
+    {
+      "base_delay": 2.5,
+      "retries": 5,
+      "total_wait": 77.5,
+      "total_attempts": 6,
+      "passed": true
+    },
+    {
+      "base_delay": 3,
+      "retries": 0,
+      "total_wait": 0,
+      "total_attempts": 1,
+      "passed": true
+    },
+    {
+      "base_delay": 3,
+      "retries": 1,
+      "total_wait": 3,
+      "total_attempts": 2,
+      "passed": true
+    },
+    {
+      "base_delay": 3,
+      "retries": 2,
+      "total_wait": 9,
+      "total_attempts": 3,
+      "passed": true
+    },
+    {
+      "base_delay": 3,
+      "retries": 3,
+      "total_wait": 21,
+      "total_attempts": 4,
+      "passed": true
+    },
+    {
+      "base_delay": 3,
+      "retries": 4,
+      "total_wait": 45,
+      "total_attempts": 5,
+      "passed": true
+    },
+    {
+      "base_delay": 3,
+      "retries": 5,
+      "total_wait": 93,
+      "total_attempts": 6,
+      "passed": true
+    }
+  ],
+  "page_errors": [],
+  "network_attempts": [],
+  "keyboard_navigation_and_reset": true,
+  "mouse_control_updates_output": true,
+  "mobile_no_horizontal_overflow": true,
+  "ok": true
+}

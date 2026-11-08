@@ -1,0 +1,5 @@
+Explain how exponential backoff changes total waiting time. I want to change the base delay and retry count and see what happens, rather than calculate each case by hand. Use English for the interface.
+
+Use this model only: retry k waits base_delay * 2^(k-1) seconds, where k starts at 1. The initial attempt has no preceding wait. The retry count ranges from 0 to 5, and base_delay ranges from 0.5 to 3 seconds in 0.5-second increments. Total attempts = retries + 1. Show the individual waits and their sum. Execution time is excluded. Use defaults base_delay = 1 second and retries = 3.
+
+Provide the working explanation as one self-contained HTML file, without external dependencies, network calls, or real retries. Give both mouse and keyboard users a way to explore it. State the model assumptions. Do not claim to have tested it unless you actually did.

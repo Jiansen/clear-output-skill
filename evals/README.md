@@ -2,6 +2,8 @@
 
 This is a development evaluation of a writing skill, not an ASD compliance test or a human-comprehension study. All task content is synthetic. It contains no production data, credentials, or private user messages.
 
+The later [representation and artifact evaluation](form-report.md) tests diagrams, output-format boundaries, and an actual interactive explanation. It keeps source-level judgments separate from rendered-artifact checks.
+
 ## Conditions
 
 | Condition | Additional guidance |

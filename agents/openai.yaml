@@ -1,4 +1,4 @@
 interface:
   display_name: "Clear Output"
-  short_description: "Clear Chinese and English without changing meaning"
-  default_prompt: "Use $clear-output to explain or rewrite this clearly while preserving its meaning and intended language."
+  short_description: "Clear explanations through words, diagrams, and interaction"
+  default_prompt: "Use $clear-output to explain this in the most useful form while preserving its meaning and intended language."

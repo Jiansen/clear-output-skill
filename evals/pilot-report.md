@@ -1,5 +1,7 @@
 # Development pilot — 2026-11-08
 
+This report records the initial release at commit `55f04864bdae216642cd9a8f690b8ae30f0e55d3`. Later representation guidance is evaluated separately in [form-report.md](form-report.md); the historical responses and hashes here are unchanged.
+
 **The skill handled a Chinese-to-English debugging switch that both comparison conditions missed. It did not improve the overall initial pass count.** It also missed an operational clarification in one case; a narrow revision addressed that omission in a follow-up test.
 
 中文结论：这次实测支持“一个技能兼容中英任务”的设计，但不能证明完整技能普遍优于简短提示。首轮发现的遗漏已保留，并完成了修订复测。

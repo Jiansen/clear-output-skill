@@ -63,14 +63,16 @@ class ContractTests(unittest.TestCase):
 
 class EvaluationInputTests(unittest.TestCase):
     def test_case_rubric_alignment(self):
-        cases = json.loads((ROOT / "evals/cases.json").read_text())["cases"]
-        rubrics = json.loads((ROOT / "evals/rubric.json").read_text())["cases"]
-        ids = [case["id"] for case in cases]
-        self.assertEqual(len(ids), len(set(ids)))
-        self.assertEqual(ids, [case["id"] for case in rubrics])
-        for case in cases:
-            self.assertEqual(case["messages"][-1]["role"], "user")
-            self.assertTrue(all(message["content"] for message in case["messages"]))
+        for prefix in ["", "holdout-", "form-"]:
+            with self.subTest(fixture=prefix):
+                cases = json.loads((ROOT / ("evals/" + prefix + "cases.json")).read_text())["cases"]
+                rubrics = json.loads((ROOT / ("evals/" + prefix + "rubric.json")).read_text())["cases"]
+                ids = [case["id"] for case in cases]
+                self.assertEqual(len(ids), len(set(ids)))
+                self.assertEqual(ids, [case["id"] for case in rubrics])
+                for case in cases:
+                    self.assertEqual(case["messages"][-1]["role"], "user")
+                    self.assertTrue(all(message["content"] for message in case["messages"]))
 
     def test_prompt_does_not_include_private_rubric(self):
         cases_path = ROOT / "evals/cases.json"

@@ -2,16 +2,17 @@
 
 [简体中文](README.zh-CN.md)
 
-One skill for clearer Chinese, English, and mixed-language technical communication. It preserves the task's language, factual meaning, uncertainty, and technical literals.
+One skill for clearer Chinese, English, and mixed-language technical communication through words, diagrams, and interaction. It helps the reader understand and verify the result while preserving language, factual meaning, uncertainty, and technical literals.
 
-Use it for debugging explanations, status updates, instructions, and faithful rewrites. It is an instruction-only skill: no runtime dependencies, background service, or network access is required to apply it. The evaluation tools use Python's standard library.
+Use it for debugging explanations, mechanisms, comparisons, status updates, instructions, and faithful rewrites. It is an instruction-only skill with no required runtime or background service. Producing visual artifacts uses whatever rendering tools the host provides; the skill does not depend on a specific plugin. The core evaluation helpers use Python's standard library; optional rendered-artifact checks use Node.js browser tooling.
 
 ## What it does
 
 - Chooses language from the user's request and the artifact being edited. An English debugging conversation stays English. A Chinese question about an English log gets a Chinese explanation with the log intact.
 - Preserves facts, conditions, exceptions, approximate values, permissions, and recommendations. `May` does not become `will`; `约 5 秒` does not become an exact delay.
 - Separates observed behavior from hypotheses and verified outcomes.
-- Uses prose, steps, tables, or diagrams when they help the particular task. It does not impose sentence-length quotas or a word blacklist.
+- Chooses the representation before polishing the wording: a table for shared criteria, a diagram for branches and dependencies, a chart for measured patterns, interaction for exploring variables, or animation/video for a mechanism that develops over time.
+- Proactively creates a useful visual within the task's scope, checks the rendered result when possible, and distinguishes source/storyboards from working artifacts. A short factual answer can stay one sentence.
 
 The skill applies to the current task. It does not turn the whole conversation into a permanent language or style mode. It does not check whether source facts are true, and it does not certify ASD-STE100 compliance.
 
@@ -62,7 +63,9 @@ The backup remains a recommendation, the delay remains approximate, and retry re
 
 ## Test it
 
-The repository contains 24 synthetic cases, a frozen semantic rubric, and three evaluation conditions: normal behavior, a short clarity prompt, and the full skill. See [the evaluation protocol](evals/README.md) and [the pilot report](evals/pilot-report.md) for actual outputs and limitations.
+The first pilot contains 24 synthetic cases, a frozen semantic rubric, and three conditions: normal behavior, a short clarity prompt, and the full skill. See [the evaluation protocol](evals/README.md) and [the pilot report](evals/pilot-report.md) for actual outputs and limitations. A [follow-up evaluation](evals/form-report.md) compares the previous and expanded representation guidance and tests a real interactive artifact.
+
+Try the self-contained [exponential-backoff explorer](examples/retry-backoff.html): change the delay and retry count to see individual waits and their total. Download/open the HTML locally; GitHub's source view does not run it.
 
 ```bash
 python3 -m unittest discover -s tests -v
@@ -78,9 +81,11 @@ The checker validates response coverage, selected literal preservation, and outp
 | --- | --- |
 | [SKILL.md](SKILL.md) | Runtime instructions and activation description |
 | [references/edge-cases.md](references/edge-cases.md) | Examples for difficult rewrites |
+| [references/output-forms.md](references/output-forms.md) | Choosing and checking diagrams, charts, interaction, and media |
 | [agents/openai.yaml](agents/openai.yaml) | Codex display metadata |
 | [evals/](evals/) | Test inputs, criteria, raw responses, and review |
 | [tools/](tools/) | Local evaluation helpers; not needed to use the skill |
+| [examples/](examples/) | An actual generated and browser-tested explanation |
 
 ## Origins and contributions
 

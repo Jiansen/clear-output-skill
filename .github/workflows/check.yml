@@ -23,3 +23,5 @@ jobs:
           python3 tools/check_responses.py evals/results/short-prompt.json
           python3 tools/check_responses.py evals/results/full-skill.json
           python3 tools/check_responses.py evals/results/revised-skill.json --cases evals/retest-cases.json
+          python3 tools/check_responses.py evals/forms/previous.json --cases evals/form-cases.json
+          python3 tools/check_responses.py evals/forms/current.json --cases evals/form-cases.json

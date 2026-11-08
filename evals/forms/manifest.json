@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-08",
+  "previous_commit": "55f04864bdae216642cd9a8f690b8ae30f0e55d3",
+  "sha256": {
+    "SKILL.md": "a15d060769df427c06033f3943df9d2acb48cdb8321e5a8109fd7f82ddbb35d4",
+    "references/edge-cases.md": "a0b02cd58381cf10a4b9aa98df246922ac1c11e61e852993fbd7d55a4df78b92",
+    "references/output-forms.md": "304dc8825c803bc765fc8492c2ff6b8a7b0d2c42959303602556df40c7183ef3",
+    "evals/form-cases.json": "0b34d11ed71273436d19d1e76b18c74cfea7387292a8c17c1ff2af4e31237e01",
+    "evals/form-rubric.json": "8a900312ebdb04e7874106983ea2ac5e3b0a1ae0762326eedc3e5849d8ee0dda",
+    "evals/interactive-case.txt": "0ee9936d3aa56465a3a44d2d83b7d458eeb846ff296b2af1eb74468dd76a727b"
+  },
+  "generation": "Two independent, history-free subject agents; one batch per condition; same host system/developer instructions; one sample per case. Separate working HTML artifact case.",
+  "model": "Inherited host model; exact backend revision and sampling settings not exposed",
+  "limitations": "Text-output form selection is separate from rendered-artifact validation.",
+  "review": {
+    "method": "Independent model review with condition labels withheld; source prompts and frozen rubric supplied",
+    "shuffle_seed": 20261109,
+    "human_comprehension_test": false
+  },
+  "interactive": {
+    "method": "Separate subject generated one HTML artifact; parent drove actual Chrome with Playwright",
+    "parameters_tested": 36,
+    "oracle": "Closed-form total and per-row cumulative sums; actual DOM values after keyboard events",
+    "artifact_sha256": "5beb5de80284e84f07e2d11755925159bf62a5039728bbeb4387ce9226b35dc2",
+    "source_generation_directory_not_published": true
+  },
+  "source_verification": "User supplied the complete original post from their X page; matched previously retrieved public transcript. Official oEmbed confirmed author and opening.",
+  "previous_snapshot": "evals/snapshots/pre-forms-skill.txt"
+}
